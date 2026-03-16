@@ -515,6 +515,30 @@
   </div>
 </section>
 
+<!-- LATEST ARTICLES (dynamic from articles.json) -->
+<section style="background:var(--white);padding:5rem 2rem" id="all-articles">
+  <div class="container">
+    <div class="fade-up" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3rem">
+      <div>
+        <div class="section-label">Fresh Content</div>
+        <h2 class="section-title">Latest Articles</h2>
+      </div>
+      <div id="article-count" style="font-family:var(--mono);font-size:0.8rem;color:var(--gray400)"></div>
+    </div>
+    <div id="articles-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem">
+      <!-- Loaded dynamically from articles.json -->
+      <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--gray400);font-family:var(--mono);font-size:0.85rem">
+        Loading articles...
+      </div>
+    </div>
+    <div id="load-more-wrap" style="text-align:center;margin-top:2.5rem;display:none">
+      <button id="load-more" onclick="loadMore()" style="background:var(--blue);color:#fff;border:none;border-radius:8px;padding:0.875rem 2rem;font-family:var(--sans);font-size:0.95rem;font-weight:600;cursor:pointer">
+        Load More Articles
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- NEWSLETTER -->
 <section class="newsletter" id="newsletter">
   <div class="container">
@@ -584,6 +608,75 @@
     btn.style.background = '#dcfce7';
     btn.style.color = '#16a34a';
   }
+
+  // ── Dynamic article loader ──────────────────────────────────────────────
+  const TAG_COLORS = {
+    beginner:       { bg: '#dbeafe', color: '#1d4ed8' },
+    tutorials:      { bg: '#dbeafe', color: '#1d4ed8' },
+    tools:          { bg: '#fef3c7', color: '#d97706' },
+    certifications: { bg: '#dcfce7', color: '#16a34a' },
+    news:           { bg: '#fee2e2', color: '#dc2626' },
+    cve:            { bg: '#f3e8ff', color: '#7c3aed' },
+  };
+
+  let allArticles = [];
+  let shown = 0;
+  const PAGE = 9;
+
+  function tagStyle(cat) {
+    const c = TAG_COLORS[cat] || TAG_COLORS.tutorials;
+    return `background:${c.bg};color:${c.color}`;
+  }
+
+  function renderCard(a) {
+    return `
+      <a href="${a.url}" style="
+        display:block;text-decoration:none;color:inherit;
+        background:#fff;border:1.5px solid var(--gray200);border-radius:12px;
+        padding:1.5rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;
+      " onmouseover="this.style.borderColor='var(--blue)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(29,78,216,0.1)'"
+         onmouseout="this.style.borderColor='var(--gray200)';this.style.transform='';this.style.boxShadow=''">
+        <span style="display:inline-block;padding:0.2rem 0.6rem;border-radius:4px;font-size:0.7rem;font-weight:600;font-family:var(--mono);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem;${tagStyle(a.category)}">${a.category}</span>
+        <h3 style="font-family:var(--serif);font-size:1.1rem;color:var(--navy);line-height:1.35;margin-bottom:0.6rem">${a.title}</h3>
+        <p style="font-size:0.82rem;color:var(--gray600);line-height:1.6;margin-bottom:0.75rem">${a.description || ''}</p>
+        <span style="font-family:var(--mono);font-size:0.73rem;color:var(--gray400)">${a.date || ''}</span>
+      </a>`;
+  }
+
+  function loadMore() {
+    const grid = document.getElementById('articles-grid');
+    const slice = allArticles.slice(shown, shown + PAGE);
+    slice.forEach(a => {
+      const div = document.createElement('div');
+      div.innerHTML = renderCard(a);
+      grid.appendChild(div.firstElementChild);
+    });
+    shown += slice.length;
+    document.getElementById('load-more-wrap').style.display =
+      shown < allArticles.length ? 'block' : 'none';
+  }
+
+  async function loadArticles() {
+    const grid = document.getElementById('articles-grid');
+    try {
+      const res = await fetch('/articles.json?v=' + Date.now());
+      if (!res.ok) throw new Error('not found');
+      allArticles = await res.json();
+
+      grid.innerHTML = '';
+      document.getElementById('article-count').textContent =
+        allArticles.length + ' article' + (allArticles.length !== 1 ? 's' : '') + ' published';
+
+      loadMore();
+    } catch {
+      grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--gray400);font-family:var(--mono);font-size:0.85rem">
+        No articles yet — check back tomorrow!
+      </div>`;
+    }
+  }
+
+  loadArticles();
 </script>
 </body>
 </html>
+
