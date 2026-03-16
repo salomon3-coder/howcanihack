@@ -1,5 +1,13 @@
 [
   {
+    "title": "Hashcat GPU password cracking guide",
+    "slug": "hashcat-gpu-password-cracking-guide",
+    "category": "tools",
+    "url": "/tools/hashcat-gpu-password-cracking-guide.html",
+    "description": "Learn GPU password cracking with Hashcat - complete beginner guide covering installation, attack modes, optimization tips and practical examples for cybersecurity.",
+    "date": "2026-03-16"
+  },
+  {
     "title": "How buffer overflow attacks work",
     "slug": "how-buffer-overflow-attacks-work",
     "category": "tutorials",
