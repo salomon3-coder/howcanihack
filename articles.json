@@ -1,5 +1,13 @@
 [
   {
+    "title": "Cross-site scripting (XSS): how it works and how to prevent it",
+    "slug": "cross-site-scripting-xss-how-it-works-and-how-to-prevent-it",
+    "category": "tutorials",
+    "url": "/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html",
+    "description": "",
+    "date": "2026-03-16"
+  },
+  {
     "title": "Hashcat GPU password cracking guide",
     "slug": "hashcat-gpu-password-cracking-guide",
     "category": "tools",
