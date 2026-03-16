@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HowCanIHack.com — Cybersecurity Tutorials, News & Ethical Hacking</title>
+  <meta name="description" content="Learn ethical hacking, cybersecurity fundamentals, CVE analysis, and penetration testing tools. Beginner-friendly guides and expert content." />
+  <meta name="keywords" content="how to hack, ethical hacking, cybersecurity tutorials, penetration testing, CVE, bug bounty, kali linux" />
+  <link rel="canonical" href="https://howcanihack.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="HowCanIHack.com — Ethical Hacking & Cybersecurity" />
+  <meta property="og:description" content="Tutorials, CVE breakdowns, certifications, and tools for the cybersecurity community." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://howcanihack.com/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0a1628;
+      --blue:   #1d4ed8;
+      --blue2:  #2563eb;
+      --sky:    #dbeafe;
+      --accent: #f59e0b;
+      --white:  #ffffff;
+      --gray50: #f8fafc;
+      --gray100:#f1f5f9;
+      --gray200:#e2e8f0;
+      --gray400:#94a3b8;
+      --gray600:#475569;
+      --gray800:#1e293b;
+      --text:   #0f172a;
+      --mono:   'JetBrains Mono', monospace;
+      --serif:  'DM Serif Display', serif;
+      --sans:   'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray200);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 1rem; font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-logo span.bracket { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--gray600);
+      font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue); color: var(--white);
+      border: none; border-radius: 6px;
+      padding: 0.5rem 1.25rem;
+      font-family: var(--sans); font-size: 0.875rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue2); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(29,78,216,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(245,158,11,0.08) 0%, transparent 60%);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(29,78,216,0.25);
+      border: 1px solid rgba(29,78,216,0.5);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-family: var(--mono); font-size: 0.75rem; color: #93c5fd;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: #22c55e; border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; } 50% { opacity:0.4; }
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--white);
+      line-height: 1.1;
+      max-width: 800px; margin: 0 auto 1.5rem;
+      position: relative;
+    }
+    .hero h1 em {
+      font-style: italic; color: #93c5fd;
+    }
+    .hero p {
+      font-size: 1.125rem; color: #94a3b8;
+      max-width: 580px; margin: 0 auto 2.5rem;
+      line-height: 1.7; position: relative;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      position: relative;
+    }
+    .btn-primary {
+      background: var(--blue); color: var(--white);
+      border: none; border-radius: 8px;
+      padding: 0.875rem 2rem;
+      font-family: var(--sans); font-size: 1rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(29,78,216,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(29,78,216,0.5); }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
+      padding: 0.875rem 2rem;
+      font-family: var(--sans); font-size: 1rem; font-weight: 500;
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--gray50);
+      border-bottom: 1px solid var(--gray200);
+      padding: 1.5rem 2rem;
+      display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--mono); font-size: 1.5rem; font-weight: 600;
+      color: var(--blue); display: block;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--gray600); margin-top: 0.2rem; }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--mono); font-size: 0.75rem; font-weight: 600;
+      color: var(--blue); letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.75rem);
+      color: var(--navy); line-height: 1.15; margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--gray600); max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── CATEGORIES ── */
+    .categories { background: var(--white); }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+    .cat-card {
+      border: 1.5px solid var(--gray200);
+      border-radius: 12px; padding: 1.75rem 1.5rem;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      background: var(--white);
+    }
+    .cat-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(29,78,216,0.1);
+    }
+    .cat-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--sky); display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; margin-bottom: 1rem;
+    }
+    .cat-card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+    .cat-card p { font-size: 0.825rem; color: var(--gray600); line-height: 1.5; }
+
+    /* ── FEATURED ARTICLES ── */
+    .featured { background: var(--gray50); }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    .article-main {
+      background: var(--white); border-radius: 16px;
+      border: 1px solid var(--gray200); overflow: hidden;
+      text-decoration: none; color: inherit;
+      transition: box-shadow 0.2s;
+      display: block;
+    }
+    .article-main:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+    .article-main-img {
+      height: 220px; background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 0.85rem; color: #93c5fd;
+      padding: 2rem; text-align: center; line-height: 1.8;
+      position: relative; overflow: hidden;
+    }
+    .article-main-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(29,78,216,0.4), transparent 60%);
+    }
+    .article-main-img code { position: relative; z-index: 1; }
+    .article-main-body { padding: 1.75rem; }
+    .tag {
+      display: inline-block;
+      background: var(--sky); color: var(--blue);
+      font-size: 0.7rem; font-weight: 600; font-family: var(--mono);
+      padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase;
+      letter-spacing: 0.05em; margin-bottom: 0.75rem;
+    }
+    .tag.red { background: #fee2e2; color: #dc2626; }
+    .tag.amber { background: #fef3c7; color: #d97706; }
+    .tag.green { background: #dcfce7; color: #16a34a; }
+    .article-main-body h2 { font-family: var(--serif); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.3; }
+    .article-main-body p { font-size: 0.9rem; color: var(--gray600); line-height: 1.7; margin-bottom: 1rem; }
+    .article-meta { font-size: 0.78rem; color: var(--gray400); font-family: var(--mono); }
+
+    .articles-sidebar { display: flex; flex-direction: column; gap: 1rem; }
+    .article-small {
+      background: var(--white); border-radius: 12px;
+      border: 1px solid var(--gray200); padding: 1.25rem;
+      text-decoration: none; color: inherit;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: block;
+    }
+    .article-small:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(29,78,216,0.08); }
+    .article-small h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin: 0.5rem 0 0.4rem; line-height: 1.4; }
+    .article-small p { font-size: 0.8rem; color: var(--gray600); line-height: 1.5; }
+
+    /* ── CVE TICKER ── */
+    .cve-section { background: var(--navy); padding: 3rem 2rem; }
+    .cve-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: gap; gap: 1rem; }
+    .cve-header .section-title { color: var(--white); margin-bottom: 0; }
+    .cve-header .section-label { color: #93c5fd; }
+    .cve-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .cve-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 1.25rem;
+    }
+    .cve-id { font-family: var(--mono); font-size: 0.85rem; color: #fbbf24; margin-bottom: 0.5rem; }
+    .cve-score {
+      display: inline-block; padding: 0.15rem 0.5rem;
+      border-radius: 4px; font-size: 0.75rem; font-weight: 700; font-family: var(--mono);
+      margin-bottom: 0.5rem;
+    }
+    .critical { background: #7f1d1d; color: #fca5a5; }
+    .high { background: #7c2d12; color: #fdba74; }
+    .medium { background: #713f12; color: #fde68a; }
+    .cve-card h4 { font-size: 0.9rem; color: var(--white); margin-bottom: 0.4rem; }
+    .cve-card p { font-size: 0.78rem; color: #94a3b8; line-height: 1.5; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter {
+      background: linear-gradient(135deg, var(--blue) 0%, #1e40af 100%);
+      padding: 5rem 2rem; text-align: center;
+    }
+    .newsletter h2 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--white); margin-bottom: 1rem; }
+    .newsletter p { color: #bfdbfe; font-size: 1rem; margin-bottom: 2rem; }
+    .newsletter-form {
+      display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
+      max-width: 480px; margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1; min-width: 220px;
+      padding: 0.875rem 1.25rem;
+      border: none; border-radius: 8px;
+      font-family: var(--sans); font-size: 0.95rem;
+      background: rgba(255,255,255,0.15);
+      color: var(--white); outline: none;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .newsletter-form input::placeholder { color: #bfdbfe; }
+    .newsletter-form input:focus { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.2); }
+    .newsletter-form button {
+      padding: 0.875rem 1.75rem;
+      background: var(--white); color: var(--blue);
+      border: none; border-radius: 8px;
+      font-family: var(--sans); font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; transition: transform 0.2s;
+    }
+    .newsletter-form button:hover { transform: translateY(-1px); }
+    .newsletter-note { font-size: 0.78rem; color: #93c5fd; margin-top: 1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: #94a3b8;
+      padding: 3rem 2rem 2rem;
+    }
+    .footer-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    .footer-brand p { font-size: 0.875rem; line-height: 1.7; margin-top: 0.75rem; }
+    .footer-col h4 { color: var(--white); font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-col a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: 1100px; margin: 0 auto;
+      padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+      font-size: 0.8rem;
+    }
+    .footer-bottom a { color: #94a3b8; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="bracket">[</span>howcanihack<span class="bracket">]</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#tutorials">Tutorials</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#cve">CVEs</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#tools">Tools</a></li>
+  </ul>
+  <a href="#newsletter" class="nav-cta">Newsletter</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">ethical hacking &amp; cybersecurity education</div>
+  <h1>Learn to Hack<br/><em>Legally &amp; Ethically</em></h1>
+  <p>Tutorials for beginners, CVE breakdowns, certification guides, and the latest cybersecurity news — all in one place.</p>
+  <div class="hero-actions">
+    <a href="#tutorials" class="btn-primary">Start Learning</a>
+    <a href="#cve" class="btn-secondary">Latest CVEs →</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">200+</span><div class="stat-label">Free Tutorials</div></div>
+  <div class="stat"><span class="stat-num">50k+</span><div class="stat-label">Monthly Readers</div></div>
+  <div class="stat"><span class="stat-num">CVE</span><div class="stat-label">Weekly Roundups</div></div>
+  <div class="stat"><span class="stat-num">10+</span><div class="stat-label">Cert Roadmaps</div></div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories" id="tutorials">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Browse by Topic</div>
+      <h2 class="section-title">Everything You Need<br/>to Get Started</h2>
+      <p class="section-sub">From your first terminal command to advanced penetration testing — we cover the full spectrum.</p>
+    </div>
+    <div class="cat-grid fade-up">
+      <a href="tutorials/beginners.html" class="cat-card">
+        <div class="cat-icon">🎯</div>
+        <h3>Beginner Tutorials</h3>
+        <p>No experience needed. Start here and learn the fundamentals step by step.</p>
+      </a>
+      <a href="news/index.html" class="cat-card">
+        <div class="cat-icon">📡</div>
+        <h3>Security News</h3>
+        <p>Daily coverage of breaches, exploits, and industry developments.</p>
+      </a>
+      <a href="cve/index.html" class="cat-card">
+        <div class="cat-icon">🔍</div>
+        <h3>CVE Analysis</h3>
+        <p>Plain-English breakdowns of critical vulnerabilities and how they work.</p>
+      </a>
+      <a href="certifications/index.html" class="cat-card">
+        <div class="cat-icon">🏆</div>
+        <h3>Certifications</h3>
+        <p>Roadmaps for CEH, OSCP, CompTIA Security+, and more.</p>
+      </a>
+      <a href="tools/index.html" class="cat-card">
+        <div class="cat-icon">🛠️</div>
+        <h3>Tools & Scripts</h3>
+        <p>Reviews and guides for Nmap, Metasploit, Burp Suite, and 50+ tools.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED ARTICLES -->
+<section class="featured" id="news">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Latest Content</div>
+      <h2 class="section-title">Featured Articles</h2>
+    </div>
+    <div class="articles-grid fade-up">
+      <a href="tutorials/what-is-ethical-hacking.html" class="article-main">
+        <div class="article-main-img">
+          <code>$ nmap -sV -O 192.168.1.0/24<br/>Starting Nmap 7.94...<br/>Host: 192.168.1.1 (router)<br/>PORT   STATE SERVICE VERSION<br/>22/tcp open  ssh     OpenSSH 8.9</code>
+        </div>
+        <div class="article-main-body">
+          <span class="tag">Beginner</span>
+          <h2>What is Ethical Hacking? A Complete Beginner's Guide</h2>
+          <p>Understand the difference between black hat, white hat, and grey hat hacking. Learn the legal framework, career paths, and how to get started responsibly.</p>
+          <div class="article-meta">March 2026 · 12 min read</div>
+        </div>
+      </a>
+      <div class="articles-sidebar">
+        <a href="news/top-breaches-2026.html" class="article-small">
+          <span class="tag red">News</span>
+          <h3>Top 5 Data Breaches of 2026 So Far</h3>
+          <p>From supply chain attacks to credential stuffing — what happened and what you can learn.</p>
+          <div class="article-meta" style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;font-family:var(--mono)">Mar 2026 · 7 min</div>
+        </a>
+        <a href="certifications/oscp-roadmap.html" class="article-small">
+          <span class="tag green">Certification</span>
+          <h3>OSCP 2026 Study Roadmap: Pass in 90 Days</h3>
+          <p>A week-by-week plan covering all PWK course topics, labs, and exam strategy.</p>
+          <div class="article-meta" style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;font-family:var(--mono)">Feb 2026 · 15 min</div>
+        </a>
+        <a href="tools/burp-suite-guide.html" class="article-small">
+          <span class="tag amber">Tools</span>
+          <h3>Burp Suite for Beginners: Web App Testing 101</h3>
+          <p>Set up your proxy, intercept requests, and run your first scan in under 30 minutes.</p>
+          <div class="article-meta" style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;font-family:var(--mono)">Feb 2026 · 10 min</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CVE SECTION -->
+<section class="cve-section" id="cve">
+  <div class="container">
+    <div class="cve-header">
+      <div>
+        <div class="section-label">Vulnerability Intelligence</div>
+        <h2 class="section-title">Recent CVEs Explained</h2>
+      </div>
+      <a href="cve/index.html" class="btn-secondary" style="white-space:nowrap">View All CVEs →</a>
+    </div>
+    <div class="cve-grid">
+      <div class="cve-card">
+        <div class="cve-id">CVE-2026-1234</div>
+        <span class="cve-score critical">CRITICAL 9.8</span>
+        <h4>Remote Code Execution in OpenSSH</h4>
+        <p>Unauthenticated RCE via crafted SSH handshake. Affects versions &lt;9.7. Patch immediately.</p>
+      </div>
+      <div class="cve-card">
+        <div class="cve-id">CVE-2026-5678</div>
+        <span class="cve-score high">HIGH 8.1</span>
+        <h4>SQL Injection in Popular CMS Plugin</h4>
+        <p>Authentication bypass via unsanitized parameter in REST API endpoint. 2M+ installs affected.</p>
+      </div>
+      <div class="cve-card">
+        <div class="cve-id">CVE-2026-9012</div>
+        <span class="cve-score medium">MEDIUM 6.5</span>
+        <h4>SSRF in Cloud Metadata APIs</h4>
+        <p>Server-side request forgery allows internal network enumeration in misconfigured deployments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="newsletter">
+  <div class="container">
+    <h2>Stay Ahead of Threats</h2>
+    <p>Weekly digest: new tutorials, CVE roundups, and job opportunities in cybersecurity.</p>
+    <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+      <input type="email" placeholder="your@email.com" required />
+      <button type="submit">Subscribe Free</button>
+    </form>
+    <p class="newsletter-note">No spam. Unsubscribe anytime. ~5,000 subscribers.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="nav-logo" style="font-size:1.1rem">[howcanihack]</a>
+      <p>Ethical hacking education for everyone. We believe cybersecurity knowledge should be free, accessible, and responsible.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <ul>
+        <li><a href="tutorials/beginners.html">Beginner Guide</a></li>
+        <li><a href="tutorials/index.html">All Tutorials</a></li>
+        <li><a href="certifications/index.html">Certifications</a></li>
+        <li><a href="tools/index.html">Tools</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="news/index.html">Security News</a></li>
+        <li><a href="cve/index.html">CVE Database</a></li>
+        <li><a href="ctf/index.html">CTF Writeups</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="write-for-us.html">Write for Us</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="disclaimer.html">Legal Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 HowCanIHack.com — For educational purposes only.</span>
+    <span><a href="privacy.html">Privacy</a> · <a href="disclaimer.html">Disclaimer</a> · <a href="sitemap.xml">Sitemap</a></span>
+  </div>
+</footer>
+
+<script>
+  // Fade-up on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Newsletter stub
+  function handleSubscribe(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Subscribed!';
+    btn.style.background = '#dcfce7';
+    btn.style.color = '#16a34a';
+  }
+</script>
+</body>
+</html>
