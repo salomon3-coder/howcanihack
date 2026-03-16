@@ -1,5 +1,13 @@
 [
   {
+    "title": "Linux basics every hacker needs to know",
+    "slug": "linux-basics-every-hacker-needs-to-know",
+    "category": "beginner",
+    "url": "/beginner/linux-basics-every-hacker-needs-to-know.html",
+    "description": "Master essential Linux basics for cybersecurity. Learn file systems, commands, permissions, and scripting fundamentals every ethical hacker needs to know.",
+    "date": "2026-03-16"
+  },
+  {
     "title": "What is ethical hacking and how to get started",
     "slug": "what-is-ethical-hacking-and-how-to-get-started",
     "category": "beginner",

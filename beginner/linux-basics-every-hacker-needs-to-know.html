@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Basics Every Hacker Needs to Know: A Beginner's Guide to Penetration Testing | HowCanIHack.com</title>
+  <meta name="description" content="Master essential Linux basics for cybersecurity. Learn file systems, commands, permissions, and scripting fundamentals every ethical hacker needs to know." />
+  <meta property="og:title" content="Linux Basics Every Hacker Needs to Know: A Beginner's Guide to Penetration Testing" />
+  <meta property="og:description" content="Master essential Linux basics for cybersecurity. Learn file systems, commands, permissions, and scripting fundamentals every ethical hacker needs to know." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://howcanihack.com/beginner/linux-basics-every-hacker-needs-to-know.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628; --blue: #1d4ed8; --sky: #dbeafe;
+      --gray50: #f8fafc; --gray100: #f1f5f9; --gray200: #e2e8f0;
+      --gray600: #475569; --text: #0f172a;
+      --mono: 'JetBrains Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    body { font-family: var(--sans); color: var(--text); background: #fff; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray200);
+      padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 1rem; font-weight: 600;
+      color: var(--navy); text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-home { font-size: 0.875rem; color: var(--gray600); text-decoration: none; }
+    .nav-home:hover { color: var(--blue); }
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .article-meta {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .tag {
+      display: inline-block; background: var(--sky); color: var(--blue);
+      font-size: 0.7rem; font-weight: 600; font-family: var(--mono);
+      padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase;
+    }
+    .date { font-family: var(--mono); font-size: 0.78rem; color: var(--gray600); }
+    h1 {
+      font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--navy); line-height: 1.15; margin-bottom: 1.5rem;
+    }
+    .lead {
+      font-size: 1.15rem; color: var(--gray600); line-height: 1.8;
+      margin-bottom: 2.5rem; border-left: 3px solid var(--blue);
+      padding-left: 1.25rem;
+    }
+    h2 {
+      font-family: var(--serif); font-size: 1.6rem; color: var(--navy);
+      margin: 2.5rem 0 1rem;
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 0.75rem; }
+    p { line-height: 1.8; color: #334155; margin-bottom: 1.25rem; }
+    pre {
+      background: var(--navy); color: #e2e8f0; border-radius: 10px;
+      padding: 1.5rem; overflow-x: auto; margin: 1.5rem 0;
+      font-family: var(--mono); font-size: 0.85rem; line-height: 1.7;
+    }
+    code { font-family: var(--mono); font-size: 0.875em; background: var(--sky); color: var(--blue); padding: 0.1em 0.4em; border-radius: 3px; }
+    pre code { background: none; color: inherit; padding: 0; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    li { line-height: 1.8; color: #334155; margin-bottom: 0.4rem; }
+    .cta-box {
+      background: var(--navy); border-radius: 12px; padding: 2rem;
+      text-align: center; margin: 3rem 0;
+    }
+    .cta-box p { color: #94a3b8; margin-bottom: 1rem; }
+    .cta-box a {
+      background: var(--blue); color: #fff; text-decoration: none;
+      padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: var(--navy); color: #94a3b8;
+      text-align: center; padding: 2rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: #94a3b8; text-decoration: none; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><span>[</span>howcanihack<span>]</span></a>
+  <a href="/" class="nav-home">← Back to Home</a>
+</nav>
+
+<article class="article-wrap">
+  <div class="article-meta">
+    <span class="tag">beginner</span>
+    <span class="date">March 16, 2026</span>
+    <span class="date">8 min read</span>
+  </div>
+
+  <h1>Linux Basics Every Hacker Needs to Know: A Beginner's Guide to Penetration Testing</h1>
+
+<p class="lead">Whether you're starting your journey in cybersecurity or looking to sharpen your penetration testing skills, mastering Linux fundamentals is absolutely essential. This comprehensive guide covers the core Linux concepts, commands, and techniques that every ethical hacker should know to succeed in the field.</p>
+
+<p>Linux dominates the cybersecurity landscape for good reason. It's the backbone of most servers, the foundation of popular penetration testing distributions like Kali Linux, and the preferred platform for security professionals worldwide. Understanding Linux isn't just helpful—it's mandatory for anyone serious about cybersecurity.</p>
+
+<h2>Understanding the Linux File System Structure</h2>
+
+<p>Before diving into commands, you need to understand how Linux organizes files and directories. Unlike Windows with its drive letters, Linux uses a hierarchical tree structure starting from the root directory (<strong>/</strong>).</p>
+
+<p>Key directories every hacker should know:</p>
+
+<ul>
+<li><strong>/bin</strong> - Essential user binaries (commands like ls, cp, mv)</li>
+<li><strong>/sbin</strong> - System binaries (administrative commands)</li>
+<li><strong>/etc</strong> - System configuration files</li>
+<li><strong>/home</strong> - User home directories</li>
+<li><strong>/var</strong> - Variable data (logs, databases, web content)</li>
+<li><strong>/tmp</strong> - Temporary files</li>
+<li><strong>/usr</strong> - User programs and data</li>
+<li><strong>/proc</strong> - Virtual filesystem with system information</li>
+</ul>
+
+<p>Understanding these directories is crucial for penetration testing. For example, <strong>/var/log</strong> contains system logs that can reveal security events, while <strong>/etc/passwd</strong> holds user account information.</p>
+
+<pre><code># Navigate and explore the file system
+ls -la /etc/
+cat /etc/passwd
+ls -la /var/log/</code></pre>
+
+<h2>Essential Linux Commands for Security Professionals</h2>
+
+<p>Mastering these fundamental commands will form the foundation of your Linux expertise. Each command serves specific purposes in reconnaissance, exploitation, and post-exploitation phases.</p>
+
+<h3>File Operations and Navigation</h3>
+
+<p>These commands help you move around the system and manipulate files—essential skills for any security assessment.</p>
+
+<pre><code># Basic navigation
+pwd                    # Show current directory
+cd /path/to/directory  # Change directory
+ls -la                 # List files with details
+find / -name "*.conf"  # Find configuration files
+
+# File manipulation
+cat file.txt           # Display file contents
+head -n 10 file.txt    # Show first 10 lines
+tail -f /var/log/auth.log  # Follow log file in real-time
+grep "error" logfile.txt   # Search for patterns in files</code></pre>
+
+<h3>Process Management</h3>
+
+<p>Understanding running processes is vital for identifying services, finding vulnerabilities, and maintaining persistence.</p>
+
+<pre><code># Process monitoring
+ps aux                 # Show all running processes
+top                    # Real-time process monitor
+htop                   # Enhanced process monitor
+kill -9 PID            # Forcefully terminate process
+killall process_name   # Kill all instances of a process
+
+# Background processes
+nmap target.com &      # Run command in background
+jobs                   # Show background jobs
+fg %1                  # Bring job to foreground</code></pre>
+
+<h3>Network Commands</h3>
+
+<p>Network reconnaissance and monitoring are core components of any security assessment.</p>
+
+<pre><code># Network information
+ifconfig               # Show network interfaces
+ip addr show           # Modern alternative to ifconfig
+netstat -tuln          # Show listening ports
+ss -tuln               # Modern alternative to netstat
+
+# Network testing
+ping target.com        # Test connectivity
+wget http://example.com/file  # Download files
+curl -I http://target.com     # Fetch headers</code></pre>
+
+<h2>File Permissions and User Management</h2>
+
+<p>Linux permissions are fundamental to system security. Understanding how they work is essential for both finding vulnerabilities and maintaining access.</p>
+
+<h3>Understanding Permission Bits</h3>
+
+<p>Linux uses a three-tier permission system: owner, group, and others. Each tier has read (r), write (w), and execute (x) permissions.</p>
+
+<pre><code># Check file permissions
+ls -l filename.txt
+# Output example: -rwxr-xr-- 1 user group 1024 Dec 1 10:00 filename.txt
+# rwx = owner permissions
+# r-x = group permissions  
+# r-- = other permissions</code></pre>
+
+<p>The numerical representation uses octal values:</p>
+<ul>
+<li><strong>4</strong> = read permission</li>
+<li><strong>2</strong> = write permission</li>
+<li><strong>1</strong> = execute permission</li>
+</ul>
+
+<pre><code># Modify permissions
+chmod 755 script.sh    # rwxr-xr-x (common for executables)
+chmod 644 config.txt   # rw-r--r-- (common for files)
+chmod +x script.sh     # Add execute permission
+
+# Change ownership
+chown user:group file.txt
+chgrp newgroup file.txt</code></pre>
+
+<h3>User and Group Management</h3>
+
+<p>During penetration tests, you'll often need to understand user accounts and privilege escalation opportunities.</p>
+
+<pre><code># User information
+whoami                 # Current user
+id                     # User ID and group memberships
+groups username        # Show user's groups
+sudo -l                # List sudo privileges
+
+# System users and groups
+cat /etc/passwd        # All user accounts
+cat /etc/group         # All groups
+last                   # Recent user logins
+w                      # Currently logged in users</code></pre>
+
+<h2>Text Processing and Log Analysis</h2>
+
+<p>Analyzing logs and processing text files is crucial for forensics, monitoring, and finding security indicators.</p>
+
+<h3>Powerful Text Processing Tools</h3>
+
+<pre><code># Search and filter
+grep -i "failed" /var/log/auth.log     # Case-insensitive search
+grep -r "password" /etc/               # Recursive search
+egrep "error|warning" logfile.txt      # Multiple patterns
+
+# Text manipulation
+awk '{print $1}' access.log            # Print first column
+sed 's/old/new/g' file.txt             # Replace text
+cut -d: -f1 /etc/passwd                # Extract usernames
+sort file.txt | uniq -c                # Sort and count unique lines
+
+# Advanced filtering
+cat /var/log/auth.log | grep "Failed password" | awk '{print $11}' | sort | uniq -c
+# This extracts failed login attempts by IP address</code></pre>
+
+<h3>Log File Locations</h3>
+
+<p>Knowing where to find logs is essential for security analysis:</p>
+
+<ul>
+<li><strong>/var/log/auth.log</strong> - Authentication events</li>
+<li><strong>/var/log/syslog</strong> - General system messages</li>
+<li><strong>/var/log/apache2/access.log</strong> - Web server access logs</li>
+<li><strong>/var/log/secure</strong> - Security-related messages (Red Hat/CentOS)</li>
+<li><strong>/var/log/messages</strong> - General system messages</li>
+</ul>
+
+<h2>Package Management and Software Installation</h2>
+
+<p>Different Linux distributions use different package managers. Knowing how to install and manage software is essential for setting up tools and maintaining systems.</p>
+
+<h3>Debian/Ubuntu (APT)</h3>
+
+<pre><code># Update package lists
+sudo apt update
+
+# Install packages
+sudo apt install nmap metasploit-framework
+sudo apt install -y package_name      # Auto-confirm installation
+
+# Search and information
+apt search keyword
+apt show package_name
+apt list --installed | grep package_name
+
+# Remove packages
+sudo apt remove package_name
+sudo apt autoremove                    # Remove unused dependencies</code></pre>
+
+<h3>Red Hat/CentOS/Fedora (YUM/DNF)</h3>
+
+<pre><code># YUM (older systems)
+sudo yum update
+sudo yum install package_name
+yum search keyword
+
+# DNF (newer systems)
+sudo dnf update
+sudo dnf install package_name
+dnf search keyword</code></pre>
+
+<h2>Basic Scripting and Automation</h2>
+
+<p>Automation is key to efficient security testing. Even basic bash scripting can significantly improve your productivity.</p>
+
+<h3>Simple Bash Scripts</h3>
+
+<pre><code>#!/bin/bash
+# Simple port scanner script
+
+target=$1
+if [ -z "$target" ]; then
+    echo "Usage: $0 <target>"
+    exit 1
+fi
+
+echo "Scanning $target for open ports..."
+for port in 22 80 443 3389 21 23 25; do
+    timeout 1 bash -c "echo >/dev/tcp/$target/$port" 2>/dev/null
+    if [ $? -eq 0 ]; then
+        echo "Port $port is open"
+    fi
+done</code></pre>
+
+<p>Save this as <em>portscan.sh</em>, make it executable with <strong>chmod +x portscan.sh</strong>, and run it with <strong>./portscan.sh target.com</strong>.</p>
+
+<h3>Useful One-Liners</h3>
+
+<pre><code># Find SUID binaries (potential privilege escalation)
+find / -perm -4000 2>/dev/null
+
+# Monitor network connections in real-time
+watch -n 1 "netstat -tuln"
+
+# Extract unique IP addresses from logs
+grep -oP '\d+\.\d+\.\d+\.\d+' /var/log/access.log | sort -u
+
+# Find files modified in the last 24 hours
+find /var/www/ -type f -mtime -1</code></pre>
+
+<h2>Next Steps: Building Your Linux Security Skills</h2>
+
+<p>Now that you understand these Linux fundamentals, it's time to put them into practice. Here's how to continue developing your skills:</p>
+
+<ol>
+<li><strong>Set up a lab environment</strong> - Install VirtualBox or VMware and create Linux virtual machines. Try different distributions like Ubuntu, CentOS, and Kali Linux.</li>
+<li><strong>Practice with CTF challenges</strong> - Platforms like OverTheWire, HackTheBox, and TryHackMe offer hands-on Linux challenges.</li>
+<li><strong>Learn advanced tools</strong> - Master tools like nmap, Metasploit, Burp Suite, and Wireshark in Linux environments.</li>
+<li><strong>Study system administration</strong> - Understanding how systems are configured helps you find misconfigurations.</li>
+<li><strong>Explore specialized distributions</strong> - Get familiar with security-focused distributions like Kali Linux, Parrot OS, and BlackArch.</li>
+</ol>
+
+<p>Remember, becoming proficient in Linux takes time and practice. Start with these basics, use them regularly, and gradually expand your knowledge. The commands and concepts covered here form the foundation that every successful cybersecurity professional builds upon. Keep practicing, stay curious, and always continue learning.</p>
+
+  <div class="cta-box">
+    <p>Want more cybersecurity tutorials delivered to your inbox?</p>
+    <a href="/#newsletter">Subscribe Free →</a>
+  </div>
+</article>
+
+<footer>
+  <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>
+</footer>
+</body>
+</html>
