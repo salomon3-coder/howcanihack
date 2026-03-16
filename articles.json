@@ -1,5 +1,13 @@
 [
   {
+    "title": "Supply chain attacks: how hackers target software vendors",
+    "slug": "supply-chain-attacks-how-hackers-target-software-vendors",
+    "category": "news",
+    "url": "/news/supply-chain-attacks-how-hackers-target-software-vendors.html",
+    "description": "Learn how supply chain attacks work, explore real-world examples like SolarWinds, and discover practical strategies to protect your systems from compromised software vendors.",
+    "date": "2026-03-16"
+  },
+  {
     "title": "Linux basics every hacker needs to know",
     "slug": "linux-basics-every-hacker-needs-to-know",
     "category": "beginner",
