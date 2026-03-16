@@ -1,5 +1,13 @@
 [
   {
+    "title": "What is ethical hacking and how to get started",
+    "slug": "what-is-ethical-hacking-and-how-to-get-started",
+    "category": "beginner",
+    "url": "/beginner/what-is-ethical-hacking-and-how-to-get-started.html",
+    "description": "Learn what ethical hacking is and get a complete beginner's guide to starting your cybersecurity career. Includes tools, skills, and practical steps.",
+    "date": "2026-03-16"
+  },
+  {
     "title": "Cross-site scripting (XSS): how it works and how to prevent it",
     "slug": "cross-site-scripting-xss-how-it-works-and-how-to-prevent-it",
     "category": "tutorials",
