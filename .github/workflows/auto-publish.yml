@@ -3,7 +3,12 @@ name: Auto-publish cybersecurity article
 on:
   schedule:
     - cron: '0 8 * * *'  # Every day at 8am UTC (5am Chile)
-  workflow_dispatch:      # Also allows manual trigger from GitHub UI
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of articles to generate'
+        default: '1'
+        required: false
 
 jobs:
   generate-article:
@@ -26,7 +31,7 @@ jobs:
       - name: Generate article
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/generate_article.py
+        run: python scripts/generate_article.py ${{ github.event.inputs.count || '1' }}
 
       - name: Commit and push article
         run: |

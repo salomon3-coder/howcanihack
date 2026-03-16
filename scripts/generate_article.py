@@ -322,4 +322,8 @@ def main():
     print("🚀 Done! Netlify will deploy automatically.")
 
 if __name__ == "__main__":
-    main()
+    import sys
+    count = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+    for i in range(count):
+        print(f"\n--- Article {i+1}/{count} ---")
+        main()
