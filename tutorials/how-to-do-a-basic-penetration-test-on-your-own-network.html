@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Perform a Basic Penetration Test on Your Own Network | HowCanIHack.com</title>
+  <meta name="description" content="Learn to perform basic penetration testing on your own network. Step-by-step guide covering network scanning, vulnerability assessment, and remediation." />
+  <meta property="og:title" content="How to Perform a Basic Penetration Test on Your Own Network" />
+  <meta property="og:description" content="Learn to perform basic penetration testing on your own network. Step-by-step guide covering network scanning, vulnerability assessment, and remediation." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://howcanihack.com/tutorials/how-to-do-a-basic-penetration-test-on-your-own-network.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628; --blue: #1d4ed8; --sky: #dbeafe;
+      --gray50: #f8fafc; --gray100: #f1f5f9; --gray200: #e2e8f0;
+      --gray600: #475569; --text: #0f172a;
+      --mono: 'JetBrains Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    body { font-family: var(--sans); color: var(--text); background: #fff; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray200);
+      padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 1rem; font-weight: 600;
+      color: var(--navy); text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-home { font-size: 0.875rem; color: var(--gray600); text-decoration: none; }
+    .nav-home:hover { color: var(--blue); }
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .article-meta {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .tag {
+      display: inline-block; background: var(--sky); color: var(--blue);
+      font-size: 0.7rem; font-weight: 600; font-family: var(--mono);
+      padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase;
+    }
+    .date { font-family: var(--mono); font-size: 0.78rem; color: var(--gray600); }
+    h1 {
+      font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--navy); line-height: 1.15; margin-bottom: 1.5rem;
+    }
+    .lead {
+      font-size: 1.15rem; color: var(--gray600); line-height: 1.8;
+      margin-bottom: 2.5rem; border-left: 3px solid var(--blue);
+      padding-left: 1.25rem;
+    }
+    h2 {
+      font-family: var(--serif); font-size: 1.6rem; color: var(--navy);
+      margin: 2.5rem 0 1rem;
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 0.75rem; }
+    p { line-height: 1.8; color: #334155; margin-bottom: 1.25rem; }
+    pre {
+      background: var(--navy); color: #e2e8f0; border-radius: 10px;
+      padding: 1.5rem; overflow-x: auto; margin: 1.5rem 0;
+      font-family: var(--mono); font-size: 0.85rem; line-height: 1.7;
+    }
+    code { font-family: var(--mono); font-size: 0.875em; background: var(--sky); color: var(--blue); padding: 0.1em 0.4em; border-radius: 3px; }
+    pre code { background: none; color: inherit; padding: 0; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    li { line-height: 1.8; color: #334155; margin-bottom: 0.4rem; }
+    .cta-box {
+      background: var(--navy); border-radius: 12px; padding: 2rem;
+      text-align: center; margin: 3rem 0;
+    }
+    .cta-box p { color: #94a3b8; margin-bottom: 1rem; }
+    .cta-box a {
+      background: var(--blue); color: #fff; text-decoration: none;
+      padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: var(--navy); color: #94a3b8;
+      text-align: center; padding: 2rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: #94a3b8; text-decoration: none; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><span>[</span>howcanihack<span>]</span></a>
+  <a href="/" class="nav-home">← Back to Home</a>
+</nav>
+
+<article class="article-wrap">
+  <div class="article-meta">
+    <span class="tag">tutorials</span>
+    <span class="date">March 16, 2026</span>
+    <span class="date">9 min read</span>
+  </div>
+
+  <h1>How to Perform a Basic Penetration Test on Your Own Network</h1>
+
+<p class="lead">Learning penetration testing starts at home. By conducting ethical security assessments on your own network, you'll develop crucial cybersecurity skills while identifying real vulnerabilities that could put your data at risk. This comprehensive guide walks you through performing your first penetration test safely and legally on your own infrastructure.</p>
+
+<p>Penetration testing, or "pen testing," is the practice of simulating cyberattacks to find security weaknesses before malicious hackers do. While professional penetration testers use sophisticated tools and techniques, beginners can start with basic methodologies to understand fundamental security concepts and identify common vulnerabilities in their home networks.</p>
+
+<p><strong>Important Legal Note:</strong> Only perform these techniques on networks you own or have explicit written permission to test. Unauthorized network scanning and penetration testing is illegal and can result in serious criminal charges.</p>
+
+<h2>Setting Up Your Testing Environment</h2>
+
+<p>Before diving into active testing, you'll need to prepare your environment and gather the necessary tools. The good news is that most penetration testing tools are free and open-source, making them accessible to beginners.</p>
+
+<h3>Essential Tools for Basic Penetration Testing</h3>
+
+<p>For your first penetration test, you'll need these fundamental tools:</p>
+
+<ul>
+<li><strong>Nmap</strong> - Network discovery and port scanning</li>
+<li><strong>Wireshark</strong> - Network traffic analysis</li>
+<li><strong>Nikto</strong> - Web server vulnerability scanner</li>
+<li><strong>Metasploit Community Edition</strong> - Exploitation framework</li>
+<li><strong>Burp Suite Community</strong> - Web application security testing</li>
+</ul>
+
+<p>You can install these tools individually on Windows, macOS, or Linux, or use a pre-configured penetration testing distribution like Kali Linux, which includes all these tools and more.</p>
+
+<p>To install Nmap on Ubuntu/Debian systems:</p>
+
+<pre><code>sudo apt update
+sudo apt install nmap</code></pre>
+
+<p>For Windows users, download the installer from the official Nmap website and follow the installation wizard.</p>
+
+<h3>Understanding Your Network Scope</h3>
+
+<p>Before testing, document your network's scope. Identify all devices you own and want to test, including:</p>
+
+<ul>
+<li>Desktop and laptop computers</li>
+<li>Smartphones and tablets</li>
+<li>IoT devices (smart TVs, security cameras, smart home devices)</li>
+<li>Network infrastructure (routers, switches, access points)</li>
+<li>Any servers or network-attached storage devices</li>
+</ul>
+
+<p>Note your network's IP range, typically something like 192.168.1.0/24 for home networks. You can find this information by running:</p>
+
+<pre><code>ip route | grep default</code></pre>
+
+<h2>Phase 1: Network Discovery and Reconnaissance</h2>
+
+<p>The first phase of any penetration test involves gathering information about your target network. This reconnaissance phase helps you understand what devices are present and what services they're running.</p>
+
+<h3>Discovering Live Hosts</h3>
+
+<p>Start by identifying which devices are currently active on your network using Nmap's ping sweep functionality:</p>
+
+<pre><code>nmap -sn 192.168.1.0/24</code></pre>
+
+<p>This command sends ping requests to all IP addresses in your network range and reports which ones respond. The <em>-sn</em> flag tells Nmap to only perform host discovery without port scanning.</p>
+
+<p>You should see output similar to:</p>
+
+<pre><code>Nmap scan report for 192.168.1.1
+Host is up (0.001s latency).
+Nmap scan report for 192.168.1.105
+Host is up (0.045s latency).
+Nmap scan report for 192.168.1.150
+Host is up (0.032s latency).</code></pre>
+
+<h3>Port Scanning and Service Detection</h3>
+
+<p>Once you've identified live hosts, the next step is determining what services are running on each device. This is where port scanning becomes essential:</p>
+
+<pre><code>nmap -sV -sC 192.168.1.105</code></pre>
+
+<p>The <em>-sV</em> flag enables version detection, while <em>-sC</em> runs default scripts that can reveal additional information about services. This scan might reveal:</p>
+
+<ul>
+<li>Web servers running on ports 80 or 443</li>
+<li>SSH services on port 22</li>
+<li>File sharing services (SMB, FTP)</li>
+<li>Database servers</li>
+<li>Remote desktop protocols</li>
+</ul>
+
+<p>For a more comprehensive scan that checks all 65,535 ports (though this takes much longer), use:</p>
+
+<pre><code>nmap -p- -sV 192.168.1.105</code></pre>
+
+<h3>Operating System Detection</h3>
+
+<p>Understanding what operating systems your devices are running helps identify potential vulnerabilities:</p>
+
+<pre><code>nmap -O 192.168.1.105</code></pre>
+
+<p>This aggressive scan attempts to fingerprint the target's operating system based on various network stack characteristics.</p>
+
+<h2>Phase 2: Vulnerability Assessment</h2>
+
+<p>With a clear picture of your network's devices and services, you can now search for potential security vulnerabilities. This phase involves both automated scanning and manual investigation.</p>
+
+<h3>Using Nmap Vulnerability Scripts</h3>
+
+<p>Nmap includes numerous scripts for detecting common vulnerabilities. The Nmap Scripting Engine (NSE) can check for various security issues:</p>
+
+<pre><code>nmap --script vuln 192.168.1.105</code></pre>
+
+<p>This command runs all vulnerability detection scripts against your target. You might discover issues like:</p>
+
+<ul>
+<li>Outdated software with known CVEs</li>
+<li>Default credentials on services</li>
+<li>Misconfigured SSL/TLS implementations</li>
+<li>SMB vulnerabilities</li>
+</ul>
+
+<h3>Web Application Scanning</h3>
+
+<p>If you discovered web servers during reconnaissance, use specialized web vulnerability scanners. Nikto is excellent for identifying common web server vulnerabilities:</p>
+
+<pre><code>nikto -h http://192.168.1.105</code></pre>
+
+<p>Nikto will test for thousands of potentially dangerous files, outdated server versions, and configuration problems. Common findings include:</p>
+
+<ul>
+<li>Default installation files</li>
+<li>Backup files left in web directories</li>
+<li>Directory traversal vulnerabilities</li>
+<li>Cross-site scripting potential</li>
+</ul>
+
+<h3>Network Traffic Analysis</h3>
+
+<p>Use Wireshark to capture and analyze network traffic, which can reveal:</p>
+
+<ul>
+<li>Unencrypted data transmission</li>
+<li>Weak authentication protocols</li>
+<li>Unusual network behavior</li>
+<li>Information leakage</li>
+</ul>
+
+<p>Start a capture session and generate some network activity, then look for sensitive information being transmitted in clear text.</p>
+
+<h2>Phase 3: Basic Exploitation and Verification</h2>
+
+<p>Once you've identified potential vulnerabilities, the next step is verifying whether they're actually exploitable. This phase requires extreme caution and should only target your own devices.</p>
+
+<h3>Testing Default Credentials</h3>
+
+<p>Many devices ship with default usernames and passwords that users never change. Create a list of default credentials for any services you've discovered and test them systematically. Common defaults include:</p>
+
+<ul>
+<li>admin/admin</li>
+<li>admin/password</li>
+<li>root/root</li>
+<li>administrator/administrator</li>
+</ul>
+
+<p>For web interfaces, you can test these manually or use tools like Hydra for automated testing:</p>
+
+<pre><code>hydra -l admin -P password_list.txt http-get://192.168.1.105</code></pre>
+
+<h3>Exploiting Known Vulnerabilities</h3>
+
+<p>If your vulnerability scans revealed specific CVEs (Common Vulnerabilities and Exposures), research whether public exploits exist. Metasploit Community Edition provides a user-friendly interface for testing known exploits:</p>
+
+<pre><code>msfconsole
+search type:exploit platform:linux ssh
+use exploit/linux/ssh/ssh_login
+set RHOSTS 192.168.1.105
+set USERNAME admin
+set PASSWORD admin
+exploit</code></pre>
+
+<p>This example shows how to test SSH login vulnerabilities, but remember to only test systems you own.</p>
+
+<h3>Documenting Your Findings</h3>
+
+<p>Throughout your testing, maintain detailed documentation of:</p>
+
+<ol>
+<li>Vulnerabilities discovered</li>
+<li>Exploitation attempts and results</li>
+<li>Risk levels and potential impact</li>
+<li>Recommended remediation steps</li>
+</ol>
+
+<p>This documentation will help you track your progress and plan remediation efforts.</p>
+
+<h2>Remediation and Securing Your Network</h2>
+
+<p>After completing your penetration test, it's crucial to address the vulnerabilities you've discovered. Common remediation steps include:</p>
+
+<ul>
+<li><strong>Update software and firmware</strong> - Install all available security patches</li>
+<li><strong>Change default credentials</strong> - Use strong, unique passwords for all devices</li>
+<li><strong>Disable unnecessary services</strong> - Reduce your attack surface by turning off unused features</li>
+<li><strong>Configure firewalls</strong> - Block unnecessary network access</li>
+<li><strong>Enable encryption</strong> - Use HTTPS, SSH, and other secure protocols</li>
+</ul>
+
+<h2>Next Steps and Continued Learning</h2>
+
+<p>Completing your first penetration test is just the beginning of your cybersecurity journey. To continue developing your skills:</p>
+
+<p>Practice regularly by repeating tests after making security improvements to verify your remediation efforts were successful. Consider setting up intentionally vulnerable systems like DVWA (Damn Vulnerable Web Application) or Metasploitable for safe, legal practice.</p>
+
+<p>Expand your toolkit by learning additional tools like Burp Suite for web application testing, OpenVAS for comprehensive vulnerability scanning, and custom scripts for specific testing scenarios.</p>
+
+<p>Join cybersecurity communities, participate in capture-the-flag competitions, and consider pursuing certifications like CompTIA Security+, CEH (Certified Ethical Hacker), or OSCP (Offensive Security Certified Professional) to formalize your knowledge.</p>
+
+<p>Remember that penetration testing is an ongoing process, not a one-time activity. Network configurations change, new vulnerabilities are discovered, and attack techniques evolve. Regular testing helps maintain strong security posture and builds the skills necessary for more advanced cybersecurity roles.</p>
+
+<p>Most importantly, always maintain ethical standards in your security research. The skills you're developing should be used to improve security, not to cause harm. With consistent practice and responsible application of these techniques, you'll develop expertise that's valuable both for protecting your own assets and potentially pursuing a career in cybersecurity.</p>
+
+  <div class="cta-box">
+    <p>Want more cybersecurity tutorials delivered to your inbox?</p>
+    <a href="/#newsletter">Subscribe Free →</a>
+  </div>
+</article>
+
+<footer>
+  <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Use Nmap for Network Scanning: A Complete Beginner's Guide | HowCanIHack.com</title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="How to Use Nmap for Network Scanning: A Complete Beginner's Guide" />
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://howcanihack.com/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628; --blue: #1d4ed8; --sky: #dbeafe;
+      --gray50: #f8fafc; --gray100: #f1f5f9; --gray200: #e2e8f0;
+      --gray600: #475569; --text: #0f172a;
+      --mono: 'JetBrains Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    body { font-family: var(--sans); color: var(--text); background: #fff; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray200);
+      padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 1rem; font-weight: 600;
+      color: var(--navy); text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-home { font-size: 0.875rem; color: var(--gray600); text-decoration: none; }
+    .nav-home:hover { color: var(--blue); }
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .article-meta {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .tag {
+      display: inline-block; background: var(--sky); color: var(--blue);
+      font-size: 0.7rem; font-weight: 600; font-family: var(--mono);
+      padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase;
+    }
+    .date { font-family: var(--mono); font-size: 0.78rem; color: var(--gray600); }
+    h1 {
+      font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--navy); line-height: 1.15; margin-bottom: 1.5rem;
+    }
+    .lead {
+      font-size: 1.15rem; color: var(--gray600); line-height: 1.8;
+      margin-bottom: 2.5rem; border-left: 3px solid var(--blue);
+      padding-left: 1.25rem;
+    }
+    h2 {
+      font-family: var(--serif); font-size: 1.6rem; color: var(--navy);
+      margin: 2.5rem 0 1rem;
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 0.75rem; }
+    p { line-height: 1.8; color: #334155; margin-bottom: 1.25rem; }
+    pre {
+      background: var(--navy); color: #e2e8f0; border-radius: 10px;
+      padding: 1.5rem; overflow-x: auto; margin: 1.5rem 0;
+      font-family: var(--mono); font-size: 0.85rem; line-height: 1.7;
+    }
+    code { font-family: var(--mono); font-size: 0.875em; background: var(--sky); color: var(--blue); padding: 0.1em 0.4em; border-radius: 3px; }
+    pre code { background: none; color: inherit; padding: 0; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    li { line-height: 1.8; color: #334155; margin-bottom: 0.4rem; }
+    .cta-box {
+      background: var(--navy); border-radius: 12px; padding: 2rem;
+      text-align: center; margin: 3rem 0;
+    }
+    .cta-box p { color: #94a3b8; margin-bottom: 1rem; }
+    .cta-box a {
+      background: var(--blue); color: #fff; text-decoration: none;
+      padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: var(--navy); color: #94a3b8;
+      text-align: center; padding: 2rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: #94a3b8; text-decoration: none; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><span>[</span>howcanihack<span>]</span></a>
+  <a href="/" class="nav-home">← Back to Home</a>
+</nav>
+
+<article class="article-wrap">
+  <div class="article-meta">
+    <span class="tag">beginner</span>
+    <span class="date">March 16, 2026</span>
+    <span class="date">6 min read</span>
+  </div>
+
+  <h1>How to Use Nmap for Network Scanning: A Complete Beginner's Guide</h1>
+
+<p class="lead">Network Mapper (Nmap) is one of the most powerful and widely-used network discovery tools in cybersecurity. Whether you're a system administrator securing your network or an aspiring ethical hacker learning the ropes, mastering Nmap is essential for understanding network topology, discovering open ports, and identifying potential security vulnerabilities.</p>
+
+<p>In this comprehensive guide, you'll learn everything you need to know about Nmap, from basic installation to advanced scanning techniques. By the end of this tutorial, you'll be confidently using Nmap to map networks, discover services, and conduct security assessments like a professional.</p>
+
+<h2>What is Nmap and Why Should You Use It?</h2>
+
+<p>Nmap (Network Mapper) is a free, open-source tool designed for network discovery and security auditing. Originally written by Gordon Lyon (also known as Fyodor) in 1997, Nmap has become the de facto standard for network reconnaissance in the cybersecurity community.</p>
+
+<p>Here's why Nmap is indispensable for cybersecurity professionals:</p>
+
+<ul>
+<li><strong>Network Discovery:</strong> Identify active hosts on your network quickly</li>
+<li><strong>Port Scanning:</strong> Discover which ports are open, closed, or filtered</li>
+<li><strong>Service Detection:</strong> Determine what services are running on discovered ports</li>
+<li><strong>OS Fingerprinting:</strong> Identify operating systems of target machines</li>
+<li><strong>Vulnerability Assessment:</strong> Use scripts to detect known security issues</li>
+<li><strong>Network Mapping:</strong> Create detailed network topology maps</li>
+</ul>
+
+<p><strong>Legal Note:</strong> Always ensure you have explicit permission before scanning networks. Only use Nmap on networks you own or have written authorization to test. Unauthorized network scanning can be illegal and may violate computer crime laws.</p>
+
+<h2>Installing Nmap on Your System</h2>
+
+<p>Nmap is available for virtually every operating system. Here's how to install it on the most common platforms:</p>
+
+<h3>Linux Installation</h3>
+
+<p>Most Linux distributions include Nmap in their package repositories:</p>
+
+<pre><code># Ubuntu/Debian
+sudo apt update && sudo apt install nmap
+
+# CentOS/RHEL/Fedora
+sudo yum install nmap
+
+# Arch Linux
+sudo pacman -S nmap</code></pre>
+
+<h3>Windows Installation</h3>
+
+<p>Download the Windows installer from the official Nmap website (nmap.org). The installer includes Nmap, Zenmap (GUI version), Ncat, and Ndiff.</p>
+
+<h3>macOS Installation</h3>
+
+<p>You can install Nmap on macOS using Homebrew or by downloading the official installer:</p>
+
+<pre><code># Using Homebrew
+brew install nmap</code></pre>
+
+<p>Once installed, verify your installation by checking the version:</p>
+
+<pre><code>nmap --version</code></pre>
+
+<h2>Essential Nmap Commands and Scanning Techniques</h2>
+
+<p>Now that you have Nmap installed, let's explore the fundamental scanning techniques every beginner should master.</p>
+
+<h3>Basic Host Discovery</h3>
+
+<p>Before scanning for ports, you need to identify which hosts are active on your network. Here are the most common host discovery commands:</p>
+
+<pre><code># Ping scan to discover active hosts
+nmap -sn 192.168.1.0/24
+
+# Scan a single host
+nmap 192.168.1.1
+
+# Scan multiple hosts
+nmap 192.168.1.1 192.168.1.5 192.168.1.10</code></pre>
+
+<p>The <code>-sn</code> flag tells Nmap to perform a "ping scan" without port scanning, making it perfect for quick network discovery.</p>
+
+<h3>Port Scanning Fundamentals</h3>
+
+<p>Port scanning is Nmap's core functionality. Different scan types provide varying levels of stealth and information:</p>
+
+<h3>TCP SYN Scan (Stealth Scan)</h3>
+
+<pre><code># Default scan type - fast and stealthy
+nmap -sS 192.168.1.1
+
+# Scan specific ports
+nmap -sS -p 80,443,22 192.168.1.1
+
+# Scan port ranges
+nmap -sS -p 1-1000 192.168.1.1</code></pre>
+
+<p>The SYN scan is Nmap's default and most popular scan type. It's relatively fast and stealthy because it doesn't complete the TCP handshake.</p>
+
+<h3>TCP Connect Scan</h3>
+
+<pre><code># Full TCP connection scan
+nmap -sT 192.168.1.1</code></pre>
+
+<p>This scan completes the full TCP handshake, making it more reliable but also more detectable by intrusion detection systems.</p>
+
+<h3>UDP Scan</h3>
+
+<pre><code># UDP port scan (slower but important)
+sudo nmap -sU 192.168.1.1</code></pre>
+
+<p>UDP scanning is crucial because many important services (DNS, DHCP, SNMP) use UDP. Note that UDP scans require root privileges and are typically slower than TCP scans.</p>
+
+<h3>Service and Version Detection</h3>
+
+<p>Discovering open ports is just the beginning. Service detection helps identify what applications are running:</p>
+
+<pre><code># Basic service detection
+nmap -sV 192.168.1.1
+
+# Aggressive service detection
+nmap -sV --version-intensity 9 192.168.1.1
+
+# Combine with port scanning
+nmap -sS -sV -p 1-1000 192.168.1.1</code></pre>
+
+<p>The <code>-sV</code> flag enables version detection, which attempts to determine service names and version numbers.</p>
+
+<h2>Advanced Nmap Features for Better Results</h2>
+
+<p>Once you're comfortable with basic scans, these advanced features will significantly enhance your reconnaissance capabilities.</p>
+
+<h3>Operating System Detection</h3>
+
+<p>Nmap can often identify the target's operating system through various fingerprinting techniques:</p>
+
+<pre><code># OS detection scan
+sudo nmap -O 192.168.1.1
+
+# Combine with service detection
+sudo nmap -sS -sV -O 192.168.1.1</code></pre>
+
+<p>OS detection requires root privileges and works best against targets with at least one open and one closed port.</p>
+
+<h3>Nmap Scripting Engine (NSE)</h3>
+
+<p>The Nmap Scripting Engine allows you to run custom scripts for vulnerability detection, advanced discovery, and more:</p>
+
+<pre><code># Run default scripts
+nmap -sC 192.168.1.1
+
+# Run specific script categories
+nmap --script=vuln 192.168.1.1
+
+# Run individual scripts
+nmap --script=http-enum 192.168.1.1
+
+# List available scripts
+nmap --script-help all</code></pre>
+
+<p>Common script categories include:</p>
+<ul>
+<li><strong>default:</strong> Safe, fast, and useful scripts</li>
+<li><strong>vuln:</strong> Vulnerability detection scripts</li>
+<li><strong>safe:</strong> Scripts unlikely to cause problems</li>
+<li><strong>intrusive:</strong> Scripts that may trigger IDS alerts</li>
+<li><strong>malware:</strong> Malware detection scripts</li>
+</ul>
+
+<h3>Timing and Performance Options</h3>
+
+<p>Nmap offers timing templates to balance scan speed with stealth:</p>
+
+<pre><code># Paranoid (slowest, most stealthy)
+nmap -T0 192.168.1.1
+
+# Sneaky
+nmap -T1 192.168.1.1
+
+# Polite
+nmap -T2 192.168.1.1
+
+# Normal (default)
+nmap -T3 192.168.1.1
+
+# Aggressive
+nmap -T4 192.168.1.1
+
+# Insane (fastest, least stealthy)
+nmap -T5 192.168.1.1</code></pre>
+
+<p>For most purposes, <code>-T4</code> (Aggressive) provides a good balance of speed and reliability.</p>
+
+<h3>Output Formats and Reporting</h3>
+
+<p>Proper documentation is crucial for any security assessment. Nmap supports multiple output formats:</p>
+
+<pre><code># Save normal output to file
+nmap -oN scan_results.txt 192.168.1.1
+
+# Save XML output (great for parsing)
+nmap -oX scan_results.xml 192.168.1.1
+
+# Save all formats
+nmap -oA complete_scan 192.168.1.1
+
+# Grepable output format
+nmap -oG scan_results.gnmap 192.168.1.1</code></pre>
+
+<h2>Practical Nmap Scanning Scenarios</h2>
+
+<p>Let's put everything together with some real-world scanning scenarios you'll commonly encounter.</p>
+
+<h3>Comprehensive Network Reconnaissance</h3>
+
+<p>Here's a powerful command that combines multiple techniques for thorough reconnaissance:</p>
+
+<pre><code>sudo nmap -sS -sV -O -sC -T4 -p- --open -oA comprehensive_scan 192.168.1.0/24</code></pre>
+
+<p>This command performs:</p>
+<ul>
+<li>SYN stealth scan (<code>-sS</code>)</li>
+<li>Service version detection (<code>-sV</code>)</li>
+<li>OS detection (<code>-O</code>)</li>
+<li>Default scripts (<code>-sC</code>)</li>
+<li>Aggressive timing (<code>-T4</code>)</li>
+<li>All ports (<code>-p-</code>)</li>
+<li>Show only open ports (<code>--open</code>)</li>
+<li>Save in all formats (<code>-oA</code>)</li>
+</ul>
+
+<h3>Quick Web Server Assessment</h3>
+
+<p>For quickly assessing web servers and related services:</p>
+
+<pre><code>nmap -sS -sV -p 80,443,8080,8443 --script=http-enum,http-headers,ssl-cert 192.168.1.1</code></pre>
+
+<h3>Stealth Reconnaissance</h3>
+
+<p>When you need to avoid detection:</p>
+
+<pre><code>nmap -sS -T1 -f --source-port 53 --data-length 10 192.168.1.1</code></pre>
+
+<p>This uses packet fragmentation (<code>-f</code>), spoofs source port 53 (<code>--source-port 53</code>), and adds random data to packets.</p>
+
+<h2>Best Practices and Tips for Effective Nmap Usage</h2>
+
+<p>To maximize your effectiveness with Nmap while staying ethical and legal:</p>
+
+<ol>
+<li><strong>Always Get Permission:</strong> Only scan networks you own or have explicit written permission to test</li>
+<li><strong>Start Small:</strong> Begin with ping scans and common ports before attempting comprehensive scans</li>
+<li><strong>Document Everything:</strong> Always save your scan results using <code>-oA</code> for later analysis</li>
+<li><strong>Be Patient:</strong> Comprehensive scans take time. Rushing with aggressive timing may miss important information</li>
+<li><strong>Learn the Scripts:</strong> NSE scripts are incredibly powerful. Invest time in learning which scripts are available</li>
+<li><strong>Monitor Your Impact:</strong> Large-scale scans can impact network performance. Be considerate</li>
+<li><strong>Keep Updated:</strong> Nmap is actively developed. Regular updates include new features and script improvements</li>
+
+  <div class="cta-box">
+    <p>Want more cybersecurity tutorials delivered to your inbox?</p>
+    <a href="/#newsletter">Subscribe Free →</a>
+  </div>
+</article>
+
+<footer>
+  <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>
+</footer>
+</body>
+</html>
