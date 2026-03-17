@@ -226,17 +226,19 @@ def estimate_read_time(text):
 
 
 def generate_new_topic(published_slugs):
-    """Ask Claude to suggest a fresh topic not yet covered."""
+    """Ask Claude to suggest a fresh topic not yet covered (unique by slug)."""
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     existing = ", ".join(list(published_slugs)[:30])
 
-    message = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=200,
-        messages=[{
-            "role": "user",
-            "content": f"""Suggest ONE new cybersecurity article topic for the site howcanihack.com.
+    # Try a few times to get a topic with a truly new slug
+    for _ in range(3):
+        message = client.messages.create(
+            model="claude-sonnet-4-20250514",
+            max_tokens=200,
+            messages=[{
+                "role": "user",
+                "content": f"""Suggest ONE new cybersecurity article topic for the site howcanihack.com.
 
 Already covered topics (slugs): {existing}
 
@@ -245,11 +247,23 @@ Requirements:
 - Must be useful for beginner to intermediate cybersecurity learners
 - Return ONLY this JSON, nothing else:
 {{"topic": "Your topic title here", "category": "beginner|tutorials|tools|certifications|news|cve"}}"""
-        }]
-    )
+            }]
+        )
 
-    data = json.loads(message.content[0].text.strip())
-    return data["topic"], data["category"]
+        data = json.loads(message.content[0].text.strip())
+        topic = data["topic"]
+        category = data["category"]
+        if slugify(topic) not in published_slugs:
+            return topic, category
+
+    # Fallback: if the model keeps suggesting something that collides,
+    # add a small suffix until the slug becomes unique.
+    suffix = 2
+    base_topic = topic
+    while slugify(topic) in published_slugs:
+        topic = f"{base_topic} (Part {suffix})"
+        suffix += 1
+    return topic, category
 
 
 def pick_unused_topic():
