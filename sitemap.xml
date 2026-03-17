@@ -7,6 +7,26 @@
   <url><loc>https://howcanihack.com/certifications/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://howcanihack.com/tools/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://howcanihack.com/beginner/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-26169-windows-error-reporting-privilege-escalation.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-20353-cisco-asa-denial-of-service-vulnerability.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-21413-microsoft-outlook-ntlm-leak-vulnerability.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-23897-jenkins-arbitrary-file-read-vulnerability.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-4577-php-cgi-argument-injection-on-windows.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-0519-google-chrome-v8-engine-zero-day.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-21338-windows-kernel-privilege-escalation.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-30078-windows-wifi-driver-remote-code-execution.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-38063-windows-tcp-ip-remote-code-execution.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-49113-windows-ldap-critical-vulnerability-explained.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-27198-jetbrains-teamcity-authentication-bypass.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-1708-connectwise-screenconnect-path-traversal.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2023-4966-citrix-bleed-session-hijacking-vulnerability.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2023-20198-cisco-ios-xe-privilege-escalation-deep-dive.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2023-44487-http-2-rapid-reset-attack-explained.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-21762-fortinet-ssl-vpn-critical-vulnerability-analysis.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-3400-palo-alto-pan-os-command-injection-breakdown.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/cve/cve-2024-6387-regresshion-the-openssh-vulnerability-explained.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/tools/burp-suite-for-web-application-testing.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://howcanihack.com/beginner/what-is-a-man-in-the-middle-attack-and-how-to-prevent-it.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://howcanihack.com/beginner/password-cracking-101-how-hackers-break-your-passwords.html</loc><lastmod>2026-03-17</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://howcanihack.com/news/what-is-zero-day-vulnerability-and-why-it-matters.html</loc><lastmod>2026-03-16</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://howcanihack.com/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html</loc><lastmod>2026-03-16</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>

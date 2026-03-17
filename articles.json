@@ -1,5 +1,165 @@
 [
   {
+    "title": "CVE-2024-26169 Windows Error Reporting privilege escalation",
+    "slug": "cve-2024-26169-windows-error-reporting-privilege-escalation",
+    "category": "cve",
+    "url": "/cve/cve-2024-26169-windows-error-reporting-privilege-escalation.html",
+    "description": "Complete guide to CVE-2024-26169 Windows Error Reporting privilege escalation vulnerability. Learn detection, exploitation methods, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-20353 Cisco ASA denial of service vulnerability",
+    "slug": "cve-2024-20353-cisco-asa-denial-of-service-vulnerability",
+    "category": "cve",
+    "url": "/cve/cve-2024-20353-cisco-asa-denial-of-service-vulnerability.html",
+    "description": "Complete guide to CVE-2024-20353 Cisco ASA DoS vulnerability: detection, exploitation details, mitigation strategies, and protection methods for network security.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-21413 Microsoft Outlook NTLM leak vulnerability",
+    "slug": "cve-2024-21413-microsoft-outlook-ntlm-leak-vulnerability",
+    "category": "cve",
+    "url": "/cve/cve-2024-21413-microsoft-outlook-ntlm-leak-vulnerability.html",
+    "description": "",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-23897 Jenkins arbitrary file read vulnerability",
+    "slug": "cve-2024-23897-jenkins-arbitrary-file-read-vulnerability",
+    "category": "cve",
+    "url": "/cve/cve-2024-23897-jenkins-arbitrary-file-read-vulnerability.html",
+    "description": "Learn about CVE-2024-23897, a critical Jenkins arbitrary file read vulnerability. Get practical exploitation examples, detection methods, and remediation steps.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-4577 PHP CGI argument injection on Windows",
+    "slug": "cve-2024-4577-php-cgi-argument-injection-on-windows",
+    "category": "cve",
+    "url": "/cve/cve-2024-4577-php-cgi-argument-injection-on-windows.html",
+    "description": "Learn about CVE-2024-4577, a critical PHP CGI argument injection vulnerability on Windows. Discover detection methods, exploitation techniques, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-0519 Google Chrome V8 engine zero-day",
+    "slug": "cve-2024-0519-google-chrome-v8-engine-zero-day",
+    "category": "cve",
+    "url": "/cve/cve-2024-0519-google-chrome-v8-engine-zero-day.html",
+    "description": "Complete guide to CVE-2024-0519, the critical Chrome V8 engine zero-day vulnerability. Learn exploitation methods, impact assessment, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-21338 Windows kernel privilege escalation",
+    "slug": "cve-2024-21338-windows-kernel-privilege-escalation",
+    "category": "cve",
+    "url": "/cve/cve-2024-21338-windows-kernel-privilege-escalation.html",
+    "description": "Complete guide to CVE-2024-21338 Windows kernel privilege escalation vulnerability. Learn detection methods, mitigation strategies, and real-world attack scenarios.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-30078 Windows WiFi driver remote code execution",
+    "slug": "cve-2024-30078-windows-wifi-driver-remote-code-execution",
+    "category": "cve",
+    "url": "/cve/cve-2024-30078-windows-wifi-driver-remote-code-execution.html",
+    "description": "Complete guide to CVE-2024-30078 Windows WiFi driver RCE vulnerability. Learn detection methods, mitigation strategies, and protection techniques.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-38063 Windows TCP/IP remote code execution",
+    "slug": "cve-2024-38063-windows-tcp-ip-remote-code-execution",
+    "category": "cve",
+    "url": "/cve/cve-2024-38063-windows-tcp-ip-remote-code-execution.html",
+    "description": "CVE-2024-38063 is a critical Windows TCP/IP vulnerability allowing remote code execution. Learn detection, mitigation strategies, and protection techniques.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-49113 Windows LDAP critical vulnerability explained",
+    "slug": "cve-2024-49113-windows-ldap-critical-vulnerability-explained",
+    "category": "cve",
+    "url": "/cve/cve-2024-49113-windows-ldap-critical-vulnerability-explained.html",
+    "description": "Complete guide to CVE-2024-49113 Windows LDAP critical vulnerability. Learn exploitation techniques, detection methods, and mitigation strategies for cybersecurity.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-27198 JetBrains TeamCity authentication bypass",
+    "slug": "cve-2024-27198-jetbrains-teamcity-authentication-bypass",
+    "category": "cve",
+    "url": "/cve/cve-2024-27198-jetbrains-teamcity-authentication-bypass.html",
+    "description": "Complete guide to CVE-2024-27198 JetBrains TeamCity authentication bypass vulnerability. Learn exploitation methods, detection techniques, and security hardening.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-1708 ConnectWise ScreenConnect path traversal",
+    "slug": "cve-2024-1708-connectwise-screenconnect-path-traversal",
+    "category": "cve",
+    "url": "/cve/cve-2024-1708-connectwise-screenconnect-path-traversal.html",
+    "description": "Learn about CVE-2024-1708, the critical ConnectWise ScreenConnect path traversal vulnerability. Understand attack methods, detection techniques, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2023-4966 Citrix Bleed session hijacking vulnerability",
+    "slug": "cve-2023-4966-citrix-bleed-session-hijacking-vulnerability",
+    "category": "cve",
+    "url": "/cve/cve-2023-4966-citrix-bleed-session-hijacking-vulnerability.html",
+    "description": "Complete guide to CVE-2023-4966 Citrix Bleed vulnerability: exploitation methods, detection techniques, and mitigation strategies for cybersecurity professionals.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2023-20198 Cisco IOS XE privilege escalation deep dive",
+    "slug": "cve-2023-20198-cisco-ios-xe-privilege-escalation-deep-dive",
+    "category": "cve",
+    "url": "/cve/cve-2023-20198-cisco-ios-xe-privilege-escalation-deep-dive.html",
+    "description": "Complete guide to CVE-2023-20198 Cisco IOS XE privilege escalation vulnerability. Learn exploitation techniques, detection methods, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2023-44487 HTTP/2 Rapid Reset attack explained",
+    "slug": "cve-2023-44487-http-2-rapid-reset-attack-explained",
+    "category": "cve",
+    "url": "/cve/cve-2023-44487-http-2-rapid-reset-attack-explained.html",
+    "description": "Complete guide to CVE-2023-44487 HTTP/2 Rapid Reset attack - learn how this critical vulnerability works, real-world impact, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-21762 Fortinet SSL VPN critical vulnerability analysis",
+    "slug": "cve-2024-21762-fortinet-ssl-vpn-critical-vulnerability-analysis",
+    "category": "cve",
+    "url": "/cve/cve-2024-21762-fortinet-ssl-vpn-critical-vulnerability-analysis.html",
+    "description": "Complete analysis of CVE-2024-21762, the critical Fortinet SSL VPN vulnerability. Learn exploitation techniques, detection methods, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-3400 Palo Alto PAN-OS command injection breakdown",
+    "slug": "cve-2024-3400-palo-alto-pan-os-command-injection-breakdown",
+    "category": "cve",
+    "url": "/cve/cve-2024-3400-palo-alto-pan-os-command-injection-breakdown.html",
+    "description": "Complete breakdown of CVE-2024-3400, the critical Palo Alto PAN-OS command injection vulnerability. Learn exploitation techniques, detection methods, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "CVE-2024-6387 regreSSHion: the OpenSSH vulnerability explained",
+    "slug": "cve-2024-6387-regresshion-the-openssh-vulnerability-explained",
+    "category": "cve",
+    "url": "/cve/cve-2024-6387-regresshion-the-openssh-vulnerability-explained.html",
+    "description": "Complete guide to CVE-2024-6387 regreSSHion - the critical OpenSSH vulnerability. Learn detection methods, mitigation strategies, and protection steps.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "Burp Suite for web application testing",
+    "slug": "burp-suite-for-web-application-testing",
+    "category": "tools",
+    "url": "/tools/burp-suite-for-web-application-testing.html",
+    "description": "Master Burp Suite for web application security testing with this comprehensive guide covering setup, techniques, and advanced strategies for beginners to intermediate users.",
+    "date": "2026-03-17"
+  },
+  {
+    "title": "What is a man-in-the-middle attack and how to prevent it",
+    "slug": "what-is-a-man-in-the-middle-attack-and-how-to-prevent-it",
+    "category": "beginner",
+    "url": "/beginner/what-is-a-man-in-the-middle-attack-and-how-to-prevent-it.html",
+    "description": "Learn what man-in-the-middle attacks are, how they work, and discover practical prevention strategies to protect yourself from MITM cybersecurity threats.",
+    "date": "2026-03-17"
+  },
+  {
     "title": "Password cracking 101: how hackers break your passwords",
     "slug": "password-cracking-101-how-hackers-break-your-passwords",
     "category": "beginner",
