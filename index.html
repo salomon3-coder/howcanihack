@@ -476,25 +476,8 @@
       </div>
       <a href="cve/index.html" class="btn-secondary" style="white-space:nowrap">View All CVEs →</a>
     </div>
-    <div class="cve-grid">
-      <div class="cve-card">
-        <div class="cve-id">CVE-2026-1234</div>
-        <span class="cve-score critical">CRITICAL 9.8</span>
-        <h4>Remote Code Execution in OpenSSH</h4>
-        <p>Unauthenticated RCE via crafted SSH handshake. Affects versions &lt;9.7. Patch immediately.</p>
-      </div>
-      <div class="cve-card">
-        <div class="cve-id">CVE-2026-5678</div>
-        <span class="cve-score high">HIGH 8.1</span>
-        <h4>SQL Injection in Popular CMS Plugin</h4>
-        <p>Authentication bypass via unsanitized parameter in REST API endpoint. 2M+ installs affected.</p>
-      </div>
-      <div class="cve-card">
-        <div class="cve-id">CVE-2026-9012</div>
-        <span class="cve-score medium">MEDIUM 6.5</span>
-        <h4>SSRF in Cloud Metadata APIs</h4>
-        <p>Server-side request forgery allows internal network enumeration in misconfigured deployments.</p>
-      </div>
+    <div class="cve-grid" id="cve-grid">
+      <!-- loaded dynamically -->
     </div>
   </div>
 </section>
@@ -645,6 +628,22 @@
     } catch { /* keep static placeholder */ }
   }
   loadFeatured();
+
+  async function loadCVEs() {
+    try {
+      const res = await fetch('/articles.json?v=' + Date.now());
+      const all = await res.json();
+      const cves = all.filter(a => a.category === 'cve').slice(0, 3);
+      if (!cves.length) return;
+      document.getElementById('cve-grid').innerHTML = cves.map(a => `
+        <div class="cve-card">
+          <div class="cve-id">${a.title.match(/CVE-[\d-]+/) ? a.title.match(/CVE-[\d-]+/)[0] : 'CVE'}</div>
+          <h4><a href="${a.url}" style="color:#fff;text-decoration:none">${a.title}</a></h4>
+          <p>${(a.description || '').substring(0, 120)}...</p>
+        </div>`).join('');
+    } catch {}
+  }
+  loadCVEs();
 
 
   const TAG_COLORS = {
