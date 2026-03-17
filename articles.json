@@ -1,5 +1,13 @@
 [
   {
+    "title": "Password cracking 101: how hackers break your passwords",
+    "slug": "password-cracking-101-how-hackers-break-your-passwords",
+    "category": "beginner",
+    "url": "/beginner/password-cracking-101-how-hackers-break-your-passwords.html",
+    "description": "Learn how hackers crack passwords using dictionary attacks, brute force, and advanced techniques. Discover tools like Hashcat and John the Ripper plus defense strategies.",
+    "date": "2026-03-17"
+  },
+  {
     "title": "What is zero-day vulnerability and why it matters",
     "slug": "what-is-zero-day-vulnerability-and-why-it-matters",
     "category": "news",
