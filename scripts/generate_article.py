@@ -368,6 +368,43 @@ def update_index(topic, category, slug, meta):
 
     print(f"📋 Index updated ({len(articles)} articles)")
 
+
+def update_sitemap():
+    """Regenerate sitemap.xml from articles.json so new pages are included for SEO."""
+    base = "https://howcanihack.com"
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        f"  <url><loc>{base}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>",
+        f"  <url><loc>{base}/tutorials/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>",
+        f"  <url><loc>{base}/news/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>",
+        f"  <url><loc>{base}/cve/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>",
+        f"  <url><loc>{base}/certifications/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
+        f"  <url><loc>{base}/tools/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
+        f"  <url><loc>{base}/beginner/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
+    ]
+
+    if os.path.exists("articles.json"):
+        with open("articles.json", "r") as f:
+            try:
+                articles = json.load(f)
+                for a in articles:
+                    url = base + a.get("url", "")
+                    if not url or url == base:
+                        continue
+                    lastmod = a.get("date", datetime.now().strftime("%Y-%m-%d"))
+                    lines.append(
+                        f'  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>'
+                    )
+            except Exception:
+                pass
+
+    lines.append("</urlset>")
+    with open("sitemap.xml", "w") as f:
+        f.write("\n".join(lines) + "\n")
+    print("🗺️  Sitemap updated")
+
+
 def main():
     topic, category = pick_unused_topic()
     slug = slugify(topic)
@@ -378,6 +415,7 @@ def main():
     html_content, meta = parse_response(raw)
     save_article(html_content, meta, topic, category, slug)
     update_index(topic, category, slug, meta)
+    update_sitemap()
 
     print("🚀 Done! Netlify will deploy automatically.")
 
