@@ -52,6 +52,18 @@ TOPICS = [
     ("Supply chain attacks: how hackers target software vendors", "news"),
     ("Bug bounty hunting: how to make money finding vulnerabilities", "news"),
 
+    # CVE
+    ("CVE-2024-6387 regreSSHion: the OpenSSH vulnerability explained", "cve"),
+    ("CVE-2024-3400 Palo Alto PAN-OS command injection breakdown", "cve"),
+    ("CVE-2024-21762 Fortinet SSL VPN critical vulnerability analysis", "cve"),
+    ("CVE-2023-44487 HTTP/2 Rapid Reset attack explained", "cve"),
+    ("CVE-2023-20198 Cisco IOS XE privilege escalation deep dive", "cve"),
+    ("CVE-2023-4966 Citrix Bleed session hijacking vulnerability", "cve"),
+    ("CVE-2024-1708 ConnectWise ScreenConnect path traversal", "cve"),
+    ("CVE-2024-27198 JetBrains TeamCity authentication bypass", "cve"),
+    ("Log4Shell CVE-2021-44228 still relevant in 2026", "cve"),
+    ("ProxyLogon CVE-2021-26855 Microsoft Exchange explained", "cve"),
+
     # CVE / Advanced
     ("SQL injection explained: from basics to exploitation", "tutorials"),
     ("Cross-site scripting (XSS): how it works and how to prevent it", "tutorials"),
