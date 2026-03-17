@@ -1,5 +1,13 @@
 [
   {
+    "title": "Log4Shell CVE-2021-44228 still relevant in 2026",
+    "slug": "log4shell-cve-2021-44228-still-relevant-in-2026",
+    "category": "cve",
+    "url": "/cve/log4shell-cve-2021-44228-still-relevant-in-2026.html",
+    "description": "Log4Shell CVE-2021-44228 remains a critical threat in 2026. Learn detection methods, mitigation strategies, and why this vulnerability persists years later.",
+    "date": "2026-03-17"
+  },
+  {
     "title": "CVE-2024-26169 Windows Error Reporting privilege escalation",
     "slug": "cve-2024-26169-windows-error-reporting-privilege-escalation",
     "category": "cve",
