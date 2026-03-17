@@ -1,5 +1,13 @@
 [
   {
+    "title": "ProxyLogon CVE-2021-26855 Microsoft Exchange explained",
+    "slug": "proxylogon-cve-2021-26855-microsoft-exchange-explained",
+    "category": "cve",
+    "url": "/cve/proxylogon-cve-2021-26855-microsoft-exchange-explained.html",
+    "description": "Complete guide to CVE-2021-26855 ProxyLogon vulnerability affecting Microsoft Exchange servers. Learn detection, exploitation methods, and mitigation strategies.",
+    "date": "2026-03-17"
+  },
+  {
     "title": "Log4Shell CVE-2021-44228 still relevant in 2026",
     "slug": "log4shell-cve-2021-44228-still-relevant-in-2026",
     "category": "cve",
