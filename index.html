@@ -439,45 +439,19 @@
   </div>
 </section>
 
-<!-- FEATURED ARTICLES -->
+<!-- FEATURED ARTICLES (dynamic) -->
 <section class="featured" id="news">
   <div class="container">
     <div class="fade-up">
       <div class="section-label">Latest Content</div>
       <h2 class="section-title">Featured Articles</h2>
     </div>
-    <div class="articles-grid fade-up">
-      <a href="tutorials/what-is-ethical-hacking.html" class="article-main">
-        <div class="article-main-img">
-          <code>$ nmap -sV -O 192.168.1.0/24<br/>Starting Nmap 7.94...<br/>Host: 192.168.1.1 (router)<br/>PORT   STATE SERVICE VERSION<br/>22/tcp open  ssh     OpenSSH 8.9</code>
-        </div>
-        <div class="article-main-body">
-          <span class="tag">Beginner</span>
-          <h2>What is Ethical Hacking? A Complete Beginner's Guide</h2>
-          <p>Understand the difference between black hat, white hat, and grey hat hacking. Learn the legal framework, career paths, and how to get started responsibly.</p>
-          <div class="article-meta">March 2026 · 12 min read</div>
-        </div>
-      </a>
-      <div class="articles-sidebar">
-        <a href="news/top-breaches-2026.html" class="article-small">
-          <span class="tag red">News</span>
-          <h3>Top 5 Data Breaches of 2026 So Far</h3>
-          <p>From supply chain attacks to credential stuffing — what happened and what you can learn.</p>
-          <div class="article-meta" style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;font-family:var(--mono)">Mar 2026 · 7 min</div>
-        </a>
-        <a href="certifications/oscp-roadmap.html" class="article-small">
-          <span class="tag green">Certification</span>
-          <h3>OSCP 2026 Study Roadmap: Pass in 90 Days</h3>
-          <p>A week-by-week plan covering all PWK course topics, labs, and exam strategy.</p>
-          <div class="article-meta" style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;font-family:var(--mono)">Feb 2026 · 15 min</div>
-        </a>
-        <a href="tools/burp-suite-guide.html" class="article-small">
-          <span class="tag amber">Tools</span>
-          <h3>Burp Suite for Beginners: Web App Testing 101</h3>
-          <p>Set up your proxy, intercept requests, and run your first scan in under 30 minutes.</p>
-          <div class="article-meta" style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;font-family:var(--mono)">Feb 2026 · 10 min</div>
-        </a>
+    <div class="articles-grid fade-up" id="featured-grid">
+      <!-- loaded dynamically -->
+      <div class="article-main" style="display:flex;align-items:center;justify-content:center;min-height:300px">
+        <span style="font-family:var(--mono);font-size:0.85rem;color:var(--gray400)">Loading...</span>
       </div>
+      <div class="articles-sidebar" id="featured-sidebar"></div>
     </div>
   </div>
 </section>
@@ -609,7 +583,60 @@
     btn.style.color = '#16a34a';
   }
 
-  // ── Dynamic article loader ──────────────────────────────────────────────
+  // ── Featured articles loader ────────────────────────────────────────────
+  const TAG_COLORS_FEAT = {
+    beginner:       { bg: '#dbeafe', color: '#1d4ed8' },
+    tutorials:      { bg: '#dbeafe', color: '#1d4ed8' },
+    tools:          { bg: '#fef3c7', color: '#d97706' },
+    certifications: { bg: '#dcfce7', color: '#16a34a' },
+    news:           { bg: '#fee2e2', color: '#dc2626' },
+    cve:            { bg: '#f3e8ff', color: '#7c3aed' },
+  };
+  function featTagStyle(cat) {
+    const c = TAG_COLORS_FEAT[cat] || TAG_COLORS_FEAT.tutorials;
+    return `background:${c.bg};color:${c.color}`;
+  }
+
+  async function loadFeatured() {
+    try {
+      const res = await fetch('/articles.json?v=' + Date.now());
+      const articles = await res.json();
+      if (!articles.length) return;
+
+      const main = articles[0];
+      const sidebar = articles.slice(1, 4);
+
+      // Main featured article
+      document.getElementById('featured-grid').innerHTML = `
+        <a href="${main.url}" class="article-main">
+          <div class="article-main-img">
+            <code style="position:relative;z-index:1;font-size:0.8rem;line-height:1.8;color:#93c5fd">
+              $ cat ${main.slug || 'article'}.md<br/>
+              # ${main.title}<br/>
+              > ${(main.description || '').substring(0, 80)}...
+            </code>
+          </div>
+          <div class="article-main-body">
+            <span class="tag" style="${featTagStyle(main.category)}">${main.category}</span>
+            <h2>${main.title}</h2>
+            <p>${main.description || ''}</p>
+            <div class="article-meta">${main.date || ''}</div>
+          </div>
+        </a>
+        <div class="articles-sidebar">
+          ${sidebar.map(a => `
+            <a href="${a.url}" class="article-small">
+              <span class="tag" style="${featTagStyle(a.category)}">${a.category}</span>
+              <h3>${a.title}</h3>
+              <p>${(a.description || '').substring(0, 100)}</p>
+              <div class="article-meta" style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;font-family:var(--mono)">${a.date || ''}</div>
+            </a>`).join('')}
+        </div>`;
+    } catch { /* keep static placeholder */ }
+  }
+  loadFeatured();
+
+
   const TAG_COLORS = {
     beginner:       { bg: '#dbeafe', color: '#1d4ed8' },
     tutorials:      { bg: '#dbeafe', color: '#1d4ed8' },
@@ -679,4 +706,3 @@
 </script>
 </body>
 </html>
-
