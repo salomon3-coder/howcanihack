@@ -61,7 +61,8 @@ Para agregar artículos: crea archivos HTML en carpetas como:
 
 1. Ve a https://adsense.google.com → Sign up
 2. Agrega tu sitio `howcanihack.com`
-3. Google te da un snippet de código → agrégalo en el `<head>` de index.html
+3. Google te da un snippet de código → agrégalo en el `<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4579344894934796" crossorigin="anonymous"></script>` de index.html
 4. Listo, los anuncios aparecen automáticamente
 
 ---

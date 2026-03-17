@@ -81,6 +81,7 @@ TOPICS = [
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4579344894934796" crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-047Q5LKQHS"></script>
   <script>
