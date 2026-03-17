@@ -213,19 +213,58 @@ def count_words(text):
 def estimate_read_time(text):
     return max(1, count_words(text) // 200)
 
-def pick_unused_topic():
-    """Pick a topic not yet published."""
-    published = set()
-    for cat in ["tutorials", "beginner", "tools", "certifications", "news"]:
-        path = cat
-        if os.path.exists(path):
-            for f in os.listdir(path):
-                published.add(f.replace(".html", "").replace("-", " "))
 
-    unused = [t for t in TOPICS if slugify(t[0]) not in published]
+def generate_new_topic(published_slugs):
+    """Ask Claude to suggest a fresh topic not yet covered."""
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+    existing = ", ".join(list(published_slugs)[:30])
+
+    message = client.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=200,
+        messages=[{
+            "role": "user",
+            "content": f"""Suggest ONE new cybersecurity article topic for the site howcanihack.com.
+
+Already covered topics (slugs): {existing}
+
+Requirements:
+- Must be different from all topics above
+- Must be useful for beginner to intermediate cybersecurity learners
+- Return ONLY this JSON, nothing else:
+{{"topic": "Your topic title here", "category": "beginner|tutorials|tools|certifications|news|cve"}}"""
+        }]
+    )
+
+    data = json.loads(message.content[0].text.strip())
+    return data["topic"], data["category"]
+
+
+def pick_unused_topic():
+    """Pick a topic not yet published, tracking by slug."""
+    published_slugs = set()
+
+    # Read already published slugs from articles.json
+    if os.path.exists("articles.json"):
+        with open("articles.json", "r") as f:
+            try:
+                articles = json.load(f)
+                for a in articles:
+                    published_slugs.add(a.get("slug", ""))
+            except Exception:
+                pass
+
+    # Filter out already published topics
+    unused = [t for t in TOPICS if slugify(t[0]) not in published_slugs]
+
     if not unused:
-        unused = TOPICS  # reset cycle if all used
-    return random.choice(unused)
+        # All topics used — ask Claude for a new topic
+        print("⚠️  All topics used, generating new topic with AI")
+        return generate_new_topic(published_slugs)
+
+    # Pick sequentially, not randomly, to avoid repetition
+    return unused[0]
 
 def generate_article(topic, category):
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])

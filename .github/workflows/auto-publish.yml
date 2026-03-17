@@ -2,7 +2,9 @@ name: Auto-publish cybersecurity article
 
 on:
   schedule:
-    - cron: '0 8 * * *'  # Every day at 8am UTC (5am Chile)
+    - cron: '0 8 * * *'   # 5am Chile
+    - cron: '0 14 * * *'  # 11am Chile
+    - cron: '0 20 * * *'  # 5pm Chile
   workflow_dispatch:
     inputs:
       count:
