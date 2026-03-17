@@ -245,6 +245,8 @@ Already covered topics (slugs): {existing}
 Requirements:
 - Must be different from all topics above
 - Must be useful for beginner to intermediate cybersecurity learners
+ - The topic title must be written in clear, natural English only (no other languages)
+ - The topic itself should be something that would reasonably appear on an English-language cybersecurity blog
 - Return ONLY this JSON, nothing else:
 {{"topic": "Your topic title here", "category": "beginner|tutorials|tools|certifications|news|cve"}}"""
             }]
