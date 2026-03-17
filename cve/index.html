@@ -167,7 +167,13 @@
   async function load() {
     try {
       const res = await fetch('/articles.json?v=' + Date.now());
-      const all = await res.json();
+      let all = await res.json();
+      const seen = new Set();
+      all = all.filter(a => {
+        if (!a.slug || seen.has(a.slug)) return false;
+        seen.add(a.slug);
+        return true;
+      });
       articles = all.filter(a => ALL_CATS.includes(a.category));
       buildFilters(articles);
       renderGrid(articles);

@@ -365,6 +365,9 @@ def update_index(topic, category, slug, meta):
             except Exception:
                 articles = []
 
+    # Remove any existing entry for this slug so we don't duplicate
+    articles = [a for a in articles if a.get("slug") != slug]
+
     articles.insert(0, {
         "title": topic,
         "slug": slug,

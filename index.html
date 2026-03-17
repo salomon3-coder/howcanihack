@@ -594,7 +594,13 @@
   async function loadFeatured() {
     try {
       const res = await fetch('/articles.json?v=' + Date.now());
-      const articles = await res.json();
+      let articles = await res.json();
+      const seenFeat = new Set();
+      articles = articles.filter(a => {
+        if (!a.slug || seenFeat.has(a.slug)) return false;
+        seenFeat.add(a.slug);
+        return true;
+      });
       if (!articles.length) return;
 
       const main = articles[0];
@@ -633,7 +639,13 @@
   async function loadCVEs() {
     try {
       const res = await fetch('/articles.json?v=' + Date.now());
-      const all = await res.json();
+      let all = await res.json();
+      const seenCve = new Set();
+      all = all.filter(a => {
+        if (!a.slug || seenCve.has(a.slug)) return false;
+        seenCve.add(a.slug);
+        return true;
+      });
       const cves = all.filter(a => a.category === 'cve').slice(0, 3);
       if (!cves.length) return;
       document.getElementById('cve-grid').innerHTML = cves.map(a => `
@@ -698,7 +710,13 @@
     try {
       const res = await fetch('/articles.json?v=' + Date.now());
       if (!res.ok) throw new Error('not found');
-      allArticles = await res.json();
+      let loaded = await res.json();
+      const seenAll = new Set();
+      allArticles = loaded.filter(a => {
+        if (!a.slug || seenAll.has(a.slug)) return false;
+        seenAll.add(a.slug);
+        return true;
+      });
 
       grid.innerHTML = '';
       document.getElementById('article-count').textContent =
