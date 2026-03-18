@@ -269,29 +269,27 @@ Requirements:
 
 
 def pick_unused_topic():
-    """Pick a topic not yet published, tracking by slug."""
+    """Pick a topic not yet published, checking actual files on disk."""
     published_slugs = set()
 
-    # Read already published slugs from articles.json
-    if os.path.exists("articles.json"):
-        with open("articles.json", "r") as f:
-            try:
-                articles = json.load(f)
-                for a in articles:
-                    published_slugs.add(a.get("slug", ""))
-            except Exception:
-                pass
+    # Check actual HTML files on disk (ignore generated indexes)
+    for cat in ["tutorials", "beginner", "tools", "certifications", "news", "cve"]:
+        if os.path.exists(cat):
+            for f in os.listdir(cat):
+                if f.endswith(".html") and f != "index.html":
+                    published_slugs.add(f.replace(".html", ""))
 
-    # Filter out already published topics
+    print(f"📂 Found {len(published_slugs)} existing articles on disk")
+
+    # Filter out topics already published
     unused = [t for t in TOPICS if slugify(t[0]) not in published_slugs]
 
-    if not unused:
-        # All topics used — ask Claude for a new topic
-        print("⚠️  All topics used, generating new topic with AI")
-        return generate_new_topic(published_slugs)
+    if unused:
+        print(f"📋 {len(unused)} topics remaining in list")
+        return unused[0]
 
-    # Pick sequentially, not randomly, to avoid repetition
-    return unused[0]
+    print("⚠️  All topics used, generating new topic with AI")
+    return generate_new_topic(published_slugs)
 
 def generate_article(topic, category):
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
