@@ -1,5 +1,13 @@
 [
   {
+    "title": "Cross-Site Scripting (XSS) Attacks Explained with Real Examples",
+    "slug": "cross-site-scripting-xss-attacks-explained-with-real-examples",
+    "category": "tutorials",
+    "url": "/tutorials/cross-site-scripting-xss-attacks-explained-with-real-examples.html",
+    "description": "",
+    "date": "2026-03-18"
+  },
+  {
     "title": "How to Use Nmap for Network Discovery and Port Scanning",
     "slug": "how-to-use-nmap-for-network-discovery-and-port-scanning",
     "category": "tools",

