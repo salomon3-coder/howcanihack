@@ -1,5 +1,13 @@
 [
   {
+    "title": "SQL Injection Attacks: Complete Guide with Prevention Techniques",
+    "slug": "sql-injection-attacks-complete-guide-with-prevention-techniques",
+    "category": "tutorials",
+    "url": "/tutorials/sql-injection-attacks-complete-guide-with-prevention-techniques.html",
+    "description": "Master SQL injection attacks and prevention with our complete guide. Learn attack techniques, real examples, and proven security methods for developers.",
+    "date": "2026-03-18"
+  },
+  {
     "title": "How to Use Burp Suite for Web Application Security Testing",
     "slug": "how-to-use-burp-suite-for-web-application-security-testing",
     "category": "tools",
