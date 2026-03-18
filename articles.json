@@ -1,5 +1,29 @@
 [
   {
+    "title": "Cross-Site Scripting (XSS) Attacks: Types, Detection, and Prevention",
+    "slug": "cross-site-scripting-xss-attacks-types-detection-and-prevention",
+    "category": "tutorials",
+    "url": "/tutorials/cross-site-scripting-xss-attacks-types-detection-and-prevention.html",
+    "description": "",
+    "date": "2026-03-18"
+  },
+  {
+    "title": "How to Set Up and Use Wireshark for Network Traffic Analysis",
+    "slug": "how-to-set-up-and-use-wireshark-for-network-traffic-analysis",
+    "category": "tools",
+    "url": "/tools/how-to-set-up-and-use-wireshark-for-network-traffic-analysis.html",
+    "description": "",
+    "date": "2026-03-18"
+  },
+  {
+    "title": "Windows privilege escalation for beginners",
+    "slug": "windows-privilege-escalation-for-beginners",
+    "category": "tutorials",
+    "url": "/tutorials/windows-privilege-escalation-for-beginners.html",
+    "description": "Learn Windows privilege escalation techniques for beginners. Complete guide covering enumeration, common exploits, tools, and defense strategies for cybersecurity.",
+    "date": "2026-03-18"
+  },
+  {
     "title": "ProxyLogon CVE-2021-26855 Microsoft Exchange explained",
     "slug": "proxylogon-cve-2021-26855-microsoft-exchange-explained",
     "category": "cve",
