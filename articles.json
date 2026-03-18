@@ -1,5 +1,21 @@
 [
   {
+    "title": "How to Use Burp Suite for Web Application Security Testing",
+    "slug": "how-to-use-burp-suite-for-web-application-security-testing",
+    "category": "tools",
+    "url": "/tools/how-to-use-burp-suite-for-web-application-security-testing.html",
+    "description": "",
+    "date": "2026-03-18"
+  },
+  {
+    "title": "How to Create a Home Cybersecurity Lab for Hands-On Practice",
+    "slug": "how-to-create-a-home-cybersecurity-lab-for-hands-on-practice",
+    "category": "tutorials",
+    "url": "/tutorials/how-to-create-a-home-cybersecurity-lab-for-hands-on-practice.html",
+    "description": "Learn to build a comprehensive cybersecurity lab at home with VirtualBox, Kali Linux, and vulnerable systems for hands-on ethical hacking practice.",
+    "date": "2026-03-18"
+  },
+  {
     "title": "Cross-Site Scripting (XSS) Attacks Explained with Real Examples",
     "slug": "cross-site-scripting-xss-attacks-explained-with-real-examples",
     "category": "tutorials",
