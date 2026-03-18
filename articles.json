@@ -1,5 +1,13 @@
 [
   {
+    "title": "How to Use Nmap for Network Discovery and Port Scanning",
+    "slug": "how-to-use-nmap-for-network-discovery-and-port-scanning",
+    "category": "tools",
+    "url": "/tools/how-to-use-nmap-for-network-discovery-and-port-scanning.html",
+    "description": "",
+    "date": "2026-03-18"
+  },
+  {
     "title": "Cross-Site Scripting (XSS) Attacks: Types, Detection, and Prevention",
     "slug": "cross-site-scripting-xss-attacks-types-detection-and-prevention",
     "category": "tutorials",
