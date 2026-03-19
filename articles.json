@@ -1,5 +1,13 @@
 [
   {
+    "title": "How to Use Wireshark for Network Traffic Analysis and Packet Capture",
+    "slug": "how-to-use-wireshark-for-network-traffic-analysis-and-packet-capture",
+    "category": "tools",
+    "url": "/tools/how-to-use-wireshark-for-network-traffic-analysis-and-packet-capture.html",
+    "description": "Learn how to use Wireshark for network traffic analysis and packet capture. Complete beginner's guide with practical examples, filtering techniques, and security tips.",
+    "date": "2026-03-19"
+  },
+  {
     "title": "SQL Injection Attacks: Complete Guide with Prevention Techniques",
     "slug": "sql-injection-attacks-complete-guide-with-prevention-techniques",
     "category": "tutorials",
