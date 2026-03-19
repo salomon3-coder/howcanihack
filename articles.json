@@ -1,5 +1,13 @@
 [
   {
+    "title": "SQL Injection Attacks: Complete Guide from Detection to Prevention",
+    "slug": "sql-injection-attacks-complete-guide-from-detection-to-prevention",
+    "category": "tutorials",
+    "url": "/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html",
+    "description": "Master SQL injection attacks with this complete guide covering detection techniques, exploitation methods, and prevention strategies for cybersecurity professionals.",
+    "date": "2026-03-19"
+  },
+  {
     "title": "How to Use Wireshark for Network Traffic Analysis and Packet Capture",
     "slug": "how-to-use-wireshark-for-network-traffic-analysis-and-packet-capture",
     "category": "tools",
