@@ -1,5 +1,13 @@
 [
   {
+    "title": "How to Use Gobuster for Web Directory and File Enumeration",
+    "slug": "how-to-use-gobuster-for-web-directory-and-file-enumeration",
+    "category": "tools",
+    "url": "/tools/how-to-use-gobuster-for-web-directory-and-file-enumeration.html",
+    "description": "Learn how to use Gobuster for effective web directory and file enumeration. Complete guide with commands, techniques, and best practices for cybersecurity.",
+    "date": "2026-03-20"
+  },
+  {
     "title": "How to Use Metasploit Framework for Penetration Testing",
     "slug": "how-to-use-metasploit-framework-for-penetration-testing",
     "category": "tools",
