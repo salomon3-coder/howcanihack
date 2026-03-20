@@ -1,5 +1,13 @@
 [
   {
+    "title": "How to Use Metasploit Framework for Penetration Testing",
+    "slug": "how-to-use-metasploit-framework-for-penetration-testing",
+    "category": "tools",
+    "url": "/tools/how-to-use-metasploit-framework-for-penetration-testing.html",
+    "description": "Learn Metasploit Framework for penetration testing with this comprehensive guide covering setup, commands, exploitation techniques, and best practices.",
+    "date": "2026-03-20"
+  },
+  {
     "title": "Nmap Complete Guide: Network Discovery and Port Scanning for Beginners",
     "slug": "nmap-complete-guide-network-discovery-and-port-scanning-for-beginners",
     "category": "tools",
