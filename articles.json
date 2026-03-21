@@ -1,5 +1,13 @@
 [
   {
+    "title": "How to Perform Social Engineering Attacks and Defend Against Them",
+    "slug": "how-to-perform-social-engineering-attacks-and-defend-against-them",
+    "category": "tutorials",
+    "url": "/tutorials/how-to-perform-social-engineering-attacks-and-defend-against-them.html",
+    "description": "Learn social engineering attack techniques and defense strategies. Complete guide covering phishing, pretexting, and protection methods for cybersecurity.",
+    "date": "2026-03-21"
+  },
+  {
     "title": "How to Use Gobuster for Web Directory and File Enumeration",
     "slug": "how-to-use-gobuster-for-web-directory-and-file-enumeration",
     "category": "tools",
