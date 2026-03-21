@@ -320,7 +320,7 @@
     "date": "2026-03-16"
   },
   {
-    "title": "How to use Nmap for network scanning \u2014 beginner guide",
+    "title": "How to use Nmap for network scanning — beginner guide",
     "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
     "category": "beginner",
     "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
@@ -332,7 +332,7 @@
     "slug": "oscp-certification-complete-roadmap-and-tips",
     "category": "certifications",
     "url": "/certifications/oscp-certification-complete-roadmap-and-tips.html",
-    "description": "Complete OSCP certification guide with roadmap, exam tips, and practical preparation strategies for aspiring penetration testers. Learn the Try Harder way.",
+    "description": "Complete OSCP certification roadmap for 2024. Learn exam prep strategies, essential tools, study timeline, and expert tips to pass this challenging cybersecurity cert.",
     "date": "2026-03-16"
   },
   {
@@ -340,7 +340,7 @@
     "slug": "ctf-competitions-how-to-get-started-and-win",
     "category": "tutorials",
     "url": "/tutorials/ctf-competitions-how-to-get-started-and-win.html",
-    "description": "Learn how to get started in CTF competitions and develop winning strategies. Complete guide covering essential tools, techniques, and practice platforms for beginners.",
+    "description": "",
     "date": "2026-03-16"
   },
   {
@@ -356,7 +356,7 @@
     "slug": "how-to-set-up-kali-linux-for-the-first-time",
     "category": "beginner",
     "url": "/beginner/how-to-set-up-kali-linux-for-the-first-time.html",
-    "description": "Complete guide to setting up Kali Linux for beginners. Learn installation, configuration, essential tools setup, and optimization for cybersecurity work.",
+    "description": "Complete beginner's guide to setting up Kali Linux for cybersecurity and ethical hacking. Step-by-step installation, configuration, and optimization tips.",
     "date": "2026-03-16"
   },
   {
@@ -364,7 +364,7 @@
     "slug": "how-to-stay-anonymous-online-tor-proxychains-and-more",
     "category": "tutorials",
     "url": "/tutorials/how-to-stay-anonymous-online-tor-proxychains-and-more.html",
-    "description": "Learn how to stay anonymous online using Tor, proxychains, and advanced privacy techniques. Complete guide for cybersecurity beginners and intermediates.",
+    "description": "Learn essential online anonymity techniques including Tor, ProxyChains, VPNs, and OPSEC best practices. Complete beginner-friendly guide with practical examples.",
     "date": "2026-03-16"
   },
   {
@@ -372,7 +372,7 @@
     "slug": "supply-chain-attacks-how-hackers-target-software-vendors",
     "category": "news",
     "url": "/news/supply-chain-attacks-how-hackers-target-software-vendors.html",
-    "description": "Learn how supply chain attacks work, examine real-world examples like SolarWinds, and discover practical detection and prevention strategies for organizations.",
+    "description": "Learn how supply chain attacks work, explore real-world examples like SolarWinds, and discover practical strategies to protect your systems from compromised software vendors.",
     "date": "2026-03-16"
   },
   {
@@ -380,71 +380,7 @@
     "slug": "hashcat-gpu-password-cracking-guide",
     "category": "tools",
     "url": "/tools/hashcat-gpu-password-cracking-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to do a basic penetration test on your own network",
-    "slug": "how-to-do-a-basic-penetration-test-on-your-own-network",
-    "category": "tutorials",
-    "url": "/tutorials/how-to-do-a-basic-penetration-test-on-your-own-network.html",
-    "description": "Learn to perform basic penetration testing on your own network. Step-by-step guide covering network scanning, vulnerability assessment, and remediation.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Top cybersecurity threats to watch in 2026",
-    "slug": "top-cybersecurity-threats-to-watch-in-2026",
-    "category": "news",
-    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
-    "description": "Discover the top cybersecurity threats expected in 2026, including AI-powered attacks, quantum vulnerabilities, and supply chain risks. Get practical defense strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Netcat: the swiss army knife of networking",
-    "slug": "netcat-the-swiss-army-knife-of-networking",
-    "category": "tools",
-    "url": "/tools/netcat-the-swiss-army-knife-of-networking.html",
-    "description": "Master Netcat, the Swiss Army knife of networking. Learn port scanning, file transfers, backdoors, and advanced techniques for cybersecurity professionals.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How ransomware attacks work step by step",
-    "slug": "how-ransomware-attacks-work-step-by-step",
-    "category": "news",
-    "url": "/news/how-ransomware-attacks-work-step-by-step.html",
-    "description": "Learn how ransomware attacks work step-by-step, from initial infiltration to final encryption. Comprehensive technical breakdown for cybersecurity enthusiasts.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Nmap for network scanning \u2014 beginner guide",
-    "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
-    "category": "beginner",
-    "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to do a basic penetration test on your own network",
-    "slug": "how-to-do-a-basic-penetration-test-on-your-own-network",
-    "category": "tutorials",
-    "url": "/tutorials/how-to-do-a-basic-penetration-test-on-your-own-network.html",
-    "description": "Learn how to perform a basic penetration test on your own network with this comprehensive beginner's guide covering tools, techniques, and best practices.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to do a basic penetration test on your own network",
-    "slug": "how-to-do-a-basic-penetration-test-on-your-own-network",
-    "category": "tutorials",
-    "url": "/tutorials/how-to-do-a-basic-penetration-test-on-your-own-network.html",
-    "description": "Learn how to perform a basic penetration test on your own network with this beginner-friendly guide. Includes practical examples, tools, and commands.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Hydra for brute force attacks ethically",
-    "slug": "how-to-use-hydra-for-brute-force-attacks-ethically",
-    "category": "tools",
-    "url": "/tools/how-to-use-hydra-for-brute-force-attacks-ethically.html",
-    "description": "Learn how to use Hydra for ethical brute force attacks. Complete beginner's guide with examples, best practices, and legal considerations for cybersecurity testing.",
+    "description": "Learn GPU password cracking with Hashcat - complete beginner guide covering installation, attack modes, optimization tips and practical examples for cybersecurity.",
     "date": "2026-03-16"
   },
   {
@@ -456,11 +392,27 @@
     "date": "2026-03-16"
   },
   {
-    "title": "How to stay anonymous online: Tor, proxychains and more",
-    "slug": "how-to-stay-anonymous-online-tor-proxychains-and-more",
-    "category": "tutorials",
-    "url": "/tutorials/how-to-stay-anonymous-online-tor-proxychains-and-more.html",
-    "description": "Learn how to stay anonymous online using Tor, proxychains, VPNs and other privacy tools. Comprehensive tutorial for cybersecurity beginners and enthusiasts.",
+    "title": "Netcat: the swiss army knife of networking",
+    "slug": "netcat-the-swiss-army-knife-of-networking",
+    "category": "tools",
+    "url": "/tools/netcat-the-swiss-army-knife-of-networking.html",
+    "description": "Master Netcat, the Swiss Army knife of networking. Learn essential cybersecurity techniques including port scanning, file transfers, and reverse shells.",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "How ransomware attacks work step by step",
+    "slug": "how-ransomware-attacks-work-step-by-step",
+    "category": "news",
+    "url": "/news/how-ransomware-attacks-work-step-by-step.html",
+    "description": "Learn how ransomware attacks work step-by-step, from initial infiltration to final encryption. Comprehensive technical breakdown for cybersecurity enthusiasts.",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "How to use Hydra for brute force attacks ethically",
+    "slug": "how-to-use-hydra-for-brute-force-attacks-ethically",
+    "category": "tools",
+    "url": "/tools/how-to-use-hydra-for-brute-force-attacks-ethically.html",
+    "description": "Learn how to use Hydra for ethical brute force attacks in penetration testing. Complete guide with examples, best practices, and legal considerations for cybersecurity pros.",
     "date": "2026-03-16"
   },
   {
@@ -468,15 +420,7 @@
     "slug": "how-buffer-overflow-attacks-work",
     "category": "tutorials",
     "url": "/tutorials/how-buffer-overflow-attacks-work.html",
-    "description": "Learn how buffer overflow attacks work with practical examples, exploitation techniques, and prevention strategies. Complete beginner's guide to memory corruption.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Nmap for network scanning \u2014 beginner guide",
-    "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
-    "category": "beginner",
-    "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
-    "description": "Master network scanning with this comprehensive Nmap guide. Learn essential commands, scanning techniques, and best practices for cybersecurity professionals.",
+    "description": "Learn how buffer overflow attacks work with practical examples, real commands, and defense strategies. Complete beginner's guide to cybersecurity fundamentals.",
     "date": "2026-03-16"
   },
   {
@@ -484,7 +428,7 @@
     "slug": "sqlmap-tutorial-automated-sql-injection-testing",
     "category": "tools",
     "url": "/tools/sqlmap-tutorial-automated-sql-injection-testing.html",
-    "description": "Learn sqlmap for automated SQL injection testing. Complete tutorial covering installation, basic commands, advanced techniques, and ethical testing practices.",
+    "description": "Master sqlmap for ethical SQL injection testing with this comprehensive tutorial. Learn commands, techniques, and best practices for cybersecurity professionals.",
     "date": "2026-03-16"
   },
   {
@@ -492,7 +436,7 @@
     "slug": "understanding-owasp-top-10-vulnerabilities-2026",
     "category": "tutorials",
     "url": "/tutorials/understanding-owasp-top-10-vulnerabilities-2026.html",
-    "description": "Master the OWASP Top 10 vulnerabilities for 2026 with practical examples, testing commands, and hands-on techniques for cybersecurity beginners.",
+    "description": "Master OWASP Top 10 vulnerabilities 2026 with practical examples, testing commands, and prevention strategies. Complete beginner's guide to web security.",
     "date": "2026-03-16"
   },
   {
@@ -504,26 +448,10 @@
     "date": "2026-03-16"
   },
   {
-    "title": "How buffer overflow attacks work",
-    "slug": "how-buffer-overflow-attacks-work",
-    "category": "tutorials",
-    "url": "/tutorials/how-buffer-overflow-attacks-work.html",
-    "description": "Learn how buffer overflow attacks work with practical examples, code samples, and prevention strategies. Complete beginner's guide to cybersecurity fundamentals.",
-    "date": "2026-03-16"
-  },
-  {
     "title": "What is social engineering and how to protect yourself",
     "slug": "what-is-social-engineering-and-how-to-protect-yourself",
     "category": "beginner",
     "url": "/beginner/what-is-social-engineering-and-how-to-protect-yourself.html",
-    "description": "Learn what social engineering is and discover practical strategies to protect yourself from phishing, pretexting, and other psychological cyber attacks.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Top cybersecurity threats to watch in 2026",
-    "slug": "top-cybersecurity-threats-to-watch-in-2026",
-    "category": "news",
-    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
     "description": "",
     "date": "2026-03-16"
   },
@@ -532,7 +460,7 @@
     "slug": "how-to-build-a-home-hacking-lab-for-free",
     "category": "tutorials",
     "url": "/tutorials/how-to-build-a-home-hacking-lab-for-free.html",
-    "description": "Learn to build a complete cybersecurity home lab for free using VirtualBox, Kali Linux, and vulnerable VMs. Step-by-step guide for beginners with commands.",
+    "description": "Learn to build a comprehensive cybersecurity hacking lab at home for free using VirtualBox, Kali Linux, and vulnerable VMs. Complete beginner's guide included.",
     "date": "2026-03-16"
   },
   {
@@ -540,7 +468,7 @@
     "slug": "aircrack-ng-wifi-security-testing-guide",
     "category": "tools",
     "url": "/tools/aircrack-ng-wifi-security-testing-guide.html",
-    "description": "Complete Aircrack-ng guide for WiFi security testing. Learn installation, commands, and ethical wireless network auditing techniques for cybersecurity pros.",
+    "description": "",
     "date": "2026-03-16"
   },
   {
@@ -564,15 +492,7 @@
     "slug": "understanding-firewalls-how-they-work-and-how-to-bypass-them",
     "category": "beginner",
     "url": "/beginner/understanding-firewalls-how-they-work-and-how-to-bypass-them.html",
-    "description": "Learn how firewalls work and explore legitimate bypass techniques for cybersecurity professionals. Complete guide with practical examples and defensive strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Top cybersecurity threats to watch in 2026",
-    "slug": "top-cybersecurity-threats-to-watch-in-2026",
-    "category": "news",
-    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
-    "description": "Discover the top cybersecurity threats facing organizations in 2026, from AI-powered attacks to quantum computing risks. Complete guide with practical examples.",
+    "description": "",
     "date": "2026-03-16"
   },
   {
@@ -580,31 +500,7 @@
     "slug": "cross-site-scripting-xss-how-it-works-and-how-to-prevent-it",
     "category": "tutorials",
     "url": "/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html",
-    "description": "Learn how Cross-Site Scripting (XSS) attacks work and discover comprehensive prevention strategies. Complete guide with examples and practical code samples.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Netcat: the swiss army knife of networking",
-    "slug": "netcat-the-swiss-army-knife-of-networking",
-    "category": "tools",
-    "url": "/tools/netcat-the-swiss-army-knife-of-networking.html",
-    "description": "Master Netcat, the Swiss Army knife of networking. Learn port scanning, file transfers, backdoors, and advanced techniques for cybersecurity professionals.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Supply chain attacks: how hackers target software vendors",
-    "slug": "supply-chain-attacks-how-hackers-target-software-vendors",
-    "category": "news",
-    "url": "/news/supply-chain-attacks-how-hackers-target-software-vendors.html",
-    "description": "Learn how supply chain attacks work, explore real-world cases like SolarWinds, and discover practical strategies to protect your organization from these threats.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "CTF competitions: how to get started and win",
-    "slug": "ctf-competitions-how-to-get-started-and-win",
-    "category": "tutorials",
-    "url": "/tutorials/ctf-competitions-how-to-get-started-and-win.html",
-    "description": "Complete guide to CTF competitions for beginners. Learn essential skills, tools, and winning strategies for Capture The Flag cybersecurity challenges.",
+    "description": "",
     "date": "2026-03-16"
   },
   {
@@ -620,351 +516,7 @@
     "slug": "sql-injection-explained-from-basics-to-exploitation",
     "category": "tutorials",
     "url": "/tutorials/sql-injection-explained-from-basics-to-exploitation.html",
-    "description": "Master SQL injection from basics to advanced exploitation. Learn detection, bypass techniques, and prevention strategies with practical examples and tools.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Hashcat GPU password cracking guide",
-    "slug": "hashcat-gpu-password-cracking-guide",
-    "category": "tools",
-    "url": "/tools/hashcat-gpu-password-cracking-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Hashcat GPU password cracking guide",
-    "slug": "hashcat-gpu-password-cracking-guide",
-    "category": "tools",
-    "url": "/tools/hashcat-gpu-password-cracking-guide.html",
-    "description": "Complete Hashcat GPU password cracking guide for beginners. Learn installation, attack modes, rules, and advanced techniques with practical examples and commands.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Aircrack-ng: WiFi security testing guide",
-    "slug": "aircrack-ng-wifi-security-testing-guide",
-    "category": "tools",
-    "url": "/tools/aircrack-ng-wifi-security-testing-guide.html",
-    "description": "Complete Aircrack-ng guide for WiFi security testing. Learn installation, basic commands, WPA/WEP cracking techniques, and ethical wireless penetration testing.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Nikto web scanner: find vulnerabilities in minutes",
-    "slug": "nikto-web-scanner-find-vulnerabilities-in-minutes",
-    "category": "tools",
-    "url": "/tools/nikto-web-scanner-find-vulnerabilities-in-minutes.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Privilege escalation techniques on Linux",
-    "slug": "privilege-escalation-techniques-on-linux",
-    "category": "tutorials",
-    "url": "/tutorials/privilege-escalation-techniques-on-linux.html",
-    "description": "Learn essential Linux privilege escalation techniques for cybersecurity. Comprehensive guide covering SUID exploitation, sudo misconfigs, and defense strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Understanding firewalls: how they work and how to bypass them",
-    "slug": "understanding-firewalls-how-they-work-and-how-to-bypass-them",
-    "category": "beginner",
-    "url": "/beginner/understanding-firewalls-how-they-work-and-how-to-bypass-them.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "eJPT certification: best entry-level hacking cert",
-    "slug": "ejpt-certification-best-entry-level-hacking-cert",
-    "category": "certifications",
-    "url": "/certifications/ejpt-certification-best-entry-level-hacking-cert.html",
-    "description": "Discover why eJPT is the best entry-level cybersecurity certification for 2024. Compare with CEH, Security+, learn preparation tips and career impact.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "SQL injection explained: from basics to exploitation",
-    "slug": "sql-injection-explained-from-basics-to-exploitation",
-    "category": "tutorials",
-    "url": "/tutorials/sql-injection-explained-from-basics-to-exploitation.html",
-    "description": "Master SQL injection from basics to advanced exploitation. Learn detection techniques, payloads, tools like SQLMap, and prevention methods for cybersecurity pros.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Top cybersecurity threats to watch in 2026",
-    "slug": "top-cybersecurity-threats-to-watch-in-2026",
-    "category": "news",
-    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
-    "description": "Discover the top cybersecurity threats expected in 2026, including AI-powered attacks, quantum computing risks, and supply chain vulnerabilities. Get actionable defense strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Nmap for network scanning \u2014 beginner guide",
-    "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
-    "category": "beginner",
-    "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Understanding firewalls: how they work and how to bypass them",
-    "slug": "understanding-firewalls-how-they-work-and-how-to-bypass-them",
-    "category": "beginner",
-    "url": "/beginner/understanding-firewalls-how-they-work-and-how-to-bypass-them.html",
-    "description": "Learn how firewalls work and discover ethical bypass techniques for penetration testing. Complete guide with practical examples for cybersecurity beginners.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Aircrack-ng: WiFi security testing guide",
-    "slug": "aircrack-ng-wifi-security-testing-guide",
-    "category": "tools",
-    "url": "/tools/aircrack-ng-wifi-security-testing-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to build a home hacking lab for free",
-    "slug": "how-to-build-a-home-hacking-lab-for-free",
-    "category": "tutorials",
-    "url": "/tutorials/how-to-build-a-home-hacking-lab-for-free.html",
-    "description": "Learn to build a comprehensive cybersecurity hacking lab at home for free using VirtualBox, Kali Linux, and vulnerable VMs. Complete beginner's guide included.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "What is ethical hacking and how to get started",
-    "slug": "what-is-ethical-hacking-and-how-to-get-started",
-    "category": "beginner",
-    "url": "/beginner/what-is-ethical-hacking-and-how-to-get-started.html",
-    "description": "Learn what ethical hacking is and discover a complete beginner's guide to getting started in penetration testing, including tools, skills, and legal considerations.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Hydra for brute force attacks ethically",
-    "slug": "how-to-use-hydra-for-brute-force-attacks-ethically",
-    "category": "tools",
-    "url": "/tools/how-to-use-hydra-for-brute-force-attacks-ethically.html",
-    "description": "Learn how to use Hydra for ethical brute force attacks. Complete beginner's guide with practical examples, commands, and best practices for security testing.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Privilege escalation techniques on Linux",
-    "slug": "privilege-escalation-techniques-on-linux",
-    "category": "tutorials",
-    "url": "/tutorials/privilege-escalation-techniques-on-linux.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How buffer overflow attacks work",
-    "slug": "how-buffer-overflow-attacks-work",
-    "category": "tutorials",
-    "url": "/tutorials/how-buffer-overflow-attacks-work.html",
-    "description": "Learn how buffer overflow attacks work with practical examples, code samples, and step-by-step explanations for cybersecurity beginners and enthusiasts.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Understanding OWASP Top 10 vulnerabilities 2026",
-    "slug": "understanding-owasp-top-10-vulnerabilities-2026",
-    "category": "tutorials",
-    "url": "/tutorials/understanding-owasp-top-10-vulnerabilities-2026.html",
-    "description": "Master the OWASP Top 10 2026 vulnerabilities with practical examples, testing commands, and prevention strategies. Complete guide for security enthusiasts.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Understanding OWASP Top 10 vulnerabilities 2026",
-    "slug": "understanding-owasp-top-10-vulnerabilities-2026",
-    "category": "tutorials",
-    "url": "/tutorials/understanding-owasp-top-10-vulnerabilities-2026.html",
-    "description": "Master OWASP Top 10 vulnerabilities 2026 with practical examples, testing commands, and prevention strategies. Complete beginner's guide to web security.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Top cybersecurity threats to watch in 2026",
-    "slug": "top-cybersecurity-threats-to-watch-in-2026",
-    "category": "news",
-    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
-    "description": "Explore the top cybersecurity threats expected in 2026, from AI-powered attacks to quantum computing risks. Essential guide for security professionals.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Nikto web scanner: find vulnerabilities in minutes",
-    "slug": "nikto-web-scanner-find-vulnerabilities-in-minutes",
-    "category": "tools",
-    "url": "/tools/nikto-web-scanner-find-vulnerabilities-in-minutes.html",
-    "description": "Learn how to use Nikto web scanner to find web vulnerabilities quickly. Complete guide with commands, examples, and best practices for cybersecurity testing.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "What is ethical hacking and how to get started",
-    "slug": "what-is-ethical-hacking-and-how-to-get-started",
-    "category": "beginner",
-    "url": "/beginner/what-is-ethical-hacking-and-how-to-get-started.html",
-    "description": "Learn what ethical hacking is and how to get started with this comprehensive beginner's guide. Includes tools, skills, legal considerations, and career paths.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Hydra for brute force attacks ethically",
-    "slug": "how-to-use-hydra-for-brute-force-attacks-ethically",
-    "category": "tools",
-    "url": "/tools/how-to-use-hydra-for-brute-force-attacks-ethically.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Top cybersecurity threats to watch in 2026",
-    "slug": "top-cybersecurity-threats-to-watch-in-2026",
-    "category": "news",
-    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
-    "description": "Discover the top cybersecurity threats emerging in 2026, from AI-powered attacks to quantum computing risks. Learn practical defense strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How buffer overflow attacks work",
-    "slug": "how-buffer-overflow-attacks-work",
-    "category": "tutorials",
-    "url": "/tutorials/how-buffer-overflow-attacks-work.html",
-    "description": "Learn how buffer overflow attacks work with practical examples, code samples, and exploitation techniques. Complete beginner's guide to cybersecurity fundamentals.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Supply chain attacks: how hackers target software vendors",
-    "slug": "supply-chain-attacks-how-hackers-target-software-vendors",
-    "category": "news",
-    "url": "/news/supply-chain-attacks-how-hackers-target-software-vendors.html",
-    "description": "Learn how supply chain attacks work, explore real-world examples like SolarWinds, and discover practical strategies to defend against these sophisticated threats.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Supply chain attacks: how hackers target software vendors",
-    "slug": "supply-chain-attacks-how-hackers-target-software-vendors",
-    "category": "news",
-    "url": "/news/supply-chain-attacks-how-hackers-target-software-vendors.html",
-    "description": "Learn how supply chain attacks target software vendors to compromise millions. Discover real examples like SolarWinds, prevention strategies, and detection methods.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Netcat: the swiss army knife of networking",
-    "slug": "netcat-the-swiss-army-knife-of-networking",
-    "category": "tools",
-    "url": "/tools/netcat-the-swiss-army-knife-of-networking.html",
-    "description": "Master Netcat, the Swiss Army knife of networking. Learn essential cybersecurity techniques including port scanning, file transfers, and reverse shells.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Sqlmap tutorial: automated SQL injection testing",
-    "slug": "sqlmap-tutorial-automated-sql-injection-testing",
-    "category": "tools",
-    "url": "/tools/sqlmap-tutorial-automated-sql-injection-testing.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Linux basics every hacker needs to know",
-    "slug": "linux-basics-every-hacker-needs-to-know",
-    "category": "beginner",
-    "url": "/beginner/linux-basics-every-hacker-needs-to-know.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "CTF competitions: how to get started and win",
-    "slug": "ctf-competitions-how-to-get-started-and-win",
-    "category": "tutorials",
-    "url": "/tutorials/ctf-competitions-how-to-get-started-and-win.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Nmap for network scanning \u2014 beginner guide",
-    "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
-    "category": "beginner",
-    "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Hydra for brute force attacks ethically",
-    "slug": "how-to-use-hydra-for-brute-force-attacks-ethically",
-    "category": "tools",
-    "url": "/tools/how-to-use-hydra-for-brute-force-attacks-ethically.html",
-    "description": "Learn how to use Hydra for ethical brute force attacks in penetration testing. Complete guide with examples, best practices, and legal considerations for cybersecurity pros.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Supply chain attacks: how hackers target software vendors",
-    "slug": "supply-chain-attacks-how-hackers-target-software-vendors",
-    "category": "news",
-    "url": "/news/supply-chain-attacks-how-hackers-target-software-vendors.html",
-    "description": "Learn how supply chain attacks target software vendors to breach thousands of organizations. Discover real examples, attack methods, and practical defense strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Wireshark to analyze network traffic",
-    "slug": "how-to-use-wireshark-to-analyze-network-traffic",
-    "category": "beginner",
-    "url": "/beginner/how-to-use-wireshark-to-analyze-network-traffic.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "What is social engineering and how to protect yourself",
-    "slug": "what-is-social-engineering-and-how-to-protect-yourself",
-    "category": "beginner",
-    "url": "/beginner/what-is-social-engineering-and-how-to-protect-yourself.html",
-    "description": "Learn what social engineering is and discover practical strategies to protect yourself from phishing, pretexting, and other psychological manipulation attacks.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Understanding firewalls: how they work and how to bypass them",
-    "slug": "understanding-firewalls-how-they-work-and-how-to-bypass-them",
-    "category": "beginner",
-    "url": "/beginner/understanding-firewalls-how-they-work-and-how-to-bypass-them.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "What is social engineering and how to protect yourself",
-    "slug": "what-is-social-engineering-and-how-to-protect-yourself",
-    "category": "beginner",
-    "url": "/beginner/what-is-social-engineering-and-how-to-protect-yourself.html",
-    "description": "Learn what social engineering is and how to protect yourself from manipulation attacks. Discover common tactics, warning signs, and effective defense strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Hashcat GPU password cracking guide",
-    "slug": "hashcat-gpu-password-cracking-guide",
-    "category": "tools",
-    "url": "/tools/hashcat-gpu-password-cracking-guide.html",
-    "description": "Master GPU password cracking with Hashcat! Complete guide covering installation, attack modes, optimization techniques for ethical security testing.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Hashcat GPU password cracking guide",
-    "slug": "hashcat-gpu-password-cracking-guide",
-    "category": "tools",
-    "url": "/tools/hashcat-gpu-password-cracking-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to stay anonymous online: Tor, proxychains and more",
-    "slug": "how-to-stay-anonymous-online-tor-proxychains-and-more",
-    "category": "tutorials",
-    "url": "/tutorials/how-to-stay-anonymous-online-tor-proxychains-and-more.html",
-    "description": "Learn essential online anonymity techniques including Tor, ProxyChains, VPNs, and OPSEC best practices. Complete beginner-friendly guide with practical examples.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to set up Kali Linux for the first time",
-    "slug": "how-to-set-up-kali-linux-for-the-first-time",
-    "category": "beginner",
-    "url": "/beginner/how-to-set-up-kali-linux-for-the-first-time.html",
-    "description": "Complete beginner's guide to setting up Kali Linux for cybersecurity and ethical hacking. Step-by-step installation, configuration, and optimization tips.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Metasploit Framework: complete beginner guide",
-    "slug": "metasploit-framework-complete-beginner-guide",
-    "category": "tools",
-    "url": "/tools/metasploit-framework-complete-beginner-guide.html",
-    "description": "",
+    "description": "Complete guide to SQL injection attacks - learn detection, exploitation techniques, and prevention strategies. From basics to advanced SQLi methods.",
     "date": "2026-03-16"
   },
   {
@@ -976,91 +528,11 @@
     "date": "2026-03-16"
   },
   {
-    "title": "SQL injection explained: from basics to exploitation",
-    "slug": "sql-injection-explained-from-basics-to-exploitation",
-    "category": "tutorials",
-    "url": "/tutorials/sql-injection-explained-from-basics-to-exploitation.html",
-    "description": "Complete guide to SQL injection attacks - learn detection, exploitation techniques, and prevention strategies. From basics to advanced SQLi methods.",
-    "date": "2026-03-16"
-  },
-  {
     "title": "Privilege escalation techniques on Linux",
     "slug": "privilege-escalation-techniques-on-linux",
     "category": "tutorials",
     "url": "/tutorials/privilege-escalation-techniques-on-linux.html",
     "description": "Learn essential Linux privilege escalation techniques for ethical hacking and cybersecurity. Comprehensive guide covering SUID exploitation, kernel vulnerabilities, and defense strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "What is social engineering and how to protect yourself",
-    "slug": "what-is-social-engineering-and-how-to-protect-yourself",
-    "category": "beginner",
-    "url": "/beginner/what-is-social-engineering-and-how-to-protect-yourself.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Wireshark to analyze network traffic",
-    "slug": "how-to-use-wireshark-to-analyze-network-traffic",
-    "category": "beginner",
-    "url": "/beginner/how-to-use-wireshark-to-analyze-network-traffic.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How buffer overflow attacks work",
-    "slug": "how-buffer-overflow-attacks-work",
-    "category": "tutorials",
-    "url": "/tutorials/how-buffer-overflow-attacks-work.html",
-    "description": "Learn how buffer overflow attacks work with practical examples, tools, and prevention techniques. Complete guide for ethical hackers and cybersecurity enthusiasts.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "What is a VPN and does it really protect you",
-    "slug": "what-is-a-vpn-and-does-it-really-protect-you",
-    "category": "beginner",
-    "url": "/beginner/what-is-a-vpn-and-does-it-really-protect-you.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Bug bounty hunting: how to make money finding vulnerabilities",
-    "slug": "bug-bounty-hunting-how-to-make-money-finding-vulnerabilities",
-    "category": "news",
-    "url": "/news/bug-bounty-hunting-how-to-make-money-finding-vulnerabilities.html",
-    "description": "Learn how to make money through bug bounty hunting. Complete guide covering skills, tools, methodology, and strategies to earn income finding vulnerabilities.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Bug bounty hunting: how to make money finding vulnerabilities",
-    "slug": "bug-bounty-hunting-how-to-make-money-finding-vulnerabilities",
-    "category": "news",
-    "url": "/news/bug-bounty-hunting-how-to-make-money-finding-vulnerabilities.html",
-    "description": "Learn how to start bug bounty hunting and make money finding vulnerabilities. Complete beginner's guide with tools, techniques, and real earning strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Sqlmap tutorial: automated SQL injection testing",
-    "slug": "sqlmap-tutorial-automated-sql-injection-testing",
-    "category": "tools",
-    "url": "/tools/sqlmap-tutorial-automated-sql-injection-testing.html",
-    "description": "Master sqlmap for ethical SQL injection testing with this comprehensive tutorial. Learn commands, techniques, and best practices for cybersecurity professionals.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "What is a VPN and does it really protect you",
-    "slug": "what-is-a-vpn-and-does-it-really-protect-you",
-    "category": "beginner",
-    "url": "/beginner/what-is-a-vpn-and-does-it-really-protect-you.html",
-    "description": "Learn what VPNs really do and don't protect you from. Complete beginner's guide to VPN security, privacy benefits, limitations, and choosing the right provider.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "OSCP certification: complete roadmap and tips",
-    "slug": "oscp-certification-complete-roadmap-and-tips",
-    "category": "certifications",
-    "url": "/certifications/oscp-certification-complete-roadmap-and-tips.html",
-    "description": "Complete OSCP certification roadmap for 2024. Learn exam prep strategies, essential tools, study timeline, and expert tips to pass this challenging cybersecurity cert.",
     "date": "2026-03-16"
   },
   {
@@ -1072,51 +544,11 @@
     "date": "2026-03-16"
   },
   {
-    "title": "Supply chain attacks: how hackers target software vendors",
-    "slug": "supply-chain-attacks-how-hackers-target-software-vendors",
-    "category": "news",
-    "url": "/news/supply-chain-attacks-how-hackers-target-software-vendors.html",
-    "description": "Learn how supply chain attacks work, explore real-world examples like SolarWinds and Kaseya, and discover practical strategies to protect your organization.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Top cybersecurity threats to watch in 2026",
-    "slug": "top-cybersecurity-threats-to-watch-in-2026",
-    "category": "news",
-    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "CISSP vs CISM: which certification is right for you",
-    "slug": "cissp-vs-cism-which-certification-is-right-for-you",
-    "category": "certifications",
-    "url": "/certifications/cissp-vs-cism-which-certification-is-right-for-you.html",
-    "description": "CISSP vs CISM comparison guide for 2024. Learn the differences, requirements, career paths, and salaries to choose the right cybersecurity certification.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Cross-site scripting (XSS): how it works and how to prevent it",
-    "slug": "cross-site-scripting-xss-how-it-works-and-how-to-prevent-it",
-    "category": "tutorials",
-    "url": "/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Aircrack-ng: WiFi security testing guide",
-    "slug": "aircrack-ng-wifi-security-testing-guide",
-    "category": "tools",
-    "url": "/tools/aircrack-ng-wifi-security-testing-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Supply chain attacks: how hackers target software vendors",
-    "slug": "supply-chain-attacks-how-hackers-target-software-vendors",
-    "category": "news",
-    "url": "/news/supply-chain-attacks-how-hackers-target-software-vendors.html",
-    "description": "Learn how supply chain attacks work, explore real-world examples like SolarWinds, and discover practical strategies to protect your systems from compromised software vendors.",
+    "title": "What is ethical hacking and how to get started",
+    "slug": "what-is-ethical-hacking-and-how-to-get-started",
+    "category": "beginner",
+    "url": "/beginner/what-is-ethical-hacking-and-how-to-get-started.html",
+    "description": "Learn what ethical hacking is and get a complete beginner's guide to starting your cybersecurity career. Includes tools, skills, and practical steps.",
     "date": "2026-03-16"
   },
   {
@@ -1128,35 +560,43 @@
     "date": "2026-03-16"
   },
   {
-    "title": "What is ethical hacking and how to get started",
-    "slug": "what-is-ethical-hacking-and-how-to-get-started",
+    "title": "How to use Wireshark to analyze network traffic",
+    "slug": "how-to-use-wireshark-to-analyze-network-traffic",
     "category": "beginner",
-    "url": "/beginner/what-is-ethical-hacking-and-how-to-get-started.html",
-    "description": "Learn what ethical hacking is and get a complete beginner's guide to starting your cybersecurity career. Includes tools, skills, and practical steps.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Cross-site scripting (XSS): how it works and how to prevent it",
-    "slug": "cross-site-scripting-xss-how-it-works-and-how-to-prevent-it",
-    "category": "tutorials",
-    "url": "/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html",
+    "url": "/beginner/how-to-use-wireshark-to-analyze-network-traffic.html",
     "description": "",
     "date": "2026-03-16"
   },
   {
-    "title": "Hashcat GPU password cracking guide",
-    "slug": "hashcat-gpu-password-cracking-guide",
+    "title": "Metasploit Framework: complete beginner guide",
+    "slug": "metasploit-framework-complete-beginner-guide",
     "category": "tools",
-    "url": "/tools/hashcat-gpu-password-cracking-guide.html",
-    "description": "Learn GPU password cracking with Hashcat - complete beginner guide covering installation, attack modes, optimization tips and practical examples for cybersecurity.",
+    "url": "/tools/metasploit-framework-complete-beginner-guide.html",
+    "description": "",
     "date": "2026-03-16"
   },
   {
-    "title": "How buffer overflow attacks work",
-    "slug": "how-buffer-overflow-attacks-work",
-    "category": "tutorials",
-    "url": "/tutorials/how-buffer-overflow-attacks-work.html",
-    "description": "Learn how buffer overflow attacks work with practical examples, real commands, and defense strategies. Complete beginner's guide to cybersecurity fundamentals.",
+    "title": "What is a VPN and does it really protect you",
+    "slug": "what-is-a-vpn-and-does-it-really-protect-you",
+    "category": "beginner",
+    "url": "/beginner/what-is-a-vpn-and-does-it-really-protect-you.html",
+    "description": "Learn what VPNs really do and don't protect you from. Complete beginner's guide to VPN security, privacy benefits, limitations, and choosing the right provider.",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "Bug bounty hunting: how to make money finding vulnerabilities",
+    "slug": "bug-bounty-hunting-how-to-make-money-finding-vulnerabilities",
+    "category": "news",
+    "url": "/news/bug-bounty-hunting-how-to-make-money-finding-vulnerabilities.html",
+    "description": "Learn how to start bug bounty hunting and make money finding vulnerabilities. Complete beginner's guide with tools, techniques, and real earning strategies.",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "CISSP vs CISM: which certification is right for you",
+    "slug": "cissp-vs-cism-which-certification-is-right-for-you",
+    "category": "certifications",
+    "url": "/certifications/cissp-vs-cism-which-certification-is-right-for-you.html",
+    "description": "CISSP vs CISM comparison guide for 2024. Learn the differences, requirements, career paths, and salaries to choose the right cybersecurity certification.",
     "date": "2026-03-16"
   }
 ]
