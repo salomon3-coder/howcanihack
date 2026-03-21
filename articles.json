@@ -1,5 +1,13 @@
 [
   {
+    "title": "DNS Security and Attack Techniques: Understanding DNS Spoofing, Cache Poisoning, and Tunneling",
+    "slug": "dns-security-and-attack-techniques-understanding-dns-spoofing-cache-poisoning-and-tunneling",
+    "category": "tutorials",
+    "url": "/tutorials/dns-security-and-attack-techniques-understanding-dns-spoofing-cache-poisoning-and-tunneling.html",
+    "description": "Learn DNS security fundamentals including spoofing, cache poisoning, and tunneling attacks. Comprehensive guide with practical examples and mitigation strategies.",
+    "date": "2026-03-21"
+  },
+  {
     "title": "Understanding Social Engineering Attacks: How Hackers Manipulate Human Psychology",
     "slug": "understanding-social-engineering-attacks-how-hackers-manipulate-human-psychology",
     "category": "beginner",
@@ -320,7 +328,7 @@
     "date": "2026-03-16"
   },
   {
-    "title": "How to use Nmap for network scanning — beginner guide",
+    "title": "How to use Nmap for network scanning \u2014 beginner guide",
     "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
     "category": "beginner",
     "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
