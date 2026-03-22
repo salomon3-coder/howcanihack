@@ -1,5 +1,13 @@
 [
   {
+    "title": "LDAP Injection Attacks: How to Exploit and Secure Directory Services",
+    "slug": "ldap-injection-attacks-how-to-exploit-and-secure-directory-services",
+    "category": "tutorials",
+    "url": "/tutorials/ldap-injection-attacks-how-to-exploit-and-secure-directory-services.html",
+    "description": "Learn LDAP injection attack techniques and defense strategies. Complete guide covering exploitation methods, testing approaches, and security best practices.",
+    "date": "2026-03-22"
+  },
+  {
     "title": "DNS Security and Attack Techniques: Understanding DNS Spoofing, Cache Poisoning, and Tunneling",
     "slug": "dns-security-and-attack-techniques-understanding-dns-spoofing-cache-poisoning-and-tunneling",
     "category": "tutorials",
