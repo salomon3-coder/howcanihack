@@ -1,5 +1,13 @@
 [
   {
+    "title": "SMTP Relay Attacks and Email Security: How Hackers Exploit Mail Servers",
+    "slug": "smtp-relay-attacks-and-email-security-how-hackers-exploit-mail-servers",
+    "category": "tutorials",
+    "url": "/tutorials/smtp-relay-attacks-and-email-security-how-hackers-exploit-mail-servers.html",
+    "description": "Learn how hackers exploit SMTP relay vulnerabilities for spam and phishing attacks. Complete guide to email server security, detection, and prevention.",
+    "date": "2026-03-22"
+  },
+  {
     "title": "LDAP Injection Attacks: How to Exploit and Secure Directory Services",
     "slug": "ldap-injection-attacks-how-to-exploit-and-secure-directory-services",
     "category": "tutorials",
