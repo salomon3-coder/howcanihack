@@ -1,5 +1,13 @@
 [
   {
+    "title": "SNMP Security: How to Exploit and Secure Simple Network Management Protocol",
+    "slug": "snmp-security-how-to-exploit-and-secure-simple-network-management-protocol",
+    "category": "tutorials",
+    "url": "/tutorials/snmp-security-how-to-exploit-and-secure-simple-network-management-protocol.html",
+    "description": "Learn SNMP security fundamentals, exploitation techniques, and hardening strategies. Complete guide to securing Simple Network Management Protocol.",
+    "date": "2026-03-23"
+  },
+  {
     "title": "SIEM Security Information and Event Management: How to Set Up Splunk for Threat Detection and Log Analysis",
     "slug": "siem-security-information-and-event-management-how-to-set-up-splunk-for-threat-detection-and-log-analysis",
     "category": "tutorials",
