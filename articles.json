@@ -1,5 +1,13 @@
 [
   {
+    "title": "SIEM Security Information and Event Management: How to Set Up Splunk for Threat Detection and Log Analysis",
+    "slug": "siem-security-information-and-event-management-how-to-set-up-splunk-for-threat-detection-and-log-analysis",
+    "category": "tutorials",
+    "url": "/tutorials/siem-security-information-and-event-management-how-to-set-up-splunk-for-threat-detection-and-log-analysis.html",
+    "description": "Learn how to set up Splunk SIEM for effective threat detection and log analysis. Complete guide with practical examples, searches, and security configurations.",
+    "date": "2026-03-23"
+  },
+  {
     "title": "Docker Container Security: Common Misconfigurations and How to Exploit Them",
     "slug": "docker-container-security-common-misconfigurations-and-how-to-exploit-them",
     "category": "tutorials",
