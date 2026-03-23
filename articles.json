@@ -1,5 +1,13 @@
 [
   {
+    "title": "AWS IAM Privilege Escalation: How to Exploit and Secure Cloud Identity Permissions",
+    "slug": "aws-iam-privilege-escalation-how-to-exploit-and-secure-cloud-identity-permissions",
+    "category": "tutorials",
+    "url": "/tutorials/aws-iam-privilege-escalation-how-to-exploit-and-secure-cloud-identity-permissions.html",
+    "description": "Learn AWS IAM privilege escalation techniques, detection methods, and security best practices. Complete guide with practical examples for cybersecurity professionals.",
+    "date": "2026-03-23"
+  },
+  {
     "title": "SNMP Security: How to Exploit and Secure Simple Network Management Protocol",
     "slug": "snmp-security-how-to-exploit-and-secure-simple-network-management-protocol",
     "category": "tutorials",
