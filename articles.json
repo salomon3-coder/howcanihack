@@ -1,5 +1,13 @@
 [
   {
+    "title": "SCADA and Industrial Control Systems Security: How to Identify and Exploit OT Network Vulnerabilities",
+    "slug": "scada-and-industrial-control-systems-security-how-to-identify-and-exploit-ot-network-vulnerabilities",
+    "category": "tutorials",
+    "url": "/tutorials/scada-and-industrial-control-systems-security-how-to-identify-and-exploit-ot-network-vulnerabilities.html",
+    "description": "Learn to identify and exploit SCADA and industrial control system vulnerabilities. Comprehensive guide to OT network security assessment and penetration testing.",
+    "date": "2026-03-24"
+  },
+  {
     "title": "BGP Hijacking Attacks: How Internet Routing Can Be Exploited and Secured",
     "slug": "bgp-hijacking-attacks-how-internet-routing-can-be-exploited-and-secured",
     "category": "tutorials",
