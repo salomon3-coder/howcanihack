@@ -1,5 +1,13 @@
 [
   {
+    "title": "SAML Authentication Bypass Attacks: How to Exploit and Secure Single Sign-On Systems",
+    "slug": "saml-authentication-bypass-attacks-how-to-exploit-and-secure-single-sign-on-systems",
+    "category": "tutorials",
+    "url": "/tutorials/saml-authentication-bypass-attacks-how-to-exploit-and-secure-single-sign-on-systems.html",
+    "description": "Learn how SAML authentication bypass attacks work and discover practical techniques to exploit and secure single sign-on systems in this comprehensive guide.",
+    "date": "2026-03-24"
+  },
+  {
     "title": "AWS IAM Privilege Escalation: How to Exploit and Secure Cloud Identity Permissions",
     "slug": "aws-iam-privilege-escalation-how-to-exploit-and-secure-cloud-identity-permissions",
     "category": "tutorials",
