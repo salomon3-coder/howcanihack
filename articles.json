@@ -1,5 +1,13 @@
 [
   {
+    "title": "BGP Hijacking Attacks: How Internet Routing Can Be Exploited and Secured",
+    "slug": "bgp-hijacking-attacks-how-internet-routing-can-be-exploited-and-secured",
+    "category": "tutorials",
+    "url": "/tutorials/bgp-hijacking-attacks-how-internet-routing-can-be-exploited-and-secured.html",
+    "description": "",
+    "date": "2026-03-24"
+  },
+  {
     "title": "SAML Authentication Bypass Attacks: How to Exploit and Secure Single Sign-On Systems",
     "slug": "saml-authentication-bypass-attacks-how-to-exploit-and-secure-single-sign-on-systems",
     "category": "tutorials",
