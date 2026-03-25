@@ -1,5 +1,13 @@
 [
   {
+    "title": "IPv6 Security Fundamentals: How to Exploit and Secure Next-Generation Internet Protocol",
+    "slug": "ipv6-security-fundamentals-how-to-exploit-and-secure-next-generation-internet-protocol",
+    "category": "tutorials",
+    "url": "/tutorials/ipv6-security-fundamentals-how-to-exploit-and-secure-next-generation-internet-protocol.html",
+    "description": "Master IPv6 security fundamentals with practical attack techniques and defense strategies. Learn reconnaissance, NDP attacks, and essential IPv6 security controls.",
+    "date": "2026-03-25"
+  },
+  {
     "title": "Kubernetes Security Fundamentals: How to Secure Container Orchestration and Detect Common Misconfigurations",
     "slug": "kubernetes-security-fundamentals-how-to-secure-container-orchestration-and-detect-common-misconfigurations",
     "category": "tutorials",
