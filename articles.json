@@ -1,5 +1,13 @@
 [
   {
+    "title": "RADIUS Authentication Attacks: How to Exploit and Secure Network Access Control",
+    "slug": "radius-authentication-attacks-how-to-exploit-and-secure-network-access-control",
+    "category": "tutorials",
+    "url": "/tutorials/radius-authentication-attacks-how-to-exploit-and-secure-network-access-control.html",
+    "description": "Learn RADIUS authentication attacks, exploitation techniques, and defense strategies. Complete guide with practical commands for cybersecurity professionals.",
+    "date": "2026-03-25"
+  },
+  {
     "title": "SCADA and Industrial Control Systems Security: How to Identify and Exploit OT Network Vulnerabilities",
     "slug": "scada-and-industrial-control-systems-security-how-to-identify-and-exploit-ot-network-vulnerabilities",
     "category": "tutorials",
