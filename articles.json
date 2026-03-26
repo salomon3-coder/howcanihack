@@ -1,5 +1,13 @@
 [
   {
+    "title": "MQTT Security: How to Exploit and Secure IoT Message Queuing Protocol",
+    "slug": "mqtt-security-how-to-exploit-and-secure-iot-message-queuing-protocol",
+    "category": "tutorials",
+    "url": "/tutorials/mqtt-security-how-to-exploit-and-secure-iot-message-queuing-protocol.html",
+    "description": "Learn to exploit and secure MQTT IoT protocols. Complete guide covering reconnaissance, attacks, and defense strategies for cybersecurity professionals.",
+    "date": "2026-03-26"
+  },
+  {
     "title": "Certificate Transparency Logs: How to Monitor SSL/TLS Certificates for Threat Intelligence and Subdomain Discovery",
     "slug": "certificate-transparency-logs-how-to-monitor-ssl-tls-certificates-for-threat-intelligence-and-subdomain-discovery",
     "category": "tutorials",
