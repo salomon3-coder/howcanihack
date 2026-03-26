@@ -1,18 +1,18 @@
 [
   {
+    "title": "PowerShell Empire Post-Exploitation Framework: How to Use and Defend Against Advanced Persistence Techniques",
+    "slug": "powershell-empire-post-exploitation-framework-how-to-use-and-defend-against-advanced-persistence-techniques",
+    "category": "tools",
+    "url": "/tools/powershell-empire-post-exploitation-framework-how-to-use-and-defend-against-advanced-persistence-techniques.html",
+    "description": "Learn PowerShell Empire post-exploitation framework: setup, usage, persistence techniques, and essential defense strategies for cybersecurity professionals.",
+    "date": "2026-03-26"
+  },
+  {
     "title": "IPv6 Security Fundamentals: How to Exploit and Secure Next-Generation Internet Protocol",
     "slug": "ipv6-security-fundamentals-how-to-exploit-and-secure-next-generation-internet-protocol",
     "category": "tutorials",
     "url": "/tutorials/ipv6-security-fundamentals-how-to-exploit-and-secure-next-generation-internet-protocol.html",
     "description": "Master IPv6 security fundamentals with practical attack techniques and defense strategies. Learn reconnaissance, NDP attacks, and essential IPv6 security controls.",
-    "date": "2026-03-25"
-  },
-  {
-    "title": "Kubernetes Security Fundamentals: How to Secure Container Orchestration and Detect Common Misconfigurations",
-    "slug": "kubernetes-security-fundamentals-how-to-secure-container-orchestration-and-detect-common-misconfigurations",
-    "category": "tutorials",
-    "url": "/tutorials/kubernetes-security-fundamentals-how-to-secure-container-orchestration-and-detect-common-misconfigurations.html",
-    "description": "",
     "date": "2026-03-25"
   },
   {
@@ -24,6 +24,14 @@
     "date": "2026-03-25"
   },
   {
+    "title": "Kubernetes Security Fundamentals: How to Secure Container Orchestration and Detect Common Misconfigurations",
+    "slug": "kubernetes-security-fundamentals-how-to-secure-container-orchestration-and-detect-common-misconfigurations",
+    "category": "tutorials",
+    "url": "/tutorials/kubernetes-security-fundamentals-how-to-secure-container-orchestration-and-detect-common-misconfigurations.html",
+    "description": "",
+    "date": "2026-03-25"
+  },
+  {
     "title": "SCADA and Industrial Control Systems Security: How to Identify and Exploit OT Network Vulnerabilities",
     "slug": "scada-and-industrial-control-systems-security-how-to-identify-and-exploit-ot-network-vulnerabilities",
     "category": "tutorials",
@@ -32,19 +40,19 @@
     "date": "2026-03-24"
   },
   {
-    "title": "BGP Hijacking Attacks: How Internet Routing Can Be Exploited and Secured",
-    "slug": "bgp-hijacking-attacks-how-internet-routing-can-be-exploited-and-secured",
-    "category": "tutorials",
-    "url": "/tutorials/bgp-hijacking-attacks-how-internet-routing-can-be-exploited-and-secured.html",
-    "description": "",
-    "date": "2026-03-24"
-  },
-  {
     "title": "SAML Authentication Bypass Attacks: How to Exploit and Secure Single Sign-On Systems",
     "slug": "saml-authentication-bypass-attacks-how-to-exploit-and-secure-single-sign-on-systems",
     "category": "tutorials",
     "url": "/tutorials/saml-authentication-bypass-attacks-how-to-exploit-and-secure-single-sign-on-systems.html",
     "description": "Learn how SAML authentication bypass attacks work and discover practical techniques to exploit and secure single sign-on systems in this comprehensive guide.",
+    "date": "2026-03-24"
+  },
+  {
+    "title": "BGP Hijacking Attacks: How Internet Routing Can Be Exploited and Secured",
+    "slug": "bgp-hijacking-attacks-how-internet-routing-can-be-exploited-and-secured",
+    "category": "tutorials",
+    "url": "/tutorials/bgp-hijacking-attacks-how-internet-routing-can-be-exploited-and-secured.html",
+    "description": "",
     "date": "2026-03-24"
   },
   {
@@ -72,14 +80,6 @@
     "date": "2026-03-23"
   },
   {
-    "title": "Docker Container Security: Common Misconfigurations and How to Exploit Them",
-    "slug": "docker-container-security-common-misconfigurations-and-how-to-exploit-them",
-    "category": "tutorials",
-    "url": "/tutorials/docker-container-security-common-misconfigurations-and-how-to-exploit-them.html",
-    "description": "",
-    "date": "2026-03-22"
-  },
-  {
     "title": "SMTP Relay Attacks and Email Security: How Hackers Exploit Mail Servers",
     "slug": "smtp-relay-attacks-and-email-security-how-hackers-exploit-mail-servers",
     "category": "tutorials",
@@ -93,6 +93,14 @@
     "category": "tutorials",
     "url": "/tutorials/ldap-injection-attacks-how-to-exploit-and-secure-directory-services.html",
     "description": "Learn LDAP injection attack techniques and defense strategies. Complete guide covering exploitation methods, testing approaches, and security best practices.",
+    "date": "2026-03-22"
+  },
+  {
+    "title": "Docker Container Security: Common Misconfigurations and How to Exploit Them",
+    "slug": "docker-container-security-common-misconfigurations-and-how-to-exploit-them",
+    "category": "tutorials",
+    "url": "/tutorials/docker-container-security-common-misconfigurations-and-how-to-exploit-them.html",
+    "description": "",
     "date": "2026-03-22"
   },
   {
@@ -544,7 +552,7 @@
     "date": "2026-03-16"
   },
   {
-    "title": "How to use Nmap for network scanning — beginner guide",
+    "title": "How to use Nmap for network scanning \u2014 beginner guide",
     "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
     "category": "beginner",
     "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
