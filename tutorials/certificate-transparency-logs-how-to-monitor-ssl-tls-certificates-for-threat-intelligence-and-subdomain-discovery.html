@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4579344894934796" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-047Q5LKQHS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-047Q5LKQHS');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate Transparency Logs: How to Monitor SSL/TLS Certificates for Threat Intelligence and Subdomain Discovery | HowCanIHack.com</title>
+  <meta name="description" content="Learn to use Certificate Transparency logs for subdomain discovery, threat intelligence, and SSL/TLS monitoring. Practical guide with tools and commands." />
+  <meta property="og:title" content="Certificate Transparency Logs: How to Monitor SSL/TLS Certificates for Threat Intelligence and Subdomain Discovery" />
+  <meta property="og:description" content="Learn to use Certificate Transparency logs for subdomain discovery, threat intelligence, and SSL/TLS monitoring. Practical guide with tools and commands." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://howcanihack.com/tutorials/certificate-transparency-logs-how-to-monitor-ssl-tls-certificates-for-threat-intelligence-and-subdomain-discovery.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628; --blue: #1d4ed8; --sky: #dbeafe;
+      --gray50: #f8fafc; --gray100: #f1f5f9; --gray200: #e2e8f0;
+      --gray600: #475569; --text: #0f172a;
+      --mono: 'JetBrains Mono', monospace;
+      --serif: 'DM Serif Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    body { font-family: var(--sans); color: var(--text); background: #fff; }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray200);
+      padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--mono); font-size: 1rem; font-weight: 600;
+      color: var(--navy); text-decoration: none;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-home { font-size: 0.875rem; color: var(--gray600); text-decoration: none; }
+    .nav-home:hover { color: var(--blue); }
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .article-meta {
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .tag {
+      display: inline-block; background: var(--sky); color: var(--blue);
+      font-size: 0.7rem; font-weight: 600; font-family: var(--mono);
+      padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase;
+    }
+    .date { font-family: var(--mono); font-size: 0.78rem; color: var(--gray600); }
+    h1 {
+      font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--navy); line-height: 1.15; margin-bottom: 1.5rem;
+    }
+    .lead {
+      font-size: 1.15rem; color: var(--gray600); line-height: 1.8;
+      margin-bottom: 2.5rem; border-left: 3px solid var(--blue);
+      padding-left: 1.25rem;
+    }
+    h2 {
+      font-family: var(--serif); font-size: 1.6rem; color: var(--navy);
+      margin: 2.5rem 0 1rem;
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin: 1.5rem 0 0.75rem; }
+    p { line-height: 1.8; color: #334155; margin-bottom: 1.25rem; }
+    pre {
+      background: var(--navy); color: #e2e8f0; border-radius: 10px;
+      padding: 1.5rem; overflow-x: auto; margin: 1.5rem 0;
+      font-family: var(--mono); font-size: 0.85rem; line-height: 1.7;
+    }
+    code { font-family: var(--mono); font-size: 0.875em; background: var(--sky); color: var(--blue); padding: 0.1em 0.4em; border-radius: 3px; }
+    pre code { background: none; color: inherit; padding: 0; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    li { line-height: 1.8; color: #334155; margin-bottom: 0.4rem; }
+    .cta-box {
+      background: var(--navy); border-radius: 12px; padding: 2rem;
+      text-align: center; margin: 3rem 0;
+    }
+    .cta-box p { color: #94a3b8; margin-bottom: 1rem; }
+    .cta-box a {
+      background: var(--blue); color: #fff; text-decoration: none;
+      padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: var(--navy); color: #94a3b8;
+      text-align: center; padding: 2rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: #94a3b8; text-decoration: none; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><span>[</span>howcanihack<span>]</span></a>
+  <a href="/" class="nav-home">← Back to Home</a>
+</nav>
+
+<article class="article-wrap">
+  <div class="article-meta">
+    <span class="tag">tutorials</span>
+    <span class="date">March 26, 2026</span>
+    <span class="date">7 min read</span>
+  </div>
+
+  <h1>Certificate Transparency Logs: How to Monitor SSL/TLS Certificates for Threat Intelligence and Subdomain Discovery</h1>
+
+<p class="lead">Certificate Transparency (CT) logs are public, append-only records of SSL/TLS certificates that provide a goldmine of intelligence for cybersecurity professionals. Learn how to leverage these logs for threat hunting, subdomain enumeration, and monitoring your organization's digital footprint.</p>
+
+<p>In today's digital landscape, SSL/TLS certificates are everywhere – securing websites, APIs, internal services, and more. But did you know that most of these certificates are publicly logged in searchable databases? Certificate Transparency logs were created to increase accountability and security in the certificate ecosystem, but they've become invaluable tools for cybersecurity practitioners.</p>
+
+<p>Whether you're a penetration tester looking for attack surfaces, a threat intelligence analyst tracking malicious infrastructure, or a security professional monitoring your organization's certificate usage, CT logs offer unprecedented visibility into the SSL/TLS certificate landscape.</p>
+
+<h2>Understanding Certificate Transparency Logs</h2>
+
+<p>Certificate Transparency is a framework designed to remedy certificate-based threats by making the issuance and existence of SSL certificates open to scrutiny by domain owners, certificate authorities (CAs), and domain name system (DNS) operators.</p>
+
+<p>When a certificate authority issues an SSL/TLS certificate, it's typically logged to one or more CT logs within hours. These logs contain:</p>
+
+<ul>
+<li><strong>Domain names and subdomains</strong> covered by the certificate</li>
+<li><strong>Certificate authority</strong> that issued the certificate</li>
+<li><strong>Issuance timestamp</strong> showing when the certificate was created</li>
+<li><strong>Certificate details</strong> including validity period and technical specifications</li>
+<li><strong>Organization information</strong> (for validated certificates)</li>
+</ul>
+
+<p>The beauty of CT logs lies in their public nature – anyone can query them without authentication, making them perfect for reconnaissance and monitoring activities.</p>
+
+<h2>Tools and Techniques for Querying CT Logs</h2>
+
+<p>Several online tools and command-line utilities make it easy to search Certificate Transparency logs. Let's explore the most effective methods:</p>
+
+<h3>Online CT Log Search Engines</h3>
+
+<p><strong>crt.sh</strong> is probably the most popular CT log search engine. You can search for certificates by domain name, organization, or certificate fingerprint. The interface is simple but powerful:</p>
+
+<ul>
+<li>Search for <code>example.com</code> to find certificates for that exact domain</li>
+<li>Use <code>%.example.com</code> to find all subdomains of example.com</li>
+<li>Search by organization name to find all certificates issued to a company</li>
+</ul>
+
+<p><strong>Censys</strong> provides more advanced filtering capabilities and API access, making it excellent for automated monitoring and bulk analysis.</p>
+
+<h3>Command-Line Tools</h3>
+
+<p>For automation and integration into security workflows, command-line tools are essential. Here are some practical examples:</p>
+
+<p><strong>Using curl with crt.sh API:</strong></p>
+
+<pre><code># Search for all subdomains of example.com
+curl -s "https://crt.sh/?q=%.example.com&output=json" | jq -r '.[].name_value' | sort -u
+
+# Search for certificates issued in the last 30 days
+curl -s "https://crt.sh/?q=example.com&output=json" | jq -r '.[] | select(.not_before > (now - 30*24*3600 | strftime("%Y-%m-%dT%H:%M:%S"))) | .name_value'</code></pre>
+
+<p><strong>Using specialized tools like ctfr:</strong></p>
+
+<pre><code># Install ctfr
+pip3 install ctfr
+
+# Search for subdomains
+ctfr -d example.com -o subdomains.txt</code></pre>
+
+<h3>Python Automation</h3>
+
+<p>For more complex analysis, Python scripts can automate CT log monitoring:</p>
+
+<pre><code>import requests
+import json
+import time
+
+def monitor_new_certificates(domain):
+    url = f"https://crt.sh/?q=%.{domain}&output=json"
+    
+    try:
+        response = requests.get(url)
+        certificates = response.json()
+        
+        for cert in certificates:
+            print(f"Domain: {cert['name_value']}")
+            print(f"Issued by: {cert['issuer_name']}")
+            print(f"Not before: {cert['not_before']}")
+            print("---")
+            
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Monitor certificates for your domain
+monitor_new_certificates("yourdomain.com")</code></pre>
+
+<h2>Practical Applications for Cybersecurity</h2>
+
+<p>Certificate Transparency logs serve multiple purposes in cybersecurity operations. Here's how to leverage them effectively:</p>
+
+<h3>Subdomain Discovery and Attack Surface Mapping</h3>
+
+<p>One of the most common uses of CT logs is discovering subdomains that might not be found through traditional DNS enumeration. Many organizations have internal services, staging environments, or forgotten subdomains that only become visible through certificate logs.</p>
+
+<pre><code># Comprehensive subdomain discovery
+curl -s "https://crt.sh/?q=%.target.com&output=json" | \
+jq -r '.[].name_value' | \
+sed 's/\*\.//g' | \
+sort -u | \
+grep -v "^$" > discovered_subdomains.txt
+
+# Check which subdomains are actually reachable
+while read subdomain; do
+    if curl -s --connect-timeout 3 "https://$subdomain" > /dev/null; then
+        echo "$subdomain is reachable"
+    fi
+done < discovered_subdomains.txt</code></pre>
+
+<h3>Threat Intelligence and Malicious Infrastructure Tracking</h3>
+
+<p>Security analysts can monitor CT logs to identify suspicious certificate patterns:</p>
+
+<ul>
+<li><strong>Typosquatting domains</strong> that mimic legitimate brands</li>
+<li><strong>Suspicious certificate authorities</strong> or unusual issuance patterns</li>
+<li><strong>Rapid certificate generation</strong> which might indicate automated malicious activity</li>
+<li><strong>Certificates for known malicious domains</strong> or IP addresses</li>
+</ul>
+
+<h3>Brand Protection and Monitoring</h3>
+
+<p>Organizations can set up automated monitoring to detect:</p>
+
+<ul>
+<li>Unauthorized certificates issued for their domains</li>
+<li>Potential phishing sites using similar domain names</li>
+<li>Shadow IT services that might pose security risks</li>
+<li>Certificate expiration tracking for critical services</li>
+</ul>
+
+<pre><code># Monitor for potential typosquatting
+domain="yourcompany.com"
+suspicious_patterns=("$domain" "${domain/company/compnay}" "${domain/.com/.net}")
+
+for pattern in "${suspicious_patterns[@]}"; do
+    echo "Checking pattern: $pattern"
+    curl -s "https://crt.sh/?q=%.$pattern&output=json" | \
+    jq -r '.[].name_value' | \
+    sort -u
+done</code></pre>
+
+<h2>Advanced Monitoring and Alerting</h2>
+
+<p>To maximize the value of CT log monitoring, implement continuous surveillance rather than one-off searches. Here's how to set up effective monitoring:</p>
+
+<h3>Automated Monitoring Scripts</h3>
+
+<p>Create scripts that run periodically to check for new certificates:</p>
+
+<pre><code>#!/bin/bash
+# ct-monitor.sh - Monitor for new certificates
+
+DOMAIN="example.com"
+LAST_RUN_FILE="/tmp/ct_last_run"
+CURRENT_TIME=$(date +%s)
+
+# Get timestamp from last run (default to 24 hours ago)
+if [ -f "$LAST_RUN_FILE" ]; then
+    LAST_RUN=$(cat "$LAST_RUN_FILE")
+else
+    LAST_RUN=$((CURRENT_TIME - 86400))
+fi
+
+# Query CT logs for new certificates
+NEW_CERTS=$(curl -s "https://crt.sh/?q=%.$DOMAIN&output=json" | \
+jq -r --arg since "$(date -d @$LAST_RUN '+%Y-%m-%d')" \
+'[.[] | select(.not_before > $since)] | unique_by(.name_value) | .[].name_value')
+
+if [ ! -z "$NEW_CERTS" ]; then
+    echo "New certificates found:"
+    echo "$NEW_CERTS"
+    # Send alert (email, Slack, etc.)
+fi
+
+# Update last run timestamp
+echo "$CURRENT_TIME" > "$LAST_RUN_FILE"</code></pre>
+
+<h3>Integration with Security Tools</h3>
+
+<p>CT log data can be integrated into broader security monitoring workflows:</p>
+
+<ul>
+<li><strong>SIEM integration:</strong> Feed certificate data into security information and event management systems</li>
+<li><strong>Threat hunting:</strong> Correlate certificate issuance with other suspicious activities</li>
+<li><strong>Asset management:</strong> Keep inventory of organizational certificates and their expiration dates</li>
+</ul>
+
+<h2>Best Practices and Considerations</h2>
+
+<p>When working with Certificate Transparency logs, keep these important points in mind:</p>
+
+<p><strong>Rate Limiting:</strong> Most CT log APIs have rate limits. Implement appropriate delays and respect these limits to avoid being blocked.</p>
+
+<p><strong>Data Lag:</strong> There can be a delay between certificate issuance and appearance in CT logs, typically ranging from minutes to hours.</p>
+
+<p><strong>False Positives:</strong> Not all certificates in CT logs represent active services. Always verify that discovered subdomains are actually reachable.</p>
+
+<p><strong>Privacy Considerations:</strong> Remember that CT logs are public. Any certificate you request will be visible to others, which might reveal information about your infrastructure.</p>
+
+<h2>Conclusion and Next Steps</h2>
+
+<p>Certificate Transparency logs represent one of the most valuable open-source intelligence resources available to cybersecurity professionals. They provide unprecedented visibility into SSL/TLS certificate issuance patterns, enabling effective subdomain discovery, threat intelligence gathering, and security monitoring.</p>
+
+<p>To get started with CT log monitoring:</p>
+
+<ol>
+<li><strong>Begin with manual exploration</strong> using crt.sh to understand what certificate data is available for your targets</li>
+<li><strong>Automate your searches</strong> using the command-line techniques and scripts provided in this guide</li>
+<li><strong>Set up continuous monitoring</strong> for your organization's domains and key competitors or threat actors</li>
+<li><strong>Integrate CT log data</strong> into your existing security workflows and tools</li>
+<li><strong>Develop custom analysis</strong> based on your specific use cases and threat model</li>
+</ol>
+
+<p>As you become more comfortable with CT logs, consider exploring advanced techniques like correlating certificate data with DNS records, analyzing certificate authority trust patterns, and building comprehensive threat intelligence feeds. The transparency that makes these logs valuable for security also makes them an essential tool in any cybersecurity professional's toolkit.</p>
+
+  <div class="cta-box">
+    <p>Want more cybersecurity tutorials delivered to your inbox?</p>
+    <a href="/#newsletter">Subscribe Free →</a>
+  </div>
+</article>
+
+<footer>
+  <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>
+</footer>
+</body>
+</html>

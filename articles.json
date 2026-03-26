@@ -1,5 +1,13 @@
 [
   {
+    "title": "Certificate Transparency Logs: How to Monitor SSL/TLS Certificates for Threat Intelligence and Subdomain Discovery",
+    "slug": "certificate-transparency-logs-how-to-monitor-ssl-tls-certificates-for-threat-intelligence-and-subdomain-discovery",
+    "category": "tutorials",
+    "url": "/tutorials/certificate-transparency-logs-how-to-monitor-ssl-tls-certificates-for-threat-intelligence-and-subdomain-discovery.html",
+    "description": "Learn to use Certificate Transparency logs for subdomain discovery, threat intelligence, and SSL/TLS monitoring. Practical guide with tools and commands.",
+    "date": "2026-03-26"
+  },
+  {
     "title": "PowerShell Empire Post-Exploitation Framework: How to Use and Defend Against Advanced Persistence Techniques",
     "slug": "powershell-empire-post-exploitation-framework-how-to-use-and-defend-against-advanced-persistence-techniques",
     "category": "tools",
