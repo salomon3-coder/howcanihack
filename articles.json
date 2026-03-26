@@ -136,14 +136,6 @@
     "date": "2026-03-20"
   },
   {
-    "title": "Nmap Complete Guide: Network Discovery and Port Scanning for Beginners",
-    "slug": "nmap-complete-guide-network-discovery-and-port-scanning-for-beginners",
-    "category": "tools",
-    "url": "/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html",
-    "description": "",
-    "date": "2026-03-20"
-  },
-  {
     "title": "Nmap Complete Guide: Network Discovery and Port Scanning for Security Testing",
     "slug": "nmap-complete-guide-network-discovery-and-port-scanning-for-security-testing",
     "category": "tools",
@@ -168,22 +160,6 @@
     "date": "2026-03-19"
   },
   {
-    "title": "SQL Injection Attacks: Complete Guide with Prevention Techniques",
-    "slug": "sql-injection-attacks-complete-guide-with-prevention-techniques",
-    "category": "tutorials",
-    "url": "/tutorials/sql-injection-attacks-complete-guide-with-prevention-techniques.html",
-    "description": "Master SQL injection attacks and prevention with our complete guide. Learn attack techniques, real examples, and proven security methods for developers.",
-    "date": "2026-03-18"
-  },
-  {
-    "title": "How to Use Burp Suite for Web Application Security Testing",
-    "slug": "how-to-use-burp-suite-for-web-application-security-testing",
-    "category": "tools",
-    "url": "/tools/how-to-use-burp-suite-for-web-application-security-testing.html",
-    "description": "",
-    "date": "2026-03-18"
-  },
-  {
     "title": "How to Create a Home Cybersecurity Lab for Hands-On Practice",
     "slug": "how-to-create-a-home-cybersecurity-lab-for-hands-on-practice",
     "category": "tutorials",
@@ -192,43 +168,19 @@
     "date": "2026-03-18"
   },
   {
-    "title": "Cross-Site Scripting (XSS) Attacks Explained with Real Examples",
-    "slug": "cross-site-scripting-xss-attacks-explained-with-real-examples",
-    "category": "tutorials",
-    "url": "/tutorials/cross-site-scripting-xss-attacks-explained-with-real-examples.html",
-    "description": "",
-    "date": "2026-03-18"
-  },
-  {
-    "title": "How to Use Nmap for Network Discovery and Port Scanning",
-    "slug": "how-to-use-nmap-for-network-discovery-and-port-scanning",
-    "category": "tools",
-    "url": "/tools/how-to-use-nmap-for-network-discovery-and-port-scanning.html",
-    "description": "",
-    "date": "2026-03-18"
-  },
-  {
-    "title": "Cross-Site Scripting (XSS) Attacks: Types, Detection, and Prevention",
-    "slug": "cross-site-scripting-xss-attacks-types-detection-and-prevention",
-    "category": "tutorials",
-    "url": "/tutorials/cross-site-scripting-xss-attacks-types-detection-and-prevention.html",
-    "description": "",
-    "date": "2026-03-18"
-  },
-  {
-    "title": "How to Set Up and Use Wireshark for Network Traffic Analysis",
-    "slug": "how-to-set-up-and-use-wireshark-for-network-traffic-analysis",
-    "category": "tools",
-    "url": "/tools/how-to-set-up-and-use-wireshark-for-network-traffic-analysis.html",
-    "description": "",
-    "date": "2026-03-18"
-  },
-  {
     "title": "Windows privilege escalation for beginners",
     "slug": "windows-privilege-escalation-for-beginners",
     "category": "tutorials",
     "url": "/tutorials/windows-privilege-escalation-for-beginners.html",
     "description": "Learn Windows privilege escalation techniques for beginners. Complete guide covering enumeration, common exploits, tools, and defense strategies for cybersecurity.",
+    "date": "2026-03-18"
+  },
+  {
+    "title": "Cross-Site Scripting (XSS) Attacks Explained with Real Examples",
+    "slug": "cross-site-scripting-xss-attacks-explained-with-real-examples",
+    "category": "tutorials",
+    "url": "/tutorials/cross-site-scripting-xss-attacks-explained-with-real-examples.html",
+    "description": "",
     "date": "2026-03-18"
   },
   {
@@ -261,14 +213,6 @@
     "category": "cve",
     "url": "/cve/cve-2024-20353-cisco-asa-denial-of-service-vulnerability.html",
     "description": "Complete guide to CVE-2024-20353 Cisco ASA DoS vulnerability: detection, exploitation details, mitigation strategies, and protection methods for network security.",
-    "date": "2026-03-17"
-  },
-  {
-    "title": "CVE-2024-21413 Microsoft Outlook NTLM leak vulnerability",
-    "slug": "cve-2024-21413-microsoft-outlook-ntlm-leak-vulnerability",
-    "category": "cve",
-    "url": "/cve/cve-2024-21413-microsoft-outlook-ntlm-leak-vulnerability.html",
-    "description": "",
     "date": "2026-03-17"
   },
   {
@@ -416,20 +360,12 @@
     "date": "2026-03-17"
   },
   {
-    "title": "What is zero-day vulnerability and why it matters",
-    "slug": "what-is-zero-day-vulnerability-and-why-it-matters",
-    "category": "news",
-    "url": "/news/what-is-zero-day-vulnerability-and-why-it-matters.html",
+    "title": "CVE-2024-21413 Microsoft Outlook NTLM leak vulnerability",
+    "slug": "cve-2024-21413-microsoft-outlook-ntlm-leak-vulnerability",
+    "category": "cve",
+    "url": "/cve/cve-2024-21413-microsoft-outlook-ntlm-leak-vulnerability.html",
     "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Nmap for network scanning \u2014 beginner guide",
-    "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
-    "category": "beginner",
-    "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
-    "description": "",
-    "date": "2026-03-16"
+    "date": "2026-03-17"
   },
   {
     "title": "OSCP certification: complete roadmap and tips",
@@ -437,22 +373,6 @@
     "category": "certifications",
     "url": "/certifications/oscp-certification-complete-roadmap-and-tips.html",
     "description": "Complete OSCP certification roadmap for 2024. Learn exam prep strategies, essential tools, study timeline, and expert tips to pass this challenging cybersecurity cert.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "CTF competitions: how to get started and win",
-    "slug": "ctf-competitions-how-to-get-started-and-win",
-    "category": "tutorials",
-    "url": "/tutorials/ctf-competitions-how-to-get-started-and-win.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Top cybersecurity threats to watch in 2026",
-    "slug": "top-cybersecurity-threats-to-watch-in-2026",
-    "category": "news",
-    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
-    "description": "",
     "date": "2026-03-16"
   },
   {
@@ -544,38 +464,6 @@
     "date": "2026-03-16"
   },
   {
-    "title": "John the Ripper: password cracking tutorial",
-    "slug": "john-the-ripper-password-cracking-tutorial",
-    "category": "tools",
-    "url": "/tools/john-the-ripper-password-cracking-tutorial.html",
-    "description": "Learn John the Ripper password cracking with our comprehensive tutorial. Step-by-step guide covering installation, attacks, optimization for cybersecurity pros.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "What is social engineering and how to protect yourself",
-    "slug": "what-is-social-engineering-and-how-to-protect-yourself",
-    "category": "beginner",
-    "url": "/beginner/what-is-social-engineering-and-how-to-protect-yourself.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to build a home hacking lab for free",
-    "slug": "how-to-build-a-home-hacking-lab-for-free",
-    "category": "tutorials",
-    "url": "/tutorials/how-to-build-a-home-hacking-lab-for-free.html",
-    "description": "Learn to build a comprehensive cybersecurity hacking lab at home for free using VirtualBox, Kali Linux, and vulnerable VMs. Complete beginner's guide included.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Aircrack-ng: WiFi security testing guide",
-    "slug": "aircrack-ng-wifi-security-testing-guide",
-    "category": "tools",
-    "url": "/tools/aircrack-ng-wifi-security-testing-guide.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
     "title": "How to pass the CEH exam on your first try",
     "slug": "how-to-pass-the-ceh-exam-on-your-first-try",
     "category": "certifications",
@@ -589,38 +477,6 @@
     "category": "certifications",
     "url": "/certifications/comptia-security-study-guide-2026.html",
     "description": "Master CompTIA Security+ 2026 with our complete study guide covering exam objectives, practical examples, hands-on labs, and career preparation strategies.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Understanding firewalls: how they work and how to bypass them",
-    "slug": "understanding-firewalls-how-they-work-and-how-to-bypass-them",
-    "category": "beginner",
-    "url": "/beginner/understanding-firewalls-how-they-work-and-how-to-bypass-them.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Cross-site scripting (XSS): how it works and how to prevent it",
-    "slug": "cross-site-scripting-xss-how-it-works-and-how-to-prevent-it",
-    "category": "tutorials",
-    "url": "/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Gobuster for directory enumeration",
-    "slug": "how-to-use-gobuster-for-directory-enumeration",
-    "category": "tools",
-    "url": "/tools/how-to-use-gobuster-for-directory-enumeration.html",
-    "description": "Learn how to use Gobuster for directory enumeration in cybersecurity testing. Complete guide with commands, wordlists, and advanced techniques for beginners.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "SQL injection explained: from basics to exploitation",
-    "slug": "sql-injection-explained-from-basics-to-exploitation",
-    "category": "tutorials",
-    "url": "/tutorials/sql-injection-explained-from-basics-to-exploitation.html",
-    "description": "Complete guide to SQL injection attacks - learn detection, exploitation techniques, and prevention strategies. From basics to advanced SQLi methods.",
     "date": "2026-03-16"
   },
   {
@@ -640,14 +496,6 @@
     "date": "2026-03-16"
   },
   {
-    "title": "eJPT certification: best entry-level hacking cert",
-    "slug": "ejpt-certification-best-entry-level-hacking-cert",
-    "category": "certifications",
-    "url": "/certifications/ejpt-certification-best-entry-level-hacking-cert.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
     "title": "What is ethical hacking and how to get started",
     "slug": "what-is-ethical-hacking-and-how-to-get-started",
     "category": "beginner",
@@ -661,22 +509,6 @@
     "category": "beginner",
     "url": "/beginner/linux-basics-every-hacker-needs-to-know.html",
     "description": "Master essential Linux basics for cybersecurity. Learn file systems, commands, permissions, and scripting fundamentals every ethical hacker needs to know.",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "How to use Wireshark to analyze network traffic",
-    "slug": "how-to-use-wireshark-to-analyze-network-traffic",
-    "category": "beginner",
-    "url": "/beginner/how-to-use-wireshark-to-analyze-network-traffic.html",
-    "description": "",
-    "date": "2026-03-16"
-  },
-  {
-    "title": "Metasploit Framework: complete beginner guide",
-    "slug": "metasploit-framework-complete-beginner-guide",
-    "category": "tools",
-    "url": "/tools/metasploit-framework-complete-beginner-guide.html",
-    "description": "",
     "date": "2026-03-16"
   },
   {
@@ -701,6 +533,70 @@
     "category": "certifications",
     "url": "/certifications/cissp-vs-cism-which-certification-is-right-for-you.html",
     "description": "CISSP vs CISM comparison guide for 2024. Learn the differences, requirements, career paths, and salaries to choose the right cybersecurity certification.",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "What is zero-day vulnerability and why it matters",
+    "slug": "what-is-zero-day-vulnerability-and-why-it-matters",
+    "category": "news",
+    "url": "/news/what-is-zero-day-vulnerability-and-why-it-matters.html",
+    "description": "",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "How to use Nmap for network scanning — beginner guide",
+    "slug": "how-to-use-nmap-for-network-scanning-beginner-guide",
+    "category": "beginner",
+    "url": "/beginner/how-to-use-nmap-for-network-scanning-beginner-guide.html",
+    "description": "",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "CTF competitions: how to get started and win",
+    "slug": "ctf-competitions-how-to-get-started-and-win",
+    "category": "tutorials",
+    "url": "/tutorials/ctf-competitions-how-to-get-started-and-win.html",
+    "description": "",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "Top cybersecurity threats to watch in 2026",
+    "slug": "top-cybersecurity-threats-to-watch-in-2026",
+    "category": "news",
+    "url": "/news/top-cybersecurity-threats-to-watch-in-2026.html",
+    "description": "",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "Aircrack-ng: WiFi security testing guide",
+    "slug": "aircrack-ng-wifi-security-testing-guide",
+    "category": "tools",
+    "url": "/tools/aircrack-ng-wifi-security-testing-guide.html",
+    "description": "",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "Understanding firewalls: how they work and how to bypass them",
+    "slug": "understanding-firewalls-how-they-work-and-how-to-bypass-them",
+    "category": "beginner",
+    "url": "/beginner/understanding-firewalls-how-they-work-and-how-to-bypass-them.html",
+    "description": "",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "eJPT certification: best entry-level hacking cert",
+    "slug": "ejpt-certification-best-entry-level-hacking-cert",
+    "category": "certifications",
+    "url": "/certifications/ejpt-certification-best-entry-level-hacking-cert.html",
+    "description": "",
+    "date": "2026-03-16"
+  },
+  {
+    "title": "How to use Wireshark to analyze network traffic",
+    "slug": "how-to-use-wireshark-to-analyze-network-traffic",
+    "category": "beginner",
+    "url": "/beginner/how-to-use-wireshark-to-analyze-network-traffic.html",
+    "description": "",
     "date": "2026-03-16"
   }
 ]

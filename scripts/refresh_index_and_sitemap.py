@@ -8,10 +8,26 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 from datetime import datetime
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MAX_ARTICLES = 140
+
+STOPWORDS = {
+    "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "how", "in",
+    "into", "is", "it", "of", "on", "or", "that", "the", "this", "to", "with",
+    "guide", "tutorial", "complete", "explained", "basics", "beginner", "beginners",
+    "cybersecurity", "security", "attack", "attacks", "vulnerability", "vulnerabilities",
+    "learn", "using", "use", "what", "why", "works",
+}
+
+STRONG_TOKENS = {
+    "nmap", "wireshark", "burp", "sqlmap", "metasploit", "hydra", "hashcat", "aircrack",
+    "gobuster", "netcat", "nikto", "john", "password", "social", "engineering",
+    "owasp", "ctf", "kali", "firewalls", "firewall", "tor", "proxychains",
+}
 
 
 def _article_key(a: dict) -> str:
@@ -42,6 +58,77 @@ def dedupe_articles(articles: list) -> list[dict]:
     return out
 
 
+def _tokens(title: str) -> set[str]:
+    raw = re.findall(r"[a-z0-9]+", (title or "").lower())
+    return {t for t in raw if len(t) > 2 and t not in STOPWORDS}
+
+
+def _strong_signature(title: str) -> set[str]:
+    t = (title or "").lower()
+    tokens = _tokens(t)
+    sig = set(tokens & STRONG_TOKENS)
+    if "sql" in t and "injection" in t:
+        sig.add("__sqli__")
+    if "xss" in t or "cross-site" in t or "cross site" in t:
+        sig.add("__xss__")
+    if "home" in t and "lab" in t:
+        sig.add("__home_lab__")
+    if "social" in t and "engineering" in t:
+        sig.add("__social_engineering__")
+    return sig
+
+
+def _jaccard(a: set[str], b: set[str]) -> float:
+    if not a or not b:
+        return 0.0
+    return len(a & b) / len(a | b)
+
+
+def prune_similar_articles(articles: list[dict]) -> list[dict]:
+    """
+    Keep one canonical piece per repeated concept for non-CVE categories.
+    Preference order: has description -> newest date.
+    """
+    ranked = sorted(
+        articles,
+        key=lambda a: (1 if (a.get("description") or "").strip() else 0, a.get("date", "")),
+        reverse=True,
+    )
+
+    kept: list[dict] = []
+    by_cat_tokens: dict[str, list[set[str]]] = {}
+    by_cat_sig: dict[str, set[str]] = {}
+
+    for a in ranked:
+        cat = (a.get("category") or "").strip().lower()
+        title = (a.get("title") or "").strip()
+        if not title:
+            continue
+
+        # CVE items are naturally distinct by CVE ID; keep all.
+        if cat == "cve":
+            kept.append(a)
+            continue
+
+        tset = _tokens(title)
+        sig = _strong_signature(title)
+        seen_sig = by_cat_sig.setdefault(cat, set())
+        seen_tokens = by_cat_tokens.setdefault(cat, [])
+
+        if sig and (sig & seen_sig):
+            continue
+        if any(_jaccard(tset, prev) >= 0.58 for prev in seen_tokens):
+            continue
+
+        kept.append(a)
+        seen_sig.update(sig)
+        seen_tokens.append(tset)
+
+    # Freshest first in resulting index
+    kept.sort(key=lambda x: x.get("date", ""), reverse=True)
+    return kept
+
+
 def write_sitemap(articles: list[dict]) -> None:
     """Same structure as generate_article.update_sitemap (dedupe by loc)."""
     base = "https://howcanihack.com"
@@ -55,6 +142,12 @@ def write_sitemap(articles: list[dict]) -> None:
         f"  <url><loc>{base}/certifications/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
         f"  <url><loc>{base}/tools/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
         f"  <url><loc>{base}/beginner/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
+        f"  <url><loc>{base}/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>",
+        f"  <url><loc>{base}/contact.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>",
+        f"  <url><loc>{base}/editorial-policy.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>",
+        f"  <url><loc>{base}/write-for-us.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>",
+        f"  <url><loc>{base}/privacy.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>",
+        f"  <url><loc>{base}/disclaimer.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>",
     ]
 
     url_lastmod: dict[str, str] = {}
@@ -102,14 +195,18 @@ def main() -> int:
 
     before = len(raw)
     deduped = dedupe_articles(raw)
-    deduped = deduped[:200]
+    curated = prune_similar_articles(deduped)
+    curated = curated[:MAX_ARTICLES]
 
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(deduped, f, indent=2)
+        json.dump(curated, f, indent=2)
         f.write("\n")
 
-    write_sitemap(deduped)
-    print(f"📋 articles.json: {before} → {len(deduped)} rows (deduped by URL/slug)")
+    write_sitemap(curated)
+    print(
+        f"📋 articles.json: {before} → {len(deduped)} rows (exact dedupe)"
+        f" → {len(curated)} rows (semantic curation)"
+    )
     print("🗺️  sitemap.xml regenerated")
     return 0
 

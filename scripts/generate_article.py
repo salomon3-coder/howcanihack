@@ -651,6 +651,12 @@ def update_sitemap():
         f"  <url><loc>{base}/certifications/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
         f"  <url><loc>{base}/tools/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
         f"  <url><loc>{base}/beginner/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>",
+        f"  <url><loc>{base}/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>",
+        f"  <url><loc>{base}/contact.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>",
+        f"  <url><loc>{base}/editorial-policy.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>",
+        f"  <url><loc>{base}/write-for-us.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>",
+        f"  <url><loc>{base}/privacy.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>",
+        f"  <url><loc>{base}/disclaimer.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>",
     ]
 
     if os.path.exists("articles.json"):
