@@ -1,5 +1,13 @@
 [
   {
+    "title": "Active Directory Kerberos Attacks: How to Exploit and Secure Windows Authentication",
+    "slug": "active-directory-kerberos-attacks-how-to-exploit-and-secure-windows-authentication",
+    "category": "tutorials",
+    "url": "/tutorials/active-directory-kerberos-attacks-how-to-exploit-and-secure-windows-authentication.html",
+    "description": "",
+    "date": "2026-03-27"
+  },
+  {
     "title": "MQTT Security: How to Exploit and Secure IoT Message Queuing Protocol",
     "slug": "mqtt-security-how-to-exploit-and-secure-iot-message-queuing-protocol",
     "category": "tutorials",
