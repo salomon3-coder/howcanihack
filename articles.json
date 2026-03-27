@@ -1,5 +1,13 @@
 [
   {
+    "title": "GraphQL Security Testing: How to Identify and Exploit API Vulnerabilities",
+    "slug": "graphql-security-testing-how-to-identify-and-exploit-api-vulnerabilities",
+    "category": "tutorials",
+    "url": "/tutorials/graphql-security-testing-how-to-identify-and-exploit-api-vulnerabilities.html",
+    "description": "Learn GraphQL security testing techniques to identify API vulnerabilities. Complete guide covering introspection, injection attacks, and exploitation methods.",
+    "date": "2026-03-27"
+  },
+  {
     "title": "Active Directory Kerberos Attacks: How to Exploit and Secure Windows Authentication",
     "slug": "active-directory-kerberos-attacks-how-to-exploit-and-secure-windows-authentication",
     "category": "tutorials",
