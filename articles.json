@@ -1,5 +1,13 @@
 [
   {
+    "title": "Azure Entra ID Conditional Access Bypass: How to Exploit and Secure Cloud Identity Policies",
+    "slug": "azure-entra-id-conditional-access-bypass-how-to-exploit-and-secure-cloud-identity-policies",
+    "category": "tutorials",
+    "url": "/tutorials/azure-entra-id-conditional-access-bypass-how-to-exploit-and-secure-cloud-identity-policies.html",
+    "description": "Learn Azure Entra ID Conditional Access bypass techniques and defense strategies. Comprehensive guide covering exploitation methods and security hardening.",
+    "date": "2026-03-28"
+  },
+  {
     "title": "SIP Protocol Security: How to Exploit and Secure Voice over IP Communications",
     "slug": "sip-protocol-security-how-to-exploit-and-secure-voice-over-ip-communications",
     "category": "tutorials",
