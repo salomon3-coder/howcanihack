@@ -1,5 +1,13 @@
 [
   {
+    "title": "SIP Protocol Security: How to Exploit and Secure Voice over IP Communications",
+    "slug": "sip-protocol-security-how-to-exploit-and-secure-voice-over-ip-communications",
+    "category": "tutorials",
+    "url": "/tutorials/sip-protocol-security-how-to-exploit-and-secure-voice-over-ip-communications.html",
+    "description": "Learn SIP protocol security vulnerabilities, exploitation techniques, and defense strategies for VoIP communications. Includes practical examples and tools.",
+    "date": "2026-03-28"
+  },
+  {
     "title": "Memory Forensics with Volatility: How to Analyze RAM Dumps for Digital Evidence and Incident Response",
     "slug": "memory-forensics-with-volatility-how-to-analyze-ram-dumps-for-digital-evidence-and-incident-response",
     "category": "tools",
