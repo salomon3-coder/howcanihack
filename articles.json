@@ -1,5 +1,13 @@
 [
   {
+    "title": "Memory Forensics with Volatility: How to Analyze RAM Dumps for Digital Evidence and Incident Response",
+    "slug": "memory-forensics-with-volatility-how-to-analyze-ram-dumps-for-digital-evidence-and-incident-response",
+    "category": "tools",
+    "url": "/tools/memory-forensics-with-volatility-how-to-analyze-ram-dumps-for-digital-evidence-and-incident-response.html",
+    "description": "Learn memory forensics with Volatility to analyze RAM dumps, detect malware, and conduct incident response. Complete guide with commands and examples.",
+    "date": "2026-03-28"
+  },
+  {
     "title": "GraphQL Security Testing: How to Identify and Exploit API Vulnerabilities",
     "slug": "graphql-security-testing-how-to-identify-and-exploit-api-vulnerabilities",
     "category": "tutorials",
