@@ -8,6 +8,14 @@
     "date": "2026-03-29"
   },
   {
+    "title": "DHCP Starvation and Spoofing Attacks: How to Exploit and Secure Dynamic Host Configuration Protocol",
+    "slug": "dhcp-starvation-and-spoofing-attacks-how-to-exploit-and-secure-dynamic-host-configuration-protocol",
+    "category": "tutorials",
+    "url": "/tutorials/dhcp-starvation-and-spoofing-attacks-how-to-exploit-and-secure-dynamic-host-configuration-protocol.html",
+    "description": "",
+    "date": "2026-03-29"
+  },
+  {
     "title": "Azure Entra ID Conditional Access Bypass: How to Exploit and Secure Cloud Identity Policies",
     "slug": "azure-entra-id-conditional-access-bypass-how-to-exploit-and-secure-cloud-identity-policies",
     "category": "tutorials",
