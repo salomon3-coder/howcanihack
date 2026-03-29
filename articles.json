@@ -1,5 +1,13 @@
 [
   {
+    "title": "SMB Protocol Security: How to Exploit and Secure Windows File Sharing",
+    "slug": "smb-protocol-security-how-to-exploit-and-secure-windows-file-sharing",
+    "category": "tutorials",
+    "url": "/tutorials/smb-protocol-security-how-to-exploit-and-secure-windows-file-sharing.html",
+    "description": "Learn SMB protocol security: exploitation techniques, EternalBlue attacks, and essential hardening strategies to secure Windows file sharing systems.",
+    "date": "2026-03-29"
+  },
+  {
     "title": "WebRTC Security: How to Exploit Real-Time Communication Vulnerabilities and Protect Against IP Leaks",
     "slug": "webrtc-security-how-to-exploit-real-time-communication-vulnerabilities-and-protect-against-ip-leaks",
     "category": "tutorials",
