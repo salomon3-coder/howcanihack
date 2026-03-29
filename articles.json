@@ -1,5 +1,13 @@
 [
   {
+    "title": "WebRTC Security: How to Exploit Real-Time Communication Vulnerabilities and Protect Against IP Leaks",
+    "slug": "webrtc-security-how-to-exploit-real-time-communication-vulnerabilities-and-protect-against-ip-leaks",
+    "category": "tutorials",
+    "url": "/tutorials/webrtc-security-how-to-exploit-real-time-communication-vulnerabilities-and-protect-against-ip-leaks.html",
+    "description": "Learn to identify and exploit WebRTC vulnerabilities including IP leaks and real-time communication attacks. Complete guide with practical examples and defenses.",
+    "date": "2026-03-29"
+  },
+  {
     "title": "Azure Entra ID Conditional Access Bypass: How to Exploit and Secure Cloud Identity Policies",
     "slug": "azure-entra-id-conditional-access-bypass-how-to-exploit-and-secure-cloud-identity-policies",
     "category": "tutorials",
