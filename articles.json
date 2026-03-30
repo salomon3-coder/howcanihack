@@ -1,5 +1,13 @@
 [
   {
+    "title": "Bluetooth Security Testing: How to Exploit and Secure Short-Range Wireless Communications",
+    "slug": "bluetooth-security-testing-how-to-exploit-and-secure-short-range-wireless-communications",
+    "category": "tutorials",
+    "url": "/tutorials/bluetooth-security-testing-how-to-exploit-and-secure-short-range-wireless-communications.html",
+    "description": "Learn Bluetooth security testing techniques, tools, and defenses. Complete guide to exploiting and securing wireless communications for cybersecurity professionals.",
+    "date": "2026-03-30"
+  },
+  {
     "title": "SMB Protocol Security: How to Exploit and Secure Windows File Sharing",
     "slug": "smb-protocol-security-how-to-exploit-and-secure-windows-file-sharing",
     "category": "tutorials",
