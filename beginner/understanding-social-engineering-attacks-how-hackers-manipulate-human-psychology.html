@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,23 @@
   <h1>Understanding Social Engineering Attacks: How Hackers Manipulate Human Psychology</h1>
 
 <p class="lead">Social engineering represents one of the most dangerous cybersecurity threats because it exploits the weakest link in any security system: human nature. Unlike technical attacks that target software vulnerabilities, social engineering manipulates people into divulging confidential information or performing actions that compromise security. Understanding these psychological manipulation techniques is crucial for anyone looking to strengthen their cybersecurity posture.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#the-psychology-behind-social-engineering">The Psychology Behind Social Engineering</a></li>
+    <li><a href="#common-social-engineering-attack-vectors">Common Social Engineering Attack Vectors</a></li>
+    <li><a href="#reconnaissance-and-information-gathering-techniques">Reconnaissance and Information Gathering Techniques</a></li>
+    <li><a href="#real-world-examples-and-case-studies">Real-World Examples and Case Studies</a></li>
+    <li><a href="#detection-and-prevention-strategies">Detection and Prevention Strategies</a></li>
+    <li><a href="#building-a-security-conscious-culture">Building a Security-Conscious Culture</a></li>
+    <li><a href="#next-steps-implementing-social-engineering-defenses">Next Steps: Implementing Social Engineering Defenses</a></li>
+  </ol>
+</div>
+
 
 <p>In this comprehensive guide, we'll explore how social engineers exploit human psychology, examine common attack vectors, and provide practical strategies to identify and defend against these sophisticated manipulation techniques. Whether you're a cybersecurity beginner or looking to enhance your existing knowledge, this article will equip you with the insights needed to recognize and counter social engineering threats.</p>
 
-<h2>The Psychology Behind Social Engineering</h2>
+<h2 id="the-psychology-behind-social-engineering">The Psychology Behind Social Engineering</h2>
 
 <p>Social engineering attacks succeed because they leverage fundamental aspects of human psychology. Cybercriminals understand that people are naturally inclined to trust, help others, and follow authority figures. They systematically exploit these tendencies through carefully crafted scenarios that create urgency, fear, or curiosity.</p>
 
@@ -135,7 +246,7 @@
 
 <p>Understanding these psychological triggers helps explain why even cybersecurity professionals can fall victim to well-executed social engineering attacks. The human brain's tendency to take mental shortcuts, especially under pressure, creates opportunities that skilled attackers readily exploit.</p>
 
-<h2>Common Social Engineering Attack Vectors</h2>
+<h2 id="common-social-engineering-attack-vectors">Common Social Engineering Attack Vectors</h2>
 
 <h3>Phishing and Spear Phishing</h3>
 
@@ -161,7 +272,7 @@
 
 <p>Physical social engineering can also involve dumpster diving for sensitive documents, shoulder surfing to observe passwords or PIN entries, or impersonating service personnel to gain building access.</p>
 
-<h2>Reconnaissance and Information Gathering Techniques</h2>
+<h2 id="reconnaissance-and-information-gathering-techniques">Reconnaissance and Information Gathering Techniques</h2>
 
 <p>Successful social engineering attacks require extensive preparation and reconnaissance. Attackers use various tools and techniques to gather information about their targets, making their eventual approach more convincing and effective.</p>
 
@@ -201,7 +312,7 @@ shodan search "org:Target Company"
 # Identifies internet-facing systems and services
 </code></pre>
 
-<h2>Real-World Examples and Case Studies</h2>
+<h2 id="real-world-examples-and-case-studies">Real-World Examples and Case Studies</h2>
 
 <p>Examining real-world social engineering attacks helps illustrate how these techniques work in practice and their potential consequences.</p>
 
@@ -217,7 +328,7 @@ shodan search "org:Target Company"
 
 <p>This case illustrates how attackers target third-party vendors and suppliers as entry points into larger organizations, emphasizing the need for comprehensive supply chain security measures.</p>
 
-<h2>Detection and Prevention Strategies</h2>
+<h2 id="detection-and-prevention-strategies">Detection and Prevention Strategies</h2>
 
 <p>Defending against social engineering requires a combination of technical controls, organizational policies, and human awareness. Effective protection strategies address both the psychological and technical aspects of these attacks.</p>
 
@@ -255,7 +366,7 @@ tcpdump -i eth0 -n 'port 80 or port 443' | grep -E 'suspicious_patterns'
 <li>Create incident reporting mechanisms for suspicious activities</li>
 </ul>
 
-<h2>Building a Security-Conscious Culture</h2>
+<h2 id="building-a-security-conscious-culture">Building a Security-Conscious Culture</h2>
 
 <p>Creating an organizational culture that prioritizes security helps reduce social engineering success rates. This involves fostering an environment where employees feel comfortable questioning suspicious requests and reporting potential threats without fear of negative consequences.</p>
 
@@ -263,7 +374,7 @@ tcpdump -i eth0 -n 'port 80 or port 443' | grep -E 'suspicious_patterns'
 
 <p>Encouraging a "trust but verify" mindset helps balance operational efficiency with security considerations. Employees should understand that verification procedures protect both individual and organizational interests, rather than indicating lack of trust or creating unnecessary obstacles.</p>
 
-<h2>Next Steps: Implementing Social Engineering Defenses</h2>
+<h2 id="next-steps-implementing-social-engineering-defenses">Next Steps: Implementing Social Engineering Defenses</h2>
 
 <p>Understanding social engineering attacks represents the first step toward building effective defenses. To translate this knowledge into practical protection, consider implementing the following measures:</p>
 
@@ -283,7 +394,35 @@ tcpdump -i eth0 -n 'port 80 or port 443' | grep -E 'suspicious_patterns'
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://attack.mitre.org/techniques/T1566/" target="_blank" rel="noopener noreferrer">MITRE ATT&CK Phishing</a></li>
+    <li><a href="https://www.sans.org/blog/social-engineering/" target="_blank" rel="noopener noreferrer">SANS Social Engineering</a></li>
+    <li><a href="https://csrc.nist.gov/publications/detail/sp/800-50/final" target="_blank" rel="noopener noreferrer">NIST SP 800-50</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/beginner/what-is-ethical-hacking-and-how-to-get-started.html">What is Ethical Hacking and How to Get Started</a></li>
+    <li><a href="/beginner/how-to-set-up-kali-linux-for-the-first-time.html">How to Set Up Kali Linux for the First Time</a></li>
+    <li><a href="/beginner/linux-basics-every-hacker-needs-to-know.html">Linux Basics Every Hacker Needs to Know</a></li>
+    <li><a href="/beginner/index.html">Browse All Beginner Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

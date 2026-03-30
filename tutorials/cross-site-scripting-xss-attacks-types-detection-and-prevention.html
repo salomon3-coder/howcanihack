@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,22 @@
   <h1>Cross-Site Scripting (XSS) Attacks: Types, Detection, and Prevention</h1>
 
 <p class="lead">Cross-Site Scripting (XSS) remains one of the most prevalent web application vulnerabilities, appearing in OWASP's Top 10 list year after year. These attacks allow malicious actors to inject client-side scripts into web pages viewed by other users, potentially stealing sensitive data, hijacking user sessions, or defacing websites. Understanding XSS is crucial for both security professionals and web developers looking to build secure applications.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-cross-site-scripting-xss">Understanding Cross-Site Scripting (XSS)</a></li>
+    <li><a href="#types-of-xss-attacks">Types of XSS Attacks</a></li>
+    <li><a href="#detection-techniques-and-tools">Detection Techniques and Tools</a></li>
+    <li><a href="#prevention-and-mitigation-strategies">Prevention and Mitigation Strategies</a></li>
+    <li><a href="#testing-your-xss-defenses">Testing Your XSS Defenses</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>In this comprehensive guide, we'll explore the different types of XSS attacks, learn how to detect them, and implement robust prevention strategies. Whether you're a penetration tester, security researcher, or developer, this tutorial will equip you with the knowledge needed to understand and combat XSS vulnerabilities effectively.</p>
 
-<h2>Understanding Cross-Site Scripting (XSS)</h2>
+<h2 id="understanding-cross-site-scripting-xss">Understanding Cross-Site Scripting (XSS)</h2>
 
 <p>Cross-Site Scripting occurs when an attacker injects malicious scripts into web applications that are then executed in the context of other users' browsers. The fundamental issue lies in improper input validation and output encoding, allowing user-supplied data to be interpreted as executable code rather than plain text.</p>
 
@@ -144,7 +254,7 @@
 <li><strong>Exploitation:</strong> Attacker achieves their objective (data theft, session hijacking, etc.)</li>
 </ol>
 
-<h2>Types of XSS Attacks</h2>
+<h2 id="types-of-xss-attacks">Types of XSS Attacks</h2>
 
 <p>XSS attacks are categorized into three main types, each with distinct characteristics and exploitation methods. Understanding these differences is essential for effective detection and prevention.</p>
 
@@ -194,7 +304,7 @@ https://vulnerable-site.com/page.html#name=&lt;script&gt;alert('DOM XSS')&lt;/sc
 
 <p>The fragment identifier (#) portion isn't sent to the server, making this attack purely client-side.</p>
 
-<h2>Detection Techniques and Tools</h2>
+<h2 id="detection-techniques-and-tools">Detection Techniques and Tools</h2>
 
 <p>Detecting XSS vulnerabilities requires both automated tools and manual testing approaches. A comprehensive security assessment should employ multiple detection methods to identify various XSS types effectively.</p>
 
@@ -257,7 +367,7 @@ python3 xsstrike.py -u "http://target.com" --crawl
 curl "http://localhost:8080/JSON/ascan/action/scan/?url=http://target.com&recurse=true"
 </code></pre>
 
-<h2>Prevention and Mitigation Strategies</h2>
+<h2 id="prevention-and-mitigation-strategies">Prevention and Mitigation Strategies</h2>
 
 <p>Preventing XSS attacks requires a multi-layered approach combining secure coding practices, proper input validation, output encoding, and security headers. The key principle is <em>never trust user input</em> and always validate, sanitize, and encode data appropriately.</p>
 
@@ -327,7 +437,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 <li>Use template engines with auto-escaping features</li>
 </ul>
 
-<h2>Testing Your XSS Defenses</h2>
+<h2 id="testing-your-xss-defenses">Testing Your XSS Defenses</h2>
 
 <p>After implementing prevention measures, it's crucial to test their effectiveness. Create a controlled testing environment to validate your security controls.</p>
 
@@ -348,7 +458,7 @@ echo "User input: " . htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
 &lt;iframe src="javascript:alert('iframe')"&gt;&lt;/iframe&gt;
 </code></pre>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Cross-Site Scripting attacks represent a persistent threat to web application security, but with proper understanding and implementation of
 
@@ -356,7 +466,35 @@ echo "User input: " . htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://owasp.org/www-community/attacks/xss/" target="_blank" rel="noopener noreferrer">OWASP XSS</a></li>
+    <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10</a></li>
+    <li><a href="https://portswigger.net/web-security/cross-site-scripting" target="_blank" rel="noopener noreferrer">PortSwigger XSS Labs</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

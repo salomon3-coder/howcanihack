@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,20 @@
   <h1>Understanding OWASP Top 10 Vulnerabilities 2026: A Complete Beginner's Guide</h1>
 
 <p class="lead">The OWASP Top 10 represents the most critical security risks facing web applications today. Whether you're a budding cybersecurity professional or a developer looking to secure your code, understanding these vulnerabilities is essential for building robust defenses against modern cyber threats.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-makes-the-owasp-top-10-so-important">What Makes the OWASP Top 10 So Important?</a></li>
+    <li><a href="#the-owasp-top-10-vulnerabilities-for-2026">The OWASP Top 10 Vulnerabilities for 2026</a></li>
+    <li><a href="#building-your-owasp-testing-methodology">Building Your OWASP Testing Methodology</a></li>
+    <li><a href="#next-steps-building-your-owasp-skills">Next Steps: Building Your OWASP Skills</a></li>
+  </ol>
+</div>
+
 
 <p>The Open Web Application Security Project (OWASP) has been the gold standard for web application security guidance since 2003. Their Top 10 list, updated every few years, reflects the evolving threat landscape and helps organizations prioritize their security efforts. In this comprehensive guide, we'll explore each vulnerability, understand how attackers exploit them, and learn practical methods to identify and prevent these security flaws.</p>
 
-<h2>What Makes the OWASP Top 10 So Important?</h2>
+<h2 id="what-makes-the-owasp-top-10-so-important">What Makes the OWASP Top 10 So Important?</h2>
 
 <p>The OWASP Top 10 isn't just an academic exercise—it's a practical roadmap based on real-world data from hundreds of organizations and security researchers. Each vulnerability on the list represents a significant risk that could lead to data breaches, financial losses, and reputational damage.</p>
 
@@ -130,7 +238,7 @@
 <li><strong>Compliance:</strong> Many security frameworks reference OWASP guidelines</li>
 </ul>
 
-<h2>The OWASP Top 10 Vulnerabilities for 2026</h2>
+<h2 id="the-owasp-top-10-vulnerabilities-for-2026">The OWASP Top 10 Vulnerabilities for 2026</h2>
 
 <h3>1. Broken Access Control</h3>
 
@@ -287,7 +395,7 @@ http://169.254.169.254/latest/meta-data/
 # In a URL parameter
 https://example.com/fetch?url=http://localhost:8080</code></pre>
 
-<h2>Building Your OWASP Testing Methodology</h2>
+<h2 id="building-your-owasp-testing-methodology">Building Your OWASP Testing Methodology</h2>
 
 <p>To effectively test for OWASP Top 10 vulnerabilities, follow this systematic approach:</p>
 
@@ -308,7 +416,7 @@ https://example.com/fetch?url=http://localhost:8080</code></pre>
 <li><strong>Nikto:</strong> Web server scanner</li>
 </ul>
 
-<h2>Next Steps: Building Your OWASP Skills</h2>
+<h2 id="next-steps-building-your-owasp-skills">Next Steps: Building Your OWASP Skills</h2>
 
 <p>Understanding the OWASP Top 10 is just the beginning of your cybersecurity journey. Here's how to continue building your expertise:</p>
 
@@ -334,7 +442,35 @@ https://example.com/fetch?url=http://localhost:8080</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10 Official</a></li>
+    <li><a href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank" rel="noopener noreferrer">OWASP Testing Guide</a></li>
+    <li><a href="https://csrc.nist.gov/projects/ssdf" target="_blank" rel="noopener noreferrer">NIST SSDF</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

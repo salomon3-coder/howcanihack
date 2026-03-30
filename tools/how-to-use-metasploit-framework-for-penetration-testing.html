@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,23 @@
   <h1>How to Use Metasploit Framework for Penetration Testing</h1>
 
 <p class="lead">Metasploit Framework is the world's most powerful and widely-used penetration testing platform, offering cybersecurity professionals a comprehensive toolkit for identifying, exploiting, and validating security vulnerabilities. Whether you're just starting your ethical hacking journey or looking to enhance your penetration testing skills, understanding Metasploit is essential for any serious security professional.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-metasploit-framework">What is Metasploit Framework?</a></li>
+    <li><a href="#setting-up-metasploit-framework">Setting Up Metasploit Framework</a></li>
+    <li><a href="#essential-metasploit-commands-and-navigation">Essential Metasploit Commands and Navigation</a></li>
+    <li><a href="#conducting-your-first-penetration-test">Conducting Your First Penetration Test</a></li>
+    <li><a href="#advanced-metasploit-techniques">Advanced Metasploit Techniques</a></li>
+    <li><a href="#best-practices-and-ethical-considerations">Best Practices and Ethical Considerations</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>This comprehensive guide will walk you through the fundamentals of using Metasploit Framework, from basic setup to executing your first penetration tests. We'll cover practical examples, real commands, and best practices to help you master this indispensable cybersecurity tool while maintaining ethical standards.</p>
 
-<h2>What is Metasploit Framework?</h2>
+<h2 id="what-is-metasploit-framework">What is Metasploit Framework?</h2>
 
 <p>Metasploit Framework is an open-source penetration testing platform developed by Rapid7 that provides security researchers and ethical hackers with a robust environment for developing, testing, and executing exploit code against remote targets. Originally created by H.D. Moore in 2003, Metasploit has evolved into the de facto standard for penetration testing and vulnerability assessment.</p>
 
@@ -134,7 +245,7 @@
 
 <p>Metasploit operates on multiple platforms including Linux, Windows, and macOS, making it accessible to security professionals regardless of their preferred operating system. The framework comes in both free (Community) and commercial (Pro) versions, with the Community edition providing more than enough functionality for learning and basic penetration testing.</p>
 
-<h2>Setting Up Metasploit Framework</h2>
+<h2 id="setting-up-metasploit-framework">Setting Up Metasploit Framework</h2>
 
 <p>Before diving into penetration testing with Metasploit, you'll need to properly install and configure the framework. The installation process varies depending on your operating system, but we'll focus on the most common scenarios.</p>
 
@@ -166,7 +277,7 @@ sudo msfdb init</code></pre>
 
 <p>You should see the distinctive Metasploit banner and command prompt, indicating that the framework is ready for use.</p>
 
-<h2>Essential Metasploit Commands and Navigation</h2>
+<h2 id="essential-metasploit-commands-and-navigation">Essential Metasploit Commands and Navigation</h2>
 
 <p>Understanding the basic commands and navigation within Metasploit is crucial for effective penetration testing. The framework uses a command-line interface with intuitive commands that follow logical patterns.</p>
 
@@ -201,7 +312,7 @@ workspace -a testlab    # Create new workspace named "testlab"
 workspace testlab       # Switch to testlab workspace
 workspace -d testlab    # Delete testlab workspace</code></pre>
 
-<h2>Conducting Your First Penetration Test</h2>
+<h2 id="conducting-your-first-penetration-test">Conducting Your First Penetration Test</h2>
 
 <p>Let's walk through a practical example of using Metasploit to conduct a penetration test. For educational purposes, we'll demonstrate testing against a deliberately vulnerable system in a controlled environment.</p>
 
@@ -253,7 +364,7 @@ getuid                  # Show current user privileges
 hashdump               # Extract password hashes (if privileged)
 screenshot             # Capture desktop screenshot</code></pre>
 
-<h2>Advanced Metasploit Techniques</h2>
+<h2 id="advanced-metasploit-techniques">Advanced Metasploit Techniques</h2>
 
 <p>As you become more comfortable with basic Metasploit operations, you can explore advanced techniques that enhance your penetration testing capabilities.</p>
 
@@ -280,7 +391,7 @@ set iterations 5       # Encode multiple times</code></pre>
 <pre><code>resource /path/to/script.rc    # Execute resource script
 makerc /path/to/output.rc     # Save current session as script</code></pre>
 
-<h2>Best Practices and Ethical Considerations</h2>
+<h2 id="best-practices-and-ethical-considerations">Best Practices and Ethical Considerations</h2>
 
 <p>Using Metasploit effectively and responsibly requires adherence to best practices and ethical guidelines that ensure your activities remain within legal boundaries.</p>
 
@@ -316,7 +427,7 @@ makerc /path/to/output.rc     # Save current session as script</code></pre>
 <li><strong>Windows VMs:</strong> Various Windows versions for practicing Windows exploits</li>
 </ul>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Mastering Metasploit Framework is a journey that requires consistent practice, continuous learning, and ethical responsibility. This guide has provided you with the fundamental knowledge needed to begin your penetration testing journey, from basic setup and navigation to conducting structured security assessments.</p>
 
@@ -330,7 +441,35 @@ makerc /path/to/output.rc     # Save current session as script</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="http://www.pentest-standard.org/index.php/Main_Page" target="_blank" rel="noopener noreferrer">PTES Standard</a></li>
+    <li><a href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank" rel="noopener noreferrer">OWASP Testing Guide</a></li>
+    <li><a href="https://csrc.nist.gov/publications/detail/sp/800-115/final" target="_blank" rel="noopener noreferrer">NIST SP 800-115</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

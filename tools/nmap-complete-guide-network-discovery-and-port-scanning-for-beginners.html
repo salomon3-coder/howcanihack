@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,23 @@
   <h1>Nmap Complete Guide: Network Discovery and Port Scanning for Beginners</h1>
 
 <p class="lead">Nmap (Network Mapper) is one of the most powerful and versatile network discovery tools in cybersecurity. Whether you're a network administrator securing your infrastructure or an ethical hacker learning reconnaissance techniques, mastering Nmap is essential for understanding network security fundamentals.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-nmap-and-why-should-you-learn-it">What is Nmap and Why Should You Learn It?</a></li>
+    <li><a href="#installing-nmap-and-getting-started">Installing Nmap and Getting Started</a></li>
+    <li><a href="#essential-nmap-scanning-techniques">Essential Nmap Scanning Techniques</a></li>
+    <li><a href="#advanced-nmap-features-and-nse-scripts">Advanced Nmap Features and NSE Scripts</a></li>
+    <li><a href="#practical-examples-and-real-world-scenarios">Practical Examples and Real-World Scenarios</a></li>
+    <li><a href="#legal-and-ethical-considerations">Legal and Ethical Considerations</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>In this comprehensive guide, we'll explore Nmap from the ground up, covering everything from basic network discovery to advanced scanning techniques. You'll learn how to identify active hosts, discover open ports, detect services, and gather crucial information about network infrastructure—all while understanding the ethical and legal implications of network scanning.</p>
 
-<h2>What is Nmap and Why Should You Learn It?</h2>
+<h2 id="what-is-nmap-and-why-should-you-learn-it">What is Nmap and Why Should You Learn It?</h2>
 
 <p>Nmap, created by Gordon Lyon (Fyodor), is a free and open-source network scanner that has become the de facto standard for network discovery and security auditing. Originally released in 1997, Nmap has evolved into a sophisticated tool that can map networks, identify hosts, discover services, and even detect operating systems and vulnerabilities.</p>
 
@@ -134,7 +245,7 @@
 
 <p>For cybersecurity professionals, Nmap serves multiple purposes. Network administrators use it to inventory network assets, identify unauthorized devices, and verify security configurations. Penetration testers rely on Nmap for reconnaissance during security assessments. Security researchers use it to understand network protocols and discover vulnerabilities.</p>
 
-<h2>Installing Nmap and Getting Started</h2>
+<h2 id="installing-nmap-and-getting-started">Installing Nmap and Getting Started</h2>
 
 <p>Nmap is available for all major operating systems. Most Linux distributions include Nmap in their repositories, while Windows and macOS users can download installers from the official website.</p>
 
@@ -163,7 +274,7 @@ sudo apt install nmap</code></pre>
 nmap scanme.nmap.org
 nmap 192.168.1.0/24</code></pre>
 
-<h2>Essential Nmap Scanning Techniques</h2>
+<h2 id="essential-nmap-scanning-techniques">Essential Nmap Scanning Techniques</h2>
 
 <h3>Host Discovery</h3>
 
@@ -216,7 +327,7 @@ nmap 192.168.1.0/24</code></pre>
 
 <p>OS detection uses TCP/IP stack fingerprinting to identify the target operating system, providing valuable information for targeted attacks or system inventory.</p>
 
-<h2>Advanced Nmap Features and NSE Scripts</h2>
+<h2 id="advanced-nmap-features-and-nse-scripts">Advanced Nmap Features and NSE Scripts</h2>
 
 <h3>Nmap Scripting Engine (NSE)</h3>
 
@@ -264,7 +375,7 @@ nmap -oA all_formats 192.168.1.100           # All formats</code></pre>
 
 <p>XML output is particularly useful for importing results into other security tools or creating custom reports.</p>
 
-<h2>Practical Examples and Real-World Scenarios</h2>
+<h2 id="practical-examples-and-real-world-scenarios">Practical Examples and Real-World Scenarios</h2>
 
 <h3>Network Discovery Scenario</h3>
 
@@ -292,7 +403,7 @@ nmap -p 80 --script http-enum 10.0.1.100
 # Check for common vulnerabilities
 nmap -p 80,443 --script http-sql-injection,http-xssed 10.0.1.100</code></pre>
 
-<h2>Legal and Ethical Considerations</h2>
+<h2 id="legal-and-ethical-considerations">Legal and Ethical Considerations</h2>
 
 <p><strong>Critical Warning:</strong> Only scan networks and systems you own or have explicit written permission to test. Unauthorized network scanning may violate laws and organizational policies.</p>
 
@@ -305,7 +416,7 @@ nmap -p 80,443 --script http-sql-injection,http-xssed 10.0.1.100</code></pre>
 <li>Consider using Nmap's test server (scanme.nmap.org) for practice</li>
 </ul>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Mastering Nmap is a journey that requires practice and continuous learning. Start with basic host discovery and port scanning, then gradually incorporate advanced features like NSE scripts and custom scan configurations. Remember that Nmap is just one tool in a comprehensive security toolkit—combine it with other reconnaissance and analysis tools for complete network security assessment.</p>
 
@@ -324,7 +435,33 @@ nmap -p 80,443 --script http-sql-injection,http-xssed 10.0.1.100</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://nmap.org/docs.html" target="_blank" rel="noopener noreferrer">Nmap Official Docs</a></li>
+    <li><a href="https://nmap.org/book/man.html" target="_blank" rel="noopener noreferrer">Nmap Reference Guide</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

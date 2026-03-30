@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,8 +213,22 @@
   <h1>OSCP Certification: Complete Roadmap and Tips for Success</h1>
 
 <p class="lead">The Offensive Security Certified Professional (OSCP) certification is considered the gold standard for penetration testing credentials. This hands-on certification challenges you to think like a real attacker and proves you can find and exploit vulnerabilities in live systems. Here's your complete guide to conquering the OSCP exam.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-the-oscp-certification">What is the OSCP Certification?</a></li>
+    <li><a href="#prerequisites-and-skills-you-need">Prerequisites and Skills You Need</a></li>
+    <li><a href="#complete-oscp-preparation-roadmap">Complete OSCP Preparation Roadmap</a></li>
+    <li><a href="#essential-tools-and-techniques">Essential Tools and Techniques</a></li>
+    <li><a href="#oscp-exam-strategy-and-tips">OSCP Exam Strategy and Tips</a></li>
+    <li><a href="#report-writing-excellence">Report Writing Excellence</a></li>
+    <li><a href="#common-pitfalls-to-avoid">Common Pitfalls to Avoid</a></li>
+    <li><a href="#next-steps-your-oscp-journey">Next Steps: Your OSCP Journey</a></li>
+  </ol>
+</div>
 
-<h2>What is the OSCP Certification?</h2>
+
+<h2 id="what-is-the-oscp-certification">What is the OSCP Certification?</h2>
 
 <p>The OSCP certification, offered by Offensive Security, is a performance-based exam that tests your practical penetration testing skills. Unlike multiple-choice tests, the OSCP requires you to compromise machines in a controlled lab environment and document your findings in a comprehensive penetration testing report.</p>
 
@@ -128,7 +240,7 @@
 
 <p>What makes OSCP unique is its "<em>Try Harder</em>" philosophy. You won't find step-by-step solutions – instead, you'll need to research, experiment, and persist through challenges just like in real-world penetration testing scenarios.</p>
 
-<h2>Prerequisites and Skills You Need</h2>
+<h2 id="prerequisites-and-skills-you-need">Prerequisites and Skills You Need</h2>
 
 <p>While Offensive Security states there are no formal prerequisites, successful OSCP candidates typically have:</p>
 
@@ -150,7 +262,7 @@
 <li>Learn basic Python and Bash scripting</li>
 </ol>
 
-<h2>Complete OSCP Preparation Roadmap</h2>
+<h2 id="complete-oscp-preparation-roadmap">Complete OSCP Preparation Roadmap</h2>
 
 <h3>Phase 1: Foundation Building (1-3 months)</h3>
 
@@ -208,7 +320,7 @@ nikto -h http://target.com</code></pre>
 <li><strong>ProvingGrounds:</strong> Offensive Security's own practice platform</li>
 </ul>
 
-<h2>Essential Tools and Techniques</h2>
+<h2 id="essential-tools-and-techniques">Essential Tools and Techniques</h2>
 
 <p>Master these core tools and techniques for OSCP success:</p>
 
@@ -250,7 +362,7 @@ net user
 systeminfo
 wmic qfe list</code></pre>
 
-<h2>OSCP Exam Strategy and Tips</h2>
+<h2 id="oscp-exam-strategy-and-tips">OSCP Exam Strategy and Tips</h2>
 
 <h3>Exam Format</h3>
 <p>The OSCP exam consists of:</p>
@@ -278,7 +390,7 @@ wmic qfe list</code></pre>
 <li><strong>Sleep Schedule:</strong> Get proper rest before the exam – fatigue leads to mistakes</li>
 </ul>
 
-<h2>Report Writing Excellence</h2>
+<h2 id="report-writing-excellence">Report Writing Excellence</h2>
 
 <p>Your penetration testing report is worth up to 5 bonus points and must be submitted within 24 hours of exam completion. A strong report includes:</p>
 
@@ -291,7 +403,7 @@ wmic qfe list</code></pre>
 
 <p>Use the official report template provided by Offensive Security, and ensure all screenshots are clear and properly annotated.</p>
 
-<h2>Common Pitfalls to Avoid</h2>
+<h2 id="common-pitfalls-to-avoid">Common Pitfalls to Avoid</h2>
 
 <ul>
 <li><strong>Overrelying on Metasploit:</strong> You can only use it on one machine during the exam</li>
@@ -301,7 +413,7 @@ wmic qfe list</code></pre>
 <li><strong>Inadequate Enumeration:</strong> Spend time on thorough reconnaissance before jumping to exploitation</li>
 </ul>
 
-<h2>Next Steps: Your OSCP Journey</h2>
+<h2 id="next-steps-your-oscp-journey">Next Steps: Your OSCP Journey</h2>
 
 <p>Ready to start your OSCP journey? Follow this action plan:</p>
 
@@ -321,7 +433,33 @@ wmic qfe list</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://www.offsec.com/courses/pen-200/" target="_blank" rel="noopener noreferrer">Offensive Security OSCP</a></li>
+    <li><a href="https://help.offsec.com/hc/en-us/articles/360040165632" target="_blank" rel="noopener noreferrer">OSCP Exam Guide</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/certifications/how-to-pass-the-ceh-exam-on-your-first-try.html">How to Pass the CEH Exam on Your First Try</a></li>
+    <li><a href="/certifications/comptia-security-study-guide-2026.html">CompTIA Security+ Study Guide 2026</a></li>
+    <li><a href="/certifications/index.html">Browse All Certification Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

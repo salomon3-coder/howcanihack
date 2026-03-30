@@ -97,6 +97,81 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +190,25 @@
   <h1>How to Build a Home Hacking Lab for Free: A Complete Beginner's Guide</h1>
 
 <p class="lead">Building your own cybersecurity lab doesn't require expensive equipment or enterprise-grade servers. With just an old computer or even a modest laptop, you can create a powerful learning environment to practice ethical hacking, penetration testing, and security research. This comprehensive guide will walk you through setting up a professional-grade hacking lab at home without spending a dime.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-your-lab-requirements">Understanding Your Lab Requirements</a></li>
+    <li><a href="#setting-up-your-virtualization-platform">Setting Up Your Virtualization Platform</a></li>
+    <li><a href="#essential-attack-platforms-and-security-distributions">Essential Attack Platforms and Security Distributions</a></li>
+    <li><a href="#creating-target-environments-for-safe-practice">Creating Target Environments for Safe Practice</a></li>
+    <li><a href="#network-configuration-and-isolation">Network Configuration and Isolation</a></li>
+    <li><a href="#advanced-lab-components-and-tools">Advanced Lab Components and Tools</a></li>
+    <li><a href="#lab-maintenance-and-best-practices">Lab Maintenance and Best Practices</a></li>
+    <li><a href="#legal-and-ethical-considerations">Legal and Ethical Considerations</a></li>
+    <li><a href="#next-steps-expanding-your-cybersecurity-journey">Next Steps: Expanding Your Cybersecurity Journey</a></li>
+  </ol>
+</div>
+
 
 <p>Whether you're studying for cybersecurity certifications, learning penetration testing, or simply curious about how security professionals identify vulnerabilities, a home lab is your gateway to hands-on experience. The best part? Everything we'll cover uses free, open-source tools that mirror what professionals use in the real world.</p>
 
-<h2>Understanding Your Lab Requirements</h2>
+<h2 id="understanding-your-lab-requirements">Understanding Your Lab Requirements</h2>
 
 <p>Before diving into installation commands, it's crucial to understand what makes an effective cybersecurity lab. Your setup needs three core components: <strong>attack machines</strong> (where you'll run security tools), <strong>target machines</strong> (vulnerable systems to practice on), and <strong>networking infrastructure</strong> to connect everything safely.</p>
 
@@ -126,7 +216,7 @@
 
 <p>Virtualization is the secret sauce that makes home labs possible. Instead of needing separate physical computers for each operating system, you'll create virtual machines (VMs) that run multiple systems on one device. This approach is not only cost-effective but also safer, as you can isolate potentially dangerous activities from your main operating system.</p>
 
-<h2>Setting Up Your Virtualization Platform</h2>
+<h2 id="setting-up-your-virtualization-platform">Setting Up Your Virtualization Platform</h2>
 
 <p>Your first step involves choosing and installing a hypervisor – software that creates and manages virtual machines. <strong>VirtualBox</strong> is the most popular free option, offering excellent compatibility across Windows, macOS, and Linux host systems.</p>
 
@@ -143,7 +233,7 @@ cd ~/VirtualMachines</code></pre>
 
 <p>Configure your hypervisor's default settings to optimize performance. Increase the default RAM allocation for VMs, enable hardware acceleration if available, and set up shared folders between your host system and virtual machines for easy file transfers.</p>
 
-<h2>Essential Attack Platforms and Security Distributions</h2>
+<h2 id="essential-attack-platforms-and-security-distributions">Essential Attack Platforms and Security Distributions</h2>
 
 <p>Your attack platform serves as the command center for security testing. <strong>Kali Linux</strong> remains the gold standard, offering over 600 pre-installed security tools ranging from network scanners to web application testing frameworks.</p>
 
@@ -163,7 +253,7 @@ metasploit-framework-console --version</code></pre>
 
 <p>For Windows-specific testing scenarios, create a Windows VM using evaluation versions available directly from Microsoft. These versions run for 90 days and can be reset or replaced as needed for continuous learning.</p>
 
-<h2>Creating Target Environments for Safe Practice</h2>
+<h2 id="creating-target-environments-for-safe-practice">Creating Target Environments for Safe Practice</h2>
 
 <p>Practicing security techniques requires vulnerable targets, and the cybersecurity community has created numerous intentionally vulnerable systems for learning purposes. These provide realistic scenarios without the legal and ethical issues of testing on systems you don't own.</p>
 
@@ -183,7 +273,7 @@ sudo systemctl start apache2 mysql
 
 <p>Windows users should download vulnerable Windows VMs like <strong>Metasploitable 3</strong> or create intentionally misconfigured systems to practice privilege escalation and lateral movement techniques.</p>
 
-<h2>Network Configuration and Isolation</h2>
+<h2 id="network-configuration-and-isolation">Network Configuration and Isolation</h2>
 
 <p>Proper network setup ensures your lab activities remain isolated from your home network and the internet. Create dedicated virtual networks within your hypervisor to simulate real-world network topologies while maintaining security.</p>
 
@@ -196,7 +286,7 @@ VBoxManage hostonlyif ipconfig vboxnet0 --ip 192.168.56.1</code></pre>
 
 <p>Document your network topology as you build it. Assign static IP addresses to important systems and maintain a lab notebook with login credentials, network configurations, and testing scenarios you've completed.</p>
 
-<h2>Advanced Lab Components and Tools</h2>
+<h2 id="advanced-lab-components-and-tools">Advanced Lab Components and Tools</h2>
 
 <p>As your skills develop, expand your lab with specialized components. Set up a <strong>Security Onion</strong> VM for network monitoring and log analysis. This Ubuntu-based distribution provides Suricata IDS, Elasticsearch, and other enterprise security tools in a single package.</p>
 
@@ -213,7 +303,7 @@ msfconsole</code></pre>
 
 <p>Install additional tools like <strong>OpenVAS</strong> for vulnerability scanning, <strong>Wireshark</strong> for network protocol analysis, and <strong>Burp Suite Community Edition</strong> for web application testing. Each tool fills specific niches in your security toolkit.</p>
 
-<h2>Lab Maintenance and Best Practices</h2>
+<h2 id="lab-maintenance-and-best-practices">Lab Maintenance and Best Practices</h2>
 
 <p>Successful labs require ongoing maintenance and organization. Create VM snapshots before making major changes, allowing quick rollbacks when experiments break systems. Name your snapshots descriptively and date them for easy identification.</p>
 
@@ -221,13 +311,13 @@ msfconsole</code></pre>
 
 <p>Keep detailed documentation of your lab setup, including network diagrams, credential lists, and testing methodologies. This documentation becomes invaluable when troubleshooting issues or explaining your experience to potential employers.</p>
 
-<h2>Legal and Ethical Considerations</h2>
+<h2 id="legal-and-ethical-considerations">Legal and Ethical Considerations</h2>
 
 <p>Always ensure your lab activities remain legal and ethical. Only test systems you own or have explicit permission to test. Disable internet connectivity on attack VMs when practicing with aggressive tools to prevent accidental external scans.</p>
 
 <p>Join cybersecurity communities like Reddit's r/netsec or local security meetups to connect with other learners and professionals. These communities provide valuable advice, job opportunities, and ethical guidance as you develop your skills.</p>
 
-<h2>Next Steps: Expanding Your Cybersecurity Journey</h2>
+<h2 id="next-steps-expanding-your-cybersecurity-journey">Next Steps: Expanding Your Cybersecurity Journey</h2>
 
 <p>Your home hacking lab is just the beginning of your cybersecurity journey. Start with basic reconnaissance and scanning exercises, then progress to vulnerability exploitation and post-exploitation techniques. Document your learning process and consider pursuing industry certifications like CompTIA Security+, CEH, or OSCP.</p>
 
@@ -239,7 +329,26 @@ msfconsole</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

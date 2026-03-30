@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,21 @@
   <h1>Kubernetes Security Fundamentals: How to Secure Container Orchestration and Detect Common Misconfigurations</h1>
 
 <p class="lead">Kubernetes has become the de facto standard for container orchestration, but its complexity introduces numerous security challenges. From misconfigured RBAC policies to exposed dashboards, a single oversight can compromise your entire cluster. This comprehensive guide will teach you essential Kubernetes security fundamentals, common attack vectors, and practical techniques to harden your container orchestration environment.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-the-kubernetes-attack-surface">Understanding the Kubernetes Attack Surface</a></li>
+    <li><a href="#essential-kubernetes-security-configurations">Essential Kubernetes Security Configurations</a></li>
+    <li><a href="#detecting-and-preventing-common-misconfigurations">Detecting and Preventing Common Misconfigurations</a></li>
+    <li><a href="#runtime-security-and-monitoring">Runtime Security and Monitoring</a></li>
+    <li><a href="#next-steps-building-a-comprehensive-security-strategy">Next Steps: Building a Comprehensive Security Strategy</a></li>
+  </ol>
+</div>
+
 
 <p>As organizations increasingly adopt cloud-native architectures, Kubernetes security has become a critical skill for cybersecurity professionals. According to recent studies, over 90% of organizations have experienced at least one Kubernetes security incident in the past year. Understanding how to secure Kubernetes clusters and identify misconfigurations is no longer optional—it's essential.</p>
 
-<h2>Understanding the Kubernetes Attack Surface</h2>
+<h2 id="understanding-the-kubernetes-attack-surface">Understanding the Kubernetes Attack Surface</h2>
 
 <p>Before diving into security measures, it's crucial to understand what makes Kubernetes both powerful and vulnerable. Kubernetes operates as a distributed system with multiple components that can become attack vectors if not properly secured.</p>
 
@@ -148,7 +257,7 @@
 <li><strong>Exposed Services</strong>: Accessing unprotected dashboards or APIs</li>
 </ul>
 
-<h2>Essential Kubernetes Security Configurations</h2>
+<h2 id="essential-kubernetes-security-configurations">Essential Kubernetes Security Configurations</h2>
 
 <p>Securing a Kubernetes cluster requires a multi-layered approach. Let's explore the fundamental security configurations every cluster should implement.</p>
 
@@ -268,7 +377,7 @@ spec:
     - protocol: TCP
       port: 8080</code></pre>
 
-<h2>Detecting and Preventing Common Misconfigurations</h2>
+<h2 id="detecting-and-preventing-common-misconfigurations">Detecting and Preventing Common Misconfigurations</h2>
 
 <p>Even with the best intentions, misconfigurations happen. Regular auditing and automated scanning help identify vulnerabilities before attackers do.</p>
 
@@ -314,7 +423,7 @@ kubectl logs job/kube-bench</code></pre>
 <li><strong>Missing network policies</strong>: Allowing unrestricted pod-to-pod communication</li>
 </ol>
 
-<h2>Runtime Security and Monitoring</h2>
+<h2 id="runtime-security-and-monitoring">Runtime Security and Monitoring</h2>
 
 <p>Security doesn't end at deployment. Runtime monitoring helps detect and respond to threats in real-time.</p>
 
@@ -354,7 +463,7 @@ rules:
   - group: "rbac.authorization.k8s.io"
     resources: ["roles", "rolebindings", "clusterroles", "clusterrolebindings"]</code></pre>
 
-<h2>Next Steps: Building a Comprehensive Security Strategy</h2>
+<h2 id="next-steps-building-a-comprehensive-security-strategy">Next Steps: Building a Comprehensive Security Strategy</h2>
 
 <p>Kubernetes security is an ongoing process, not a one-time setup. To continue strengthening your security posture:</p>
 
@@ -374,7 +483,35 @@ rules:
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://kubernetes.io/docs/concepts/security/" target="_blank" rel="noopener noreferrer">Kubernetes Security Docs</a></li>
+    <li><a href="https://www.cisecurity.org/benchmark/kubernetes" target="_blank" rel="noopener noreferrer">CIS Kubernetes Benchmark</a></li>
+    <li><a href="https://owasp.org/www-project-kubernetes-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Kubernetes Top 10</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

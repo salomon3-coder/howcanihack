@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,12 +213,25 @@
   <h1>Bug Bounty Hunting: How to Make Money Finding Vulnerabilities</h1>
 
 <p class="lead">Bug bounty hunting has emerged as one of the most exciting and lucrative career paths in cybersecurity, offering ethical hackers the opportunity to earn substantial income by discovering and reporting security vulnerabilities in real-world applications and systems.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-bug-bounty-programs">Understanding Bug Bounty Programs</a></li>
+    <li><a href="#essential-skills-and-tools-for-bug-bounty-success">Essential Skills and Tools for Bug Bounty Success</a></li>
+    <li><a href="#developing-your-bug-bounty-methodology">Developing Your Bug Bounty Methodology</a></li>
+    <li><a href="#maximizing-your-bug-bounty-income">Maximizing Your Bug Bounty Income</a></li>
+    <li><a href="#getting-started-your-first-steps">Getting Started: Your First Steps</a></li>
+    <li><a href="#common-mistakes-to-avoid">Common Mistakes to Avoid</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>In today's digital landscape, companies are increasingly recognizing the value of crowdsourced security testing. Major tech giants like Google, Microsoft, and Facebook regularly pay thousands of dollars for critical vulnerability discoveries, with some researchers earning six-figure incomes annually through bug bounty programs.</p>
 
 <p>This comprehensive guide will walk you through everything you need to know to start your journey as a bug bounty hunter, from understanding the fundamentals to developing the skills and methodologies that can turn vulnerability research into a profitable venture.</p>
 
-<h2>Understanding Bug Bounty Programs</h2>
+<h2 id="understanding-bug-bounty-programs">Understanding Bug Bounty Programs</h2>
 
 <p>Bug bounty programs are initiatives where organizations invite ethical hackers to find and report security vulnerabilities in their systems, applications, or infrastructure in exchange for monetary rewards. These programs create a win-win situation: companies improve their security posture while researchers earn money for their skills and effort.</p>
 
@@ -142,7 +253,7 @@
 
 <p>Bounty payouts vary significantly based on vulnerability severity, impact, and the organization's budget. Critical vulnerabilities can earn anywhere from $500 to $50,000 or more, while lower-severity issues typically range from $50 to $1,000.</p>
 
-<h2>Essential Skills and Tools for Bug Bounty Success</h2>
+<h2 id="essential-skills-and-tools-for-bug-bounty-success">Essential Skills and Tools for Bug Bounty Success</h2>
 
 <p>Successful bug bounty hunters combine technical expertise with methodical thinking and persistence. Here are the core skills you'll need to develop:</p>
 
@@ -188,7 +299,7 @@ nmap -sV -sC -oA scan_results target.com</code></pre>
 <li><strong>XSSStrike:</strong> Advanced XSS detection suite</li>
 </ul>
 
-<h2>Developing Your Bug Bounty Methodology</h2>
+<h2 id="developing-your-bug-bounty-methodology">Developing Your Bug Bounty Methodology</h2>
 
 <p>Successful bug bounty hunting requires a systematic approach. Here's a proven methodology that many top researchers follow:</p>
 
@@ -229,7 +340,7 @@ cewl https://target.com -m 6 -w custom_wordlist.txt</code></pre>
 <li>Recommended remediation steps</li>
 </ul>
 
-<h2>Maximizing Your Bug Bounty Income</h2>
+<h2 id="maximizing-your-bug-bounty-income">Maximizing Your Bug Bounty Income</h2>
 
 <p>Turning bug bounty hunting into a sustainable income source requires strategic thinking beyond just finding vulnerabilities.</p>
 
@@ -266,7 +377,7 @@ cewl https://target.com -m 6 -w custom_wordlist.txt</code></pre>
 <li><strong>IoT Security:</strong> Internet of Things device vulnerabilities</li>
 </ul>
 
-<h2>Getting Started: Your First Steps</h2>
+<h2 id="getting-started-your-first-steps">Getting Started: Your First Steps</h2>
 
 <p>Beginning your bug bounty journey can feel overwhelming, but taking these concrete steps will set you on the right path:</p>
 
@@ -291,7 +402,7 @@ sudo apt update && sudo apt install -y \
 # Create directory structure for organized testing
 mkdir -p ~/bugbounty/{tools,targets,reports,scripts}</code></pre>
 
-<h2>Common Mistakes to Avoid</h2>
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
 
 <p>Learning from others' mistakes can accelerate your progress and help you avoid common pitfalls:</p>
 
@@ -303,7 +414,7 @@ mkdir -p ~/bugbounty/{tools,targets,reports,scripts}</code></pre>
 <li><strong>Neglecting Legal Considerations:</strong> Only test authorized targets and follow responsible disclosure practices</li>
 </ul>
 
-<h2>Next Steps</h2>
+<h2 id="next-steps">Next Steps</h2>
 
 <p>Bug bounty hunting offers an exciting path to monetize your cybersecurity skills while contributing to global digital security. Success requires dedication, continuous learning, and persistence, but the financial and professional rewards can be substantial.</p>
 
@@ -317,7 +428,34 @@ mkdir -p ~/bugbounty/{tools,targets,reports,scripts}</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://www.hackerone.com/" target="_blank" rel="noopener noreferrer">HackerOne</a></li>
+    <li><a href="https://www.bugcrowd.com/" target="_blank" rel="noopener noreferrer">Bugcrowd</a></li>
+    <li><a href="https://bughunters.google.com/" target="_blank" rel="noopener noreferrer">Google Bug Hunters</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/news/top-cybersecurity-threats-to-watch-in-2026.html">Top Cybersecurity Threats to Watch in 2026</a></li>
+    <li><a href="/news/how-ransomware-attacks-work-step-by-step.html">How Ransomware Attacks Work, Step by Step</a></li>
+    <li><a href="/news/index.html">Browse All Security News →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,8 +213,19 @@
   <h1>CTF Competitions: Your Complete Guide to Getting Started and Winning</h1>
 
 <p class="lead">Capture The Flag (CTF) competitions are the ultimate playground for aspiring cybersecurity professionals. These gamified hacking challenges offer hands-on experience with real-world security scenarios, from web exploitation to cryptography puzzles. Whether you're a complete beginner or looking to sharpen your skills, this comprehensive guide will help you navigate your first CTF and develop winning strategies.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-are-ctf-competitions-and-why-should-you-care">What Are CTF Competitions and Why Should You Care?</a></li>
+    <li><a href="#essential-tools-and-skills-for-ctf-success">Essential Tools and Skills for CTF Success</a></li>
+    <li><a href="#proven-strategies-for-ctf-success">Proven Strategies for CTF Success</a></li>
+    <li><a href="#where-to-practice-and-compete">Where to Practice and Compete</a></li>
+    <li><a href="#next-steps-from-beginner-to-ctf-champion">Next Steps: From Beginner to CTF Champion</a></li>
+  </ol>
+</div>
 
-<h2>What Are CTF Competitions and Why Should You Care?</h2>
+
+<h2 id="what-are-ctf-competitions-and-why-should-you-care">What Are CTF Competitions and Why Should You Care?</h2>
 
 <p>CTF competitions are cybersecurity contests where participants solve security-related challenges to find hidden "flags" – typically strings of text that prove you've successfully completed a task. Think of them as escape rooms for hackers, where each solved puzzle brings you closer to victory.</p>
 
@@ -131,7 +240,7 @@
 
 <p>The benefits of participating in CTFs extend far beyond bragging rights. These competitions provide practical experience that employers highly value, help you discover your cybersecurity niche, and connect you with like-minded professionals. Many security experts credit CTFs as the catalyst for their careers.</p>
 
-<h2>Essential Tools and Skills for CTF Success</h2>
+<h2 id="essential-tools-and-skills-for-ctf-success">Essential Tools and Skills for CTF Success</h2>
 
 <p>Before diving into your first competition, you'll need to set up a proper toolkit. The good news? Most essential CTF tools are free and readily available.</p>
 
@@ -195,7 +304,7 @@ pip3 install volatility3</code></pre>
 <li>Networking protocols and packet analysis</li>
 </ul>
 
-<h2>Proven Strategies for CTF Success</h2>
+<h2 id="proven-strategies-for-ctf-success">Proven Strategies for CTF Success</h2>
 
 <h3>Challenge Selection and Time Management</h3>
 
@@ -243,7 +352,7 @@ curl -s http://target-url | grep -i "comment\|todo\|flag"</code></pre>
 <li>Participate in community discussions on platforms like Reddit's r/securityCTF</li>
 </ul>
 
-<h2>Where to Practice and Compete</h2>
+<h2 id="where-to-practice-and-compete">Where to Practice and Compete</h2>
 
 <h3>Beginner-Friendly Practice Platforms</h3>
 
@@ -278,7 +387,7 @@ curl -s http://target-url | grep -i "comment\|todo\|flag"</code></pre>
 
 <p>Find teammates through local cybersecurity meetups, university clubs, or online communities. Many CTF platforms have team recruitment sections where you can connect with other players.</p>
 
-<h2>Next Steps: From Beginner to CTF Champion</h2>
+<h2 id="next-steps-from-beginner-to-ctf-champion">Next Steps: From Beginner to CTF Champion</h2>
 
 <p>Success in CTF competitions requires consistent practice and continuous learning. Start with 2-3 practice sessions per week, focusing on different challenge categories. Set realistic goals: aim to solve one challenge per session initially, gradually increasing difficulty and complexity.</p>
 
@@ -292,7 +401,35 @@ curl -s http://target-url | grep -i "comment\|todo\|flag"</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://ctftime.org/" target="_blank" rel="noopener noreferrer">CTFtime.org</a></li>
+    <li><a href="https://picoctf.org/" target="_blank" rel="noopener noreferrer">PicoCTF</a></li>
+    <li><a href="https://www.hackthebox.com/" target="_blank" rel="noopener noreferrer">HackTheBox CTF</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

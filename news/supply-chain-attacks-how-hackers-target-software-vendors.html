@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,22 @@
   <h1>Supply Chain Attacks: How Hackers Target Software Vendors and What You Need to Know</h1>
 
 <p class="lead">Supply chain attacks have emerged as one of the most sophisticated and devastating cybersecurity threats of our time. By targeting software vendors and service providers, hackers can compromise thousands of organizations through a single breach, turning trusted software into a Trojan horse that delivers malicious payloads to unsuspecting victims.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-are-supply-chain-attacks">What Are Supply Chain Attacks?</a></li>
+    <li><a href="#notable-supply-chain-attack-examples">Notable Supply Chain Attack Examples</a></li>
+    <li><a href="#how-supply-chain-attacks-are-executed">How Supply Chain Attacks Are Executed</a></li>
+    <li><a href="#detection-and-prevention-strategies">Detection and Prevention Strategies</a></li>
+    <li><a href="#the-future-of-supply-chain-security">The Future of Supply Chain Security</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>In today's interconnected digital ecosystem, organizations rely heavily on third-party software, libraries, and services. This dependency creates an attractive attack vector for cybercriminals who have learned that infiltrating one software vendor can grant them access to hundreds or thousands of downstream customers. Understanding how these attacks work is crucial for anyone interested in cybersecurity, whether you're a security professional, developer, or IT administrator.</p>
 
-<h2>What Are Supply Chain Attacks?</h2>
+<h2 id="what-are-supply-chain-attacks">What Are Supply Chain Attacks?</h2>
 
 <p>A supply chain attack, also known as a third-party attack or value-chain attack, occurs when cybercriminals infiltrate a software vendor's systems to distribute malicious code through legitimate software updates or installations. Instead of attacking end-users directly, hackers target the suppliers and service providers that organizations trust.</p>
 
@@ -133,7 +243,7 @@
 
 <p>The attack typically follows this pattern: hackers compromise a software vendor's development environment, inject malicious code into legitimate software, and then distribute the tainted software to unsuspecting customers who install it as a routine update.</p>
 
-<h2>Notable Supply Chain Attack Examples</h2>
+<h2 id="notable-supply-chain-attack-examples">Notable Supply Chain Attack Examples</h2>
 
 <h3>SolarWinds Orion (2020)</h3>
 
@@ -153,7 +263,7 @@
 
 <p>The attack affected numerous high-profile organizations and potentially exposed source code, credentials, and other sensitive data. The incident highlighted vulnerabilities in modern DevOps pipelines and CI/CD processes.</p>
 
-<h2>How Supply Chain Attacks Are Executed</h2>
+<h2 id="how-supply-chain-attacks-are-executed">How Supply Chain Attacks Are Executed</h2>
 
 <h3>Initial Compromise Methods</h3>
 
@@ -201,7 +311,7 @@ pip install tensorfow  # Note the typo</code></pre>
 <li><strong>Cloud services</strong> - Compromising SaaS applications</li>
 </ol>
 
-<h2>Detection and Prevention Strategies</h2>
+<h2 id="detection-and-prevention-strategies">Detection and Prevention Strategies</h2>
 
 <h3>For Organizations</h3>
 
@@ -247,7 +357,7 @@ sha256sum myapp.exe > myapp.exe.sha256
 # GPG sign the software
 gpg --detach-sign --armor myapp.exe</code></pre>
 
-<h2>The Future of Supply Chain Security</h2>
+<h2 id="the-future-of-supply-chain-security">The Future of Supply Chain Security</h2>
 
 <p>Supply chain attacks are becoming increasingly sophisticated, and organizations must adapt their security strategies accordingly. Emerging trends include:</p>
 
@@ -260,7 +370,7 @@ gpg --detach-sign --armor myapp.exe</code></pre>
 
 <p>The rise of cloud computing, containerization, and microservices architectures has expanded the attack surface, making supply chain security more complex but also more critical than ever.</p>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Supply chain attacks represent a fundamental shift in the cybersecurity landscape, where the strength of your security is increasingly dependent on the weakest link in your software supply chain. As these attacks continue to evolve in sophistication and scale, both organizations and software vendors must take proactive steps to defend against them.</p>
 
@@ -279,7 +389,35 @@ gpg --detach-sign --armor myapp.exe</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://www.cisa.gov/supply-chain-security" target="_blank" rel="noopener noreferrer">CISA Supply Chain Guidance</a></li>
+    <li><a href="https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final" target="_blank" rel="noopener noreferrer">NIST SP 800-161</a></li>
+    <li><a href="https://attack.mitre.org/techniques/T1195/" target="_blank" rel="noopener noreferrer">MITRE ATT&CK Supply Chain</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/news/top-cybersecurity-threats-to-watch-in-2026.html">Top Cybersecurity Threats to Watch in 2026</a></li>
+    <li><a href="/news/how-ransomware-attacks-work-step-by-step.html">How Ransomware Attacks Work, Step by Step</a></li>
+    <li><a href="/news/bug-bounty-hunting-how-to-make-money-finding-vulnerabilities.html">Bug Bounty Hunting: How to Make Money Finding Vulnerabilities</a></li>
+    <li><a href="/news/index.html">Browse All Security News →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

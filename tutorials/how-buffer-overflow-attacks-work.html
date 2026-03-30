@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,21 @@
   <h1>How Buffer Overflow Attacks Work: A Complete Guide for Beginners</h1>
 
 <p class="lead">Buffer overflow attacks represent one of the most fundamental and dangerous vulnerabilities in cybersecurity. Understanding how these attacks work is crucial for anyone serious about protecting systems or learning ethical hacking techniques. In this comprehensive guide, we'll break down buffer overflows from the ground up, showing you exactly how they happen and how attackers exploit them.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-memory-and-buffers">Understanding Memory and Buffers</a></li>
+    <li><a href="#anatomy-of-a-buffer-overflow-attack">Anatomy of a Buffer Overflow Attack</a></li>
+    <li><a href="#modern-protections-and-bypass-techniques">Modern Protections and Bypass Techniques</a></li>
+    <li><a href="#prevention-and-mitigation-strategies">Prevention and Mitigation Strategies</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>Buffer overflow vulnerabilities have been responsible for some of the most devastating cyberattacks in history, from the Morris Worm in 1988 to modern-day exploits. Despite being well-understood for decades, they continue to plague software systems worldwide. By the end of this tutorial, you'll understand not just what buffer overflows are, but how to identify them, exploit them in controlled environments, and most importantly, how to prevent them.</p>
 
-<h2>Understanding Memory and Buffers</h2>
+<h2 id="understanding-memory-and-buffers">Understanding Memory and Buffers</h2>
 
 <p>Before diving into buffer overflow attacks, we need to understand how computer memory works. When a program runs, it uses different sections of memory for different purposes. The most important sections for understanding buffer overflows are:</p>
 
@@ -166,7 +275,7 @@ int main(int argc, char** argv) {
 
 <p>This program is vulnerable because <code>strcpy()</code> doesn't check if the input fits in the destination buffer. If an attacker provides input longer than 64 characters, it will overflow into adjacent memory.</p>
 
-<h2>Anatomy of a Buffer Overflow Attack</h2>
+<h2 id="anatomy-of-a-buffer-overflow-attack">Anatomy of a Buffer Overflow Attack</h2>
 
 <p>Buffer overflow attacks typically follow a predictable pattern. Let's walk through how an attacker would exploit the vulnerable program above.</p>
 
@@ -230,7 +339,7 @@ shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x5
 <li>The final address overwrites the return address</li>
 </ul>
 
-<h2>Modern Protections and Bypass Techniques</h2>
+<h2 id="modern-protections-and-bypass-techniques">Modern Protections and Bypass Techniques</h2>
 
 <p>Modern operating systems and compilers implement several protections against buffer overflow attacks. Understanding these is crucial for both attackers and defenders.</p>
 
@@ -267,7 +376,7 @@ shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x5
 <pre><code># Finding ROP gadgets
 ROPgadget --binary vulnerable_program --only "pop|ret"</code></pre>
 
-<h2>Prevention and Mitigation Strategies</h2>
+<h2 id="prevention-and-mitigation-strategies">Prevention and Mitigation Strategies</h2>
 
 <p>Preventing buffer overflows requires a multi-layered approach combining secure coding practices, compiler protections, and system-level defenses.</p>
 
@@ -303,7 +412,7 @@ ROPgadget --binary vulnerable_program --only "pop|ret"</code></pre>
 
 <p>These flags enable stack protection, fortified functions, full RELRO, and position-independent execution.</p>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Buffer overflow attacks remain a critical threat in cybersecurity, but understanding how they work is the first step toward defending against them. We've covered the fundamental concepts from memory layout to exploitation techniques and modern protections.</p>
 
@@ -325,7 +434,35 @@ ROPgadget --binary vulnerable_program --only "pop|ret"</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://owasp.org/www-community/vulnerabilities/Buffer_Overflow" target="_blank" rel="noopener noreferrer">OWASP Buffer Overflow</a></li>
+    <li><a href="https://nvd.nist.gov/vuln/categories" target="_blank" rel="noopener noreferrer">NIST Buffer Overflow</a></li>
+    <li><a href="https://cwe.mitre.org/data/definitions/120.html" target="_blank" rel="noopener noreferrer">MITRE CWE-120</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

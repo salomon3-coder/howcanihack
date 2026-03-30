@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,23 @@
   <h1>SQL Injection Attacks: Complete Guide with Prevention Techniques</h1>
 
 <p class="lead">SQL injection attacks remain one of the most dangerous and prevalent web application vulnerabilities today. This comprehensive guide will teach you how SQL injection works, demonstrate real-world attack examples, and provide proven prevention techniques to secure your applications.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-sql-injection-fundamentals">Understanding SQL Injection Fundamentals</a></li>
+    <li><a href="#common-sql-injection-attack-techniques">Common SQL Injection Attack Techniques</a></li>
+    <li><a href="#sql-injection-prevention-techniques">SQL Injection Prevention Techniques</a></li>
+    <li><a href="#testing-for-sql-injection-vulnerabilities">Testing for SQL Injection Vulnerabilities</a></li>
+    <li><a href="#real-world-sql-injection-case-studies">Real-World SQL Injection Case Studies</a></li>
+    <li><a href="#advanced-prevention-strategies">Advanced Prevention Strategies</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>SQL injection (SQLi) occurs when an attacker manipulates SQL queries by injecting malicious code through user input fields. This vulnerability can lead to unauthorized data access, data theft, authentication bypass, and complete database compromise. Understanding SQL injection is crucial for both offensive security professionals and developers building secure applications.</p>
 
-<h2>Understanding SQL Injection Fundamentals</h2>
+<h2 id="understanding-sql-injection-fundamentals">Understanding SQL Injection Fundamentals</h2>
 
 <p>SQL injection exploits happen when applications fail to properly validate or sanitize user input before incorporating it into SQL queries. When user data is directly concatenated into SQL statements, attackers can inject their own SQL code to alter the query's intended behavior.</p>
 
@@ -144,7 +255,7 @@
 <li><strong>Out-of-band SQL Injection:</strong> The attacker triggers database actions that create an external connection to a server they control</li>
 </ul>
 
-<h2>Common SQL Injection Attack Techniques</h2>
+<h2 id="common-sql-injection-attack-techniques">Common SQL Injection Attack Techniques</h2>
 
 <h3>Union-Based Attacks</h3>
 
@@ -176,7 +287,7 @@
 
 <p>If the first character of the username is 'a', the query will delay for 5 seconds, confirming the guess.</p>
 
-<h2>SQL Injection Prevention Techniques</h2>
+<h2 id="sql-injection-prevention-techniques">SQL Injection Prevention Techniques</h2>
 
 <h3>Parameterized Queries (Prepared Statements)</h3>
 
@@ -217,7 +328,7 @@ $stmt->execute([$username, $password]);</code></pre>
 
 <p>Deploy WAFs to filter malicious requests before they reach your application. Modern WAFs can detect common SQL injection patterns and block suspicious traffic automatically.</p>
 
-<h2>Testing for SQL Injection Vulnerabilities</h2>
+<h2 id="testing-for-sql-injection-vulnerabilities">Testing for SQL Injection Vulnerabilities</h2>
 
 <h3>Manual Testing Techniques</h3>
 
@@ -245,7 +356,7 @@ $stmt->execute([$username, $password]);</code></pre>
 
 <pre><code>python sqlmap.py -u "http://example.com/login.php" --data="username=test&password=test" --dbs</code></pre>
 
-<h2>Real-World SQL Injection Case Studies</h2>
+<h2 id="real-world-sql-injection-case-studies">Real-World SQL Injection Case Studies</h2>
 
 <p>Understanding real-world attacks helps illustrate the severity of SQL injection vulnerabilities:</p>
 
@@ -255,7 +366,7 @@ $stmt->execute([$username, $password]);</code></pre>
 
 <p>These incidents highlight the critical importance of implementing proper SQL injection prevention measures in production applications.</p>
 
-<h2>Advanced Prevention Strategies</h2>
+<h2 id="advanced-prevention-strategies">Advanced Prevention Strategies</h2>
 
 <h3>Database Activity Monitoring</h3>
 
@@ -279,7 +390,7 @@ $stmt->execute([$username, $password]);</code></pre>
 <li>Stay updated with latest SQL injection techniques and defenses</li>
 </ul>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>SQL injection remains a critical threat to web applications, but it's entirely preventable with proper security practices. The key is implementing defense-in-depth strategies that include parameterized queries, input validation, proper database configuration, and continuous monitoring.</p>
 
@@ -299,7 +410,36 @@ $stmt->execute([$username, $password]);</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://owasp.org/www-community/attacks/SQL_Injection" target="_blank" rel="noopener noreferrer">OWASP SQLi</a></li>
+    <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10</a></li>
+    <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank" rel="noopener noreferrer">PortSwigger SQLi Labs</a></li>
+    <li><a href="https://nvd.nist.gov/vuln/categories" target="_blank" rel="noopener noreferrer">NIST CWE-89</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

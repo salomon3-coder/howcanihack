@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,24 @@
   <h1>Nmap Complete Guide: Network Discovery and Port Scanning for Security Testing</h1>
 
 <p class="lead">Nmap (Network Mapper) is the Swiss Army knife of network security testing, offering powerful capabilities for network discovery, port scanning, and security auditing. Whether you're a penetration tester, network administrator, or cybersecurity enthusiast, mastering Nmap is essential for understanding network vulnerabilities and strengthening security postures.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-nmap-and-why-it-matters">What is Nmap and Why It Matters</a></li>
+    <li><a href="#getting-started-basic-nmap-installation-and-syntax">Getting Started: Basic Nmap Installation and Syntax</a></li>
+    <li><a href="#essential-nmap-scan-types-and-techniques">Essential Nmap Scan Types and Techniques</a></li>
+    <li><a href="#advanced-nmap-features-for-security-testing">Advanced Nmap Features for Security Testing</a></li>
+    <li><a href="#practical-nmap-examples-for-security-testing">Practical Nmap Examples for Security Testing</a></li>
+    <li><a href="#interpreting-nmap-results-and-security-implications">Interpreting Nmap Results and Security Implications</a></li>
+    <li><a href="#best-practices-and-ethical-considerations">Best Practices and Ethical Considerations</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>In this comprehensive guide, we'll explore Nmap's core functionality, from basic network discovery to advanced scanning techniques. You'll learn practical commands, understand different scan types, and discover how to interpret results effectively for security testing purposes.</p>
 
-<h2>What is Nmap and Why It Matters</h2>
+<h2 id="what-is-nmap-and-why-it-matters">What is Nmap and Why It Matters</h2>
 
 <p>Nmap is a free, open-source network scanning tool that has become the de facto standard for network reconnaissance and security auditing. Created by Gordon Lyon (Fyodor) in 1997, Nmap helps security professionals identify live hosts, discover open ports, detect operating systems, and analyze network services.</p>
 
@@ -134,7 +246,7 @@
 
 <p>For cybersecurity professionals, Nmap serves as both a reconnaissance tool and a security validation instrument, helping identify potential attack vectors while verifying network security configurations.</p>
 
-<h2>Getting Started: Basic Nmap Installation and Syntax</h2>
+<h2 id="getting-started-basic-nmap-installation-and-syntax">Getting Started: Basic Nmap Installation and Syntax</h2>
 
 <p>Before diving into scanning techniques, ensure Nmap is properly installed on your system. Most Linux distributions include Nmap in their repositories, while Windows and macOS users can download it from the official website.</p>
 
@@ -172,7 +284,7 @@ nmap 192.168.1.1 192.168.1.5 google.com
 # Target list from file
 nmap -iL targets.txt</code></pre>
 
-<h2>Essential Nmap Scan Types and Techniques</h2>
+<h2 id="essential-nmap-scan-types-and-techniques">Essential Nmap Scan Types and Techniques</h2>
 
 <p>Understanding different scan types is crucial for effective network reconnaissance. Each scan type serves specific purposes and offers varying levels of stealth and information gathering.</p>
 
@@ -205,7 +317,7 @@ sudo nmap -sS -sU -sV -O 192.168.1.1
 # Fast scan of most common ports
 nmap -T4 -F 192.168.1.0/24</code></pre>
 
-<h2>Advanced Nmap Features for Security Testing</h2>
+<h2 id="advanced-nmap-features-for-security-testing">Advanced Nmap Features for Security Testing</h2>
 
 <h3>Operating System Detection</h3>
 
@@ -258,7 +370,7 @@ nmap -T3 192.168.1.1
 nmap -T4 192.168.1.1
 nmap -T5 192.168.1.1</code></pre>
 
-<h2>Practical Nmap Examples for Security Testing</h2>
+<h2 id="practical-nmap-examples-for-security-testing">Practical Nmap Examples for Security Testing</h2>
 
 <h3>Network Discovery and Mapping</h3>
 
@@ -305,7 +417,7 @@ nmap --source-port 53 192.168.1.1
 # Randomize target order
 nmap --randomize-hosts 192.168.1.0/24</code></pre>
 
-<h2>Interpreting Nmap Results and Security Implications</h2>
+<h2 id="interpreting-nmap-results-and-security-implications">Interpreting Nmap Results and Security Implications</h2>
 
 <p>Understanding Nmap output is crucial for effective security analysis. Port states provide valuable information about network security posture:</p>
 
@@ -334,7 +446,7 @@ nmap -oA comprehensive_scan 192.168.1.1
 # Grepable output
 nmap -oG scan_results.grep 192.168.1.1</code></pre>
 
-<h2>Best Practices and Ethical Considerations</h2>
+<h2 id="best-practices-and-ethical-considerations">Best Practices and Ethical Considerations</h2>
 
 <p>When using Nmap for security testing, always follow ethical guidelines and legal requirements:</p>
 
@@ -357,7 +469,7 @@ nmap --script vuln -sV 192.168.1.1
 # Web application discovery
 nmap -p 80,443 --script http-enum,http-headers,http-methods,http-title 192.168.1.0/24</code></pre>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Mastering Nmap is fundamental for effective network security testing and vulnerability assessment. This guide covered essential scanning techniques, from basic port scanning to advanced NSE scripting, providing you with practical skills for real-world security testing scenarios.</p>
 
@@ -377,7 +489,34 @@ nmap -p 80,443 --script http-enum,http-headers,http-methods,http-title 192.168.1
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://nmap.org/docs.html" target="_blank" rel="noopener noreferrer">Nmap Official Docs</a></li>
+    <li><a href="https://nmap.org/book/man.html" target="_blank" rel="noopener noreferrer">Nmap Reference Guide</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

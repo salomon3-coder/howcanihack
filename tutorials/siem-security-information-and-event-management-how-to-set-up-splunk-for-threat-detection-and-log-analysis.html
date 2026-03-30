@@ -97,6 +97,81 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +190,22 @@
   <h1>SIEM Security Information and Event Management: How to Set Up Splunk for Threat Detection and Log Analysis</h1>
 
 <p class="lead">Security Information and Event Management (SIEM) systems are the backbone of modern cybersecurity operations, providing real-time monitoring, threat detection, and comprehensive log analysis. Splunk, one of the leading SIEM platforms, offers powerful capabilities for collecting, indexing, and analyzing machine-generated data to identify security threats and anomalies.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-siem-and-splunk-fundamentals">Understanding SIEM and Splunk Fundamentals</a></li>
+    <li><a href="#setting-up-splunk-for-security-monitoring">Setting Up Splunk for Security Monitoring</a></li>
+    <li><a href="#implementing-threat-detection-rules-and-searches">Implementing Threat Detection Rules and Searches</a></li>
+    <li><a href="#building-effective-security-dashboards">Building Effective Security Dashboards</a></li>
+    <li><a href="#incident-response-and-forensic-analysis">Incident Response and Forensic Analysis</a></li>
+    <li><a href="#next-steps-and-best-practices">Next Steps and Best Practices</a></li>
+  </ol>
+</div>
+
 
 <p>In today's threat landscape, organizations generate massive amounts of log data from firewalls, servers, applications, and network devices. Without proper analysis, critical security events can go unnoticed, leaving systems vulnerable to attacks. This comprehensive guide will walk you through setting up Splunk for effective threat detection and log analysis, transforming raw data into actionable security insights.</p>
 
-<h2>Understanding SIEM and Splunk Fundamentals</h2>
+<h2 id="understanding-siem-and-splunk-fundamentals">Understanding SIEM and Splunk Fundamentals</h2>
 
 <p>SIEM systems serve as centralized security monitoring platforms that collect, normalize, and analyze log data from across your IT infrastructure. Splunk stands out by using a unique approach to data ingestion and search, making it particularly effective for security use cases.</p>
 
@@ -145,7 +232,7 @@
 <li><strong>Deployment Server:</strong> Manages configuration distribution</li>
 </ul>
 
-<h2>Setting Up Splunk for Security Monitoring</h2>
+<h2 id="setting-up-splunk-for-security-monitoring">Setting Up Splunk for Security Monitoring</h2>
 
 <p>Before diving into configuration, ensure you have administrative access to your systems and understand your organization's log sources. A successful SIEM deployment requires careful planning and systematic implementation.</p>
 
@@ -190,7 +277,7 @@ index = wineventlog
 
 <p>Create dedicated indexes for different data types to improve search performance and implement proper data retention policies.</p>
 
-<h2>Implementing Threat Detection Rules and Searches</h2>
+<h2 id="implementing-threat-detection-rules-and-searches">Implementing Threat Detection Rules and Searches</h2>
 
 <p>With data flowing into Splunk, the next step is creating detection rules that identify potential security threats. Splunk's Search Processing Language (SPL) provides powerful capabilities for threat hunting and automated detection.</p>
 
@@ -243,7 +330,7 @@ index=security sourcetype=syslog
 <li><strong>Threat Intelligence Integration:</strong> Enrich logs with external threat feeds</li>
 </ul>
 
-<h2>Building Effective Security Dashboards</h2>
+<h2 id="building-effective-security-dashboards">Building Effective Security Dashboards</h2>
 
 <p>Visualization is crucial for security operations teams to quickly identify and respond to threats. Design dashboards that provide both high-level overviews and detailed drill-down capabilities.</p>
 
@@ -297,7 +384,7 @@ index=security sourcetype=syslog
 <li>Monitor resource utilization and scale infrastructure accordingly</li>
 </ul>
 
-<h2>Incident Response and Forensic Analysis</h2>
+<h2 id="incident-response-and-forensic-analysis">Incident Response and Forensic Analysis</h2>
 
 <p>When security incidents occur, Splunk becomes a powerful forensic tool for investigation and response. Develop standardized procedures for incident analysis and evidence collection.</p>
 
@@ -314,7 +401,7 @@ index=* (src_ip=10.0.1.100 OR dest_ip=10.0.1.100 OR host=compromised-server)
 | sort _time
 </code></pre>
 
-<h2>Next Steps and Best Practices</h2>
+<h2 id="next-steps-and-best-practices">Next Steps and Best Practices</h2>
 
 <p>Successfully implementing Splunk for threat detection requires ongoing refinement and optimization. Focus on these key areas for continued improvement:</p>
 
@@ -343,7 +430,26 @@ index=* (src_ip=10.0.1.100 OR dest_ip=10.0.1.100 OR host=compromised-server)
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

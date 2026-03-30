@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,22 @@
   <h1>How Ransomware Attacks Work: A Step-by-Step Technical Breakdown</h1>
 
 <p class="lead">Ransomware has become one of the most devastating cyber threats facing organizations and individuals today. Understanding how these attacks unfold from initial infiltration to final extortion is crucial for building effective defenses. This comprehensive guide breaks down the anatomy of a ransomware attack, revealing the techniques cybercriminals use to encrypt your data and demand payment.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#phase-1-initial-access-and-infiltration">Phase 1: Initial Access and Infiltration</a></li>
+    <li><a href="#phase-2-persistence-and-privilege-escalation">Phase 2: Persistence and Privilege Escalation</a></li>
+    <li><a href="#phase-3-reconnaissance-and-lateral-movement">Phase 3: Reconnaissance and Lateral Movement</a></li>
+    <li><a href="#phase-4-backup-destruction-and-security-disabling">Phase 4: Backup Destruction and Security Disabling</a></li>
+    <li><a href="#phase-5-encryption-and-extortion">Phase 5: Encryption and Extortion</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>In 2023 alone, ransomware attacks cost organizations an estimated $20 billion globally, with attacks occurring every 11 seconds. From small businesses to major corporations like Colonial Pipeline and JBS Foods, no target is too big or too small for ransomware operators. By understanding their methods, we can better protect ourselves and our organizations from becoming the next victims.</p>
 
-<h2>Phase 1: Initial Access and Infiltration</h2>
+<h2 id="phase-1-initial-access-and-infiltration">Phase 1: Initial Access and Infiltration</h2>
 
 <p>The first phase of any ransomware attack involves gaining initial access to the target system. Cybercriminals employ several common vectors to breach security perimeters:</p>
 
@@ -138,7 +248,7 @@
 
 <p>Sophisticated ransomware groups increasingly target software vendors and managed service providers (MSPs). By compromising these trusted third parties, attackers can simultaneously hit multiple organizations through software updates or remote management tools.</p>
 
-<h2>Phase 2: Persistence and Privilege Escalation</h2>
+<h2 id="phase-2-persistence-and-privilege-escalation">Phase 2: Persistence and Privilege Escalation</h2>
 
 <p>After gaining initial access, attackers focus on maintaining persistence and escalating their privileges within the compromised environment.</p>
 
@@ -168,7 +278,7 @@
 <li><strong>UAC bypass:</strong> Circumventing User Account Control mechanisms</li>
 </ul>
 
-<h2>Phase 3: Reconnaissance and Lateral Movement</h2>
+<h2 id="phase-3-reconnaissance-and-lateral-movement">Phase 3: Reconnaissance and Lateral Movement</h2>
 
 <p>Before deploying ransomware, attackers conduct extensive reconnaissance to map the network, identify critical assets, and locate backups that need to be destroyed or encrypted.</p>
 
@@ -205,7 +315,7 @@ ldapsearch -x -h domain-controller.company.com -s sub -b "dc=company,dc=com"</co
 <li>Email archives and communications</li>
 </ul>
 
-<h2>Phase 4: Backup Destruction and Security Disabling</h2>
+<h2 id="phase-4-backup-destruction-and-security-disabling">Phase 4: Backup Destruction and Security Disabling</h2>
 
 <p>Before deploying the encryption payload, attackers systematically destroy backup systems and disable security controls to maximize damage and prevent recovery.</p>
 
@@ -235,7 +345,7 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 Set-MpPreference -DisableBehaviorMonitoring $true
 Set-MpPreference -DisableBlockAtFirstSeen $true</code></pre>
 
-<h2>Phase 5: Encryption and Extortion</h2>
+<h2 id="phase-5-encryption-and-extortion">Phase 5: Encryption and Extortion</h2>
 
 <p>The final phase involves deploying the ransomware payload across all accessible systems simultaneously to maximize impact and prevent defensive responses.</p>
 
@@ -276,7 +386,7 @@ psexec \\* -s -d -f -c ransomware.exe</code></pre>
 <li>Threats of data publication or permanent deletion</li>
 </ul>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Understanding how ransomware attacks unfold across these five phases—initial access, persistence and escalation, reconnaissance and lateral movement, backup destruction, and final encryption—provides crucial insight for building effective defenses.</p>
 
@@ -299,7 +409,34 @@ psexec \\* -s -d -f -c ransomware.exe</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://www.cisa.gov/stopransomware" target="_blank" rel="noopener noreferrer">CISA Ransomware Guide</a></li>
+    <li><a href="https://attack.mitre.org/techniques/T1486/" target="_blank" rel="noopener noreferrer">MITRE ATT&CK Ransomware</a></li>
+    <li><a href="https://www.nomoreransom.org/" target="_blank" rel="noopener noreferrer">No More Ransom</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/news/top-cybersecurity-threats-to-watch-in-2026.html">Top Cybersecurity Threats to Watch in 2026</a></li>
+    <li><a href="/news/bug-bounty-hunting-how-to-make-money-finding-vulnerabilities.html">Bug Bounty Hunting: How to Make Money Finding Vulnerabilities</a></li>
+    <li><a href="/news/index.html">Browse All Security News →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

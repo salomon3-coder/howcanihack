@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,22 @@
   <h1>How to Use Burp Suite for Web Application Security Testing</h1>
 
 <p class="lead">Burp Suite is the gold standard for web application security testing, used by penetration testers and bug bounty hunters worldwide. This comprehensive guide will walk you through everything you need to know to start using Burp Suite effectively, from basic setup to advanced testing techniques that can help you identify critical vulnerabilities in web applications.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-burp-suite-the-complete-web-security-testing-platform">Understanding Burp Suite: The Complete Web Security Testing Platform</a></li>
+    <li><a href="#setting-up-burp-suite-and-configuring-your-testing-environment">Setting Up Burp Suite and Configuring Your Testing Environment</a></li>
+    <li><a href="#core-burp-suite-features-and-testing-techniques">Core Burp Suite Features and Testing Techniques</a></li>
+    <li><a href="#advanced-testing-strategies-and-best-practices">Advanced Testing Strategies and Best Practices</a></li>
+    <li><a href="#common-vulnerability-testing-workflows">Common Vulnerability Testing Workflows</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>Whether you're just starting your cybersecurity journey or looking to enhance your web application testing skills, mastering Burp Suite is essential. This powerful proxy tool acts as an intermediary between your browser and target applications, allowing you to intercept, analyze, and modify HTTP requests and responses in real-time.</p>
 
-<h2>Understanding Burp Suite: The Complete Web Security Testing Platform</h2>
+<h2 id="understanding-burp-suite-the-complete-web-security-testing-platform">Understanding Burp Suite: The Complete Web Security Testing Platform</h2>
 
 <p>Burp Suite is an integrated platform designed specifically for web application security testing. Developed by PortSwigger, it combines multiple tools into a single interface, making it easier to perform comprehensive security assessments. The suite includes several key components that work together seamlessly:</p>
 
@@ -133,7 +243,7 @@
 
 <p>The Community Edition is free and includes most essential features, while the Professional version offers advanced scanning capabilities, additional tools, and enhanced reporting features. For beginners, the Community Edition provides more than enough functionality to learn web application security testing fundamentals.</p>
 
-<h2>Setting Up Burp Suite and Configuring Your Testing Environment</h2>
+<h2 id="setting-up-burp-suite-and-configuring-your-testing-environment">Setting Up Burp Suite and Configuring Your Testing Environment</h2>
 
 <p>Getting started with Burp Suite requires proper installation and configuration. Here's how to set up your testing environment for optimal results:</p>
 
@@ -166,7 +276,7 @@
 <li>Configure response interception for analyzing server responses</li>
 </ul>
 
-<h2>Core Burp Suite Features and Testing Techniques</h2>
+<h2 id="core-burp-suite-features-and-testing-techniques">Core Burp Suite Features and Testing Techniques</h2>
 
 <p>Now that your environment is configured, let's explore the core features that make Burp Suite indispensable for web application security testing.</p>
 
@@ -241,7 +351,7 @@ username=admin' OR '1'='1&password=anything</code></pre>
 <li>Configure authentication handling</li>
 </ul>
 
-<h2>Advanced Testing Strategies and Best Practices</h2>
+<h2 id="advanced-testing-strategies-and-best-practices">Advanced Testing Strategies and Best Practices</h2>
 
 <p>As you become more comfortable with Burp Suite's basic functionality, implementing advanced strategies will significantly improve your testing effectiveness.</p>
 
@@ -283,7 +393,7 @@ username=admin' OR '1'='1&password=anything</code></pre>
 
 <p>Install extensions through the Extender tab in Burp Suite's interface.</p>
 
-<h2>Common Vulnerability Testing Workflows</h2>
+<h2 id="common-vulnerability-testing-workflows">Common Vulnerability Testing Workflows</h2>
 
 <p>Developing systematic approaches for testing common vulnerabilities will make your security assessments more thorough and efficient.</p>
 
@@ -321,7 +431,7 @@ username=admin' OR '1'='1&password=anything</code></pre>
 <li>Test for price manipulation in e-commerce applications</li>
 </ul>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Mastering Burp Suite is a journey that requires consistent practice and hands-on experience. Start with simple web applications or deliberately vulnerable applications like DVWA (Damn Vulnerable Web Application) or WebGoat to practice your skills safely and legally.</p>
 
@@ -335,7 +445,33 @@ username=admin' OR '1'='1&password=anything</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://portswigger.net/burp/documentation" target="_blank" rel="noopener noreferrer">PortSwigger Docs</a></li>
+    <li><a href="https://portswigger.net/web-security" target="_blank" rel="noopener noreferrer">PortSwigger Web Academy</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,8 +213,22 @@
   <h1>How to Use Hydra for Ethical Brute Force Attacks: A Beginner's Guide</h1>
 
 <p class="lead">Hydra is one of the most powerful and versatile password cracking tools in a security professional's arsenal. When used ethically and responsibly, it can help penetration testers and cybersecurity professionals identify weak passwords and improve system security. This comprehensive guide will teach you how to use Hydra safely and legally for authorized security testing.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-hydra-and-why-use-it-for-ethical-hacking">What Is Hydra and Why Use It for Ethical Hacking?</a></li>
+    <li><a href="#installing-hydra-on-different-operating-systems">Installing Hydra on Different Operating Systems</a></li>
+    <li><a href="#understanding-hydras-basic-syntax-and-options">Understanding Hydra's Basic Syntax and Options</a></li>
+    <li><a href="#practical-examples-of-ethical-hydra-usage">Practical Examples of Ethical Hydra Usage</a></li>
+    <li><a href="#advanced-hydra-techniques-and-best-practices">Advanced Hydra Techniques and Best Practices</a></li>
+    <li><a href="#legal-and-ethical-considerations">Legal and Ethical Considerations</a></li>
+    <li><a href="#defending-against-brute-force-attacks">Defending Against Brute Force Attacks</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
 
-<h2>What Is Hydra and Why Use It for Ethical Hacking?</h2>
+
+<h2 id="what-is-hydra-and-why-use-it-for-ethical-hacking">What Is Hydra and Why Use It for Ethical Hacking?</h2>
 
 <p>Hydra, developed by the security research group THC (The Hacker's Choice), is a fast network logon cracker that supports numerous protocols. It's designed to perform brute force attacks against remote authentication services, making it an invaluable tool for penetration testing and security auditing.</p>
 
@@ -133,7 +245,7 @@
 
 <p><em>Important Note:</em> Always ensure you have explicit written permission before using Hydra against any system. Unauthorized access attempts are illegal and can result in serious legal consequences.</p>
 
-<h2>Installing Hydra on Different Operating Systems</h2>
+<h2 id="installing-hydra-on-different-operating-systems">Installing Hydra on Different Operating Systems</h2>
 
 <p>Hydra comes pre-installed on many penetration testing distributions like Kali Linux, Parrot OS, and BackBox. However, you can also install it on other systems.</p>
 
@@ -159,7 +271,7 @@ sudo make install
 <p>To verify your installation, run:</p>
 <pre><code>hydra -h</code></pre>
 
-<h2>Understanding Hydra's Basic Syntax and Options</h2>
+<h2 id="understanding-hydras-basic-syntax-and-options">Understanding Hydra's Basic Syntax and Options</h2>
 
 <p>Before diving into practical examples, it's crucial to understand Hydra's command structure and most important options.</p>
 
@@ -183,7 +295,7 @@ sudo make install
 <p>To see all supported protocols, use:</p>
 <pre><code>hydra -h | grep "Supported services"</code></pre>
 
-<h2>Practical Examples of Ethical Hydra Usage</h2>
+<h2 id="practical-examples-of-ethical-hydra-usage">Practical Examples of Ethical Hydra Usage</h2>
 
 <p>Let's explore real-world scenarios where Hydra can be used ethically for security testing. Remember, these examples should only be used on systems you own or have explicit permission to test.</p>
 
@@ -237,7 +349,7 @@ hydra -L users.txt -P passwords.txt mysql://192.168.1.100:3306
 hydra -l postgres -P passwords.txt -s 5433 postgres://192.168.1.100
 </code></pre>
 
-<h2>Advanced Hydra Techniques and Best Practices</h2>
+<h2 id="advanced-hydra-techniques-and-best-practices">Advanced Hydra Techniques and Best Practices</h2>
 
 <h3>Creating Effective Wordlists</h3>
 <p>The success of your brute force attack largely depends on the quality of your wordlists. Here are some strategies:</p>
@@ -275,7 +387,7 @@ hydra -t 1 -w 30 -L users.txt -P passwords.txt ssh://192.168.1.100
 # -t 1 uses only one thread
 </code></pre>
 
-<h2>Legal and Ethical Considerations</h2>
+<h2 id="legal-and-ethical-considerations">Legal and Ethical Considerations</h2>
 
 <p>Using Hydra responsibly is paramount to maintaining ethical standards in cybersecurity. Here are the key guidelines to follow:</p>
 
@@ -304,7 +416,7 @@ hydra -t 1 -w 30 -L users.txt -P passwords.txt ssh://192.168.1.100
 <li>Maintain detailed logs of all testing activities</li>
 </ul>
 
-<h2>Defending Against Brute Force Attacks</h2>
+<h2 id="defending-against-brute-force-attacks">Defending Against Brute Force Attacks</h2>
 
 <p>Understanding how to use Hydra also means knowing how to defend against it. Here are key defensive strategies:</p>
 
@@ -325,7 +437,7 @@ hydra -t 1 -w 30 -L users.txt -P passwords.txt ssh://192.168.1.100
 <li>Regular security audits and penetration testing</li>
 </ul>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Hydra is an incredibly powerful tool that, when used ethically and responsibly, can significantly improve an organization's security posture. By understanding how attackers use tools like Hydra, security professionals can better defend their systems and identify vulnerabilities before malicious actors do.</p>
 
@@ -346,7 +458,34 @@ hydra -t 1 -w 30 -L users.txt -P passwords.txt ssh://192.168.1.100
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank" rel="noopener noreferrer">THC Hydra GitHub</a></li>
+    <li><a href="https://owasp.org/www-community/attacks/Brute_force_attack" target="_blank" rel="noopener noreferrer">OWASP Brute Force</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

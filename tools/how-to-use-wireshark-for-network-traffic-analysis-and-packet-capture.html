@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,22 @@
   <h1>How to Use Wireshark for Network Traffic Analysis and Packet Capture</h1>
 
 <p class="lead">Wireshark is the world's most popular network protocol analyzer, offering cybersecurity professionals and enthusiasts a powerful window into network communications. This comprehensive guide will teach you how to harness Wireshark's capabilities for effective packet capture and network traffic analysis, from basic setup to advanced filtering techniques.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#getting-started-with-wireshark-installation-and-setup">Getting Started with Wireshark Installation and Setup</a></li>
+    <li><a href="#capturing-your-first-packets">Capturing Your First Packets</a></li>
+    <li><a href="#mastering-wireshark-filters-for-targeted-analysis">Mastering Wireshark Filters for Targeted Analysis</a></li>
+    <li><a href="#analyzing-network-protocols-and-security-implications">Analyzing Network Protocols and Security Implications</a></li>
+    <li><a href="#best-practices-and-practical-tips">Best Practices and Practical Tips</a></li>
+    <li><a href="#next-steps-and-advanced-learning">Next Steps and Advanced Learning</a></li>
+  </ol>
+</div>
+
 
 <p>Network traffic analysis is a cornerstone skill in cybersecurity, essential for troubleshooting network issues, detecting security threats, and understanding how data flows through networks. Whether you're investigating suspicious activity, optimizing network performance, or learning about network protocols, Wireshark provides the tools you need to dissect and analyze network communications at the packet level.</p>
 
-<h2>Getting Started with Wireshark Installation and Setup</h2>
+<h2 id="getting-started-with-wireshark-installation-and-setup">Getting Started with Wireshark Installation and Setup</h2>
 
 <p>Before diving into packet analysis, you'll need to properly install and configure Wireshark on your system. Wireshark is available for Windows, macOS, and Linux distributions, making it accessible across all major platforms.</p>
 
@@ -154,7 +264,7 @@ sudo pacman -S wireshark-qt</code></pre>
 <li><strong>any:</strong> Special interface that captures traffic from all interfaces simultaneously</li>
 </ul>
 
-<h2>Capturing Your First Packets</h2>
+<h2 id="capturing-your-first-packets">Capturing Your First Packets</h2>
 
 <p>Starting a packet capture in Wireshark is straightforward, but understanding what you're capturing and how to manage the data effectively requires some planning.</p>
 
@@ -182,7 +292,7 @@ sudo pacman -S wireshark-qt</code></pre>
 
 <p>When dealing with high-traffic networks, consider setting capture filters before starting to limit the data collected. This prevents Wireshark from becoming overwhelmed and helps focus on relevant traffic.</p>
 
-<h2>Mastering Wireshark Filters for Targeted Analysis</h2>
+<h2 id="mastering-wireshark-filters-for-targeted-analysis">Mastering Wireshark Filters for Targeted Analysis</h2>
 
 <p>Wireshark's filtering capabilities are what transform it from a simple packet sniffer into a powerful analysis tool. There are two types of filters: capture filters and display filters, each serving different purposes in your analysis workflow.</p>
 
@@ -236,7 +346,7 @@ not port 22</code></pre>
 
 <pre><code>http and not ip.addr == 192.168.1.100</code></pre>
 
-<h2>Analyzing Network Protocols and Security Implications</h2>
+<h2 id="analyzing-network-protocols-and-security-implications">Analyzing Network Protocols and Security Implications</h2>
 
 <p>Understanding how to interpret the protocol information that Wireshark reveals is crucial for effective network analysis and security assessment.</p>
 
@@ -275,7 +385,7 @@ not port 22</code></pre>
 <li><strong>I/O Graphs:</strong> Statistics → I/O Graph provides visual representations of traffic over time</li>
 </ul>
 
-<h2>Best Practices and Practical Tips</h2>
+<h2 id="best-practices-and-practical-tips">Best Practices and Practical Tips</h2>
 
 <p>Effective use of Wireshark requires developing good habits and understanding common pitfalls that can compromise your analysis.</p>
 
@@ -311,7 +421,7 @@ not port 22</code></pre>
 <li>Save important capture files with descriptive names and metadata</li>
 </ol>
 
-<h2>Next Steps and Advanced Learning</h2>
+<h2 id="next-steps-and-advanced-learning">Next Steps and Advanced Learning</h2>
 
 <p>Mastering Wireshark is an ongoing process that requires hands-on practice and continuous learning. Now that you understand the fundamentals of packet capture and analysis, consider exploring these advanced topics to deepen your expertise.</p>
 
@@ -327,7 +437,34 @@ not port 22</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://www.wireshark.org/docs/" target="_blank" rel="noopener noreferrer">Wireshark Official Docs</a></li>
+    <li><a href="https://wiki.wireshark.org/SampleCaptures" target="_blank" rel="noopener noreferrer">Wireshark Sample Captures</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

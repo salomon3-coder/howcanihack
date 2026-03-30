@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,22 @@
   <h1>CompTIA Security+ Study Guide 2026: Your Complete Path to Certification Success</h1>
 
 <p class="lead">The CompTIA Security+ certification remains the gold standard entry point into cybersecurity careers, and the 2026 exam brings updated focus on cloud security, AI threats, and modern attack vectors. This comprehensive study guide will help you master the essential concepts, practical skills, and exam strategies needed to pass Security+ SY0-701 and launch your cybersecurity journey.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-the-security-sy0-701-exam-structure">Understanding the Security+ SY0-701 Exam Structure</a></li>
+    <li><a href="#essential-study-topics-and-practical-examples">Essential Study Topics and Practical Examples</a></li>
+    <li><a href="#cloud-security-and-modern-architectures">Cloud Security and Modern Architectures</a></li>
+    <li><a href="#incident-response-and-security-operations">Incident Response and Security Operations</a></li>
+    <li><a href="#effective-study-strategies-and-resources">Effective Study Strategies and Resources</a></li>
+    <li><a href="#next-steps-putting-your-security-to-work">Next Steps: Putting Your Security+ to Work</a></li>
+  </ol>
+</div>
+
 
 <p>Whether you're transitioning from IT support, starting fresh in cybersecurity, or looking to validate your security knowledge, Security+ opens doors to roles like security analyst, network administrator, and incident response specialist. With average salaries ranging from $55,000 to $85,000 for entry-level positions, this certification provides both credibility and career advancement opportunities.</p>
 
-<h2>Understanding the Security+ SY0-701 Exam Structure</h2>
+<h2 id="understanding-the-security-sy0-701-exam-structure">Understanding the Security+ SY0-701 Exam Structure</h2>
 
 <p>The current Security+ exam (SY0-701) consists of <strong>90 questions</strong> that must be completed within <strong>90 minutes</strong>. You'll encounter multiple-choice questions, drag-and-drop scenarios, and performance-based questions (PBQs) that test practical application of security concepts.</p>
 
@@ -146,7 +256,7 @@
 <li>Remote work security challenges</li>
 </ul>
 
-<h2>Essential Study Topics and Practical Examples</h2>
+<h2 id="essential-study-topics-and-practical-examples">Essential Study Topics and Practical Examples</h2>
 
 <h3>Network Security Fundamentals</h3>
 
@@ -193,7 +303,7 @@ openvas-start
 <li><strong>Single Sign-On (SSO):</strong> Kerberos, OAuth, and OpenID Connect</li>
 </ul>
 
-<h2>Cloud Security and Modern Architectures</h2>
+<h2 id="cloud-security-and-modern-architectures">Cloud Security and Modern Architectures</h2>
 
 <p>With organizations rapidly adopting cloud services, Security+ 2026 places significant emphasis on cloud security models and shared responsibility concepts.</p>
 
@@ -223,7 +333,7 @@ docker run --memory="256m" --cpus="0.5" myapp:latest</code></pre>
 
 <p>Study container security tools like <strong>Docker Bench</strong>, <strong>Twistlock</strong>, and <strong>Aqua Security</strong> for vulnerability management and runtime protection.</p>
 
-<h2>Incident Response and Security Operations</h2>
+<h2 id="incident-response-and-security-operations">Incident Response and Security Operations</h2>
 
 <p>Security operations questions comprise the largest exam domain (28%), covering incident response, logging, monitoring, and forensics procedures.</p>
 
@@ -261,7 +371,7 @@ index=security sourcetype=firewall action=blocked
 
 <p>Study basic forensics procedures including evidence acquisition, chain of custody, and analysis techniques. Key tools include <strong>dd</strong> for disk imaging, <strong>Volatility</strong> for memory analysis, and <strong>Autopsy</strong> for file system examination.</p>
 
-<h2>Effective Study Strategies and Resources</h2>
+<h2 id="effective-study-strategies-and-resources">Effective Study Strategies and Resources</h2>
 
 <h3>Hands-On Practice Environments</h3>
 
@@ -295,7 +405,7 @@ index=security sourcetype=firewall action=blocked
 <li><strong>Hands-on Labs:</strong> CBT Nuggets, ITProTV, or Linux Academy</li>
 </ul>
 
-<h2>Next Steps: Putting Your Security+ to Work</h2>
+<h2 id="next-steps-putting-your-security-to-work">Next Steps: Putting Your Security+ to Work</h2>
 
 <p>Earning your Security+ certification opens numerous career paths, but success requires continuous learning and practical application. Consider these immediate next steps:</p>
 
@@ -313,7 +423,33 @@ index=security sourcetype=firewall action=blocked
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://www.comptia.org/certifications/security" target="_blank" rel="noopener noreferrer">CompTIA Security+</a></li>
+    <li><a href="https://www.comptia.org/certifications/security#examdetails" target="_blank" rel="noopener noreferrer">CompTIA Exam Objectives</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/certifications/oscp-certification-complete-roadmap-and-tips.html">OSCP Certification: Complete Roadmap and Tips</a></li>
+    <li><a href="/certifications/how-to-pass-the-ceh-exam-on-your-first-try.html">How to Pass the CEH Exam on Your First Try</a></li>
+    <li><a href="/certifications/index.html">Browse All Certification Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

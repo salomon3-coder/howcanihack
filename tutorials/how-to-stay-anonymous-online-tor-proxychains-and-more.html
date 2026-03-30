@@ -97,6 +97,81 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +190,23 @@
   <h1>How to Stay Anonymous Online: Tor, Proxychains and More</h1>
 
 <p class="lead">In today's digital landscape, maintaining online anonymity has become crucial for privacy advocates, cybersecurity professionals, and anyone concerned about digital surveillance. Whether you're conducting legitimate security research or simply want to protect your personal information from prying eyes, understanding the tools and techniques for anonymous browsing is essential knowledge for every cybersecurity enthusiast.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-online-anonymity-the-basics">Understanding Online Anonymity: The Basics</a></li>
+    <li><a href="#tor-your-gateway-to-anonymous-browsing">Tor: Your Gateway to Anonymous Browsing</a></li>
+    <li><a href="#proxychains-advanced-proxy-management">Proxychains: Advanced Proxy Management</a></li>
+    <li><a href="#additional-anonymity-tools-and-techniques">Additional Anonymity Tools and Techniques</a></li>
+    <li><a href="#operational-security-opsec-best-practices">Operational Security (OPSEC) Best Practices</a></li>
+    <li><a href="#testing-your-anonymity-setup">Testing Your Anonymity Setup</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>This comprehensive guide will walk you through the most effective methods for maintaining anonymity online, from basic browser configurations to advanced proxy chaining techniques. We'll cover everything from setting up Tor properly to implementing sophisticated anonymity layers that can help protect your digital footprint.</p>
 
-<h2>Understanding Online Anonymity: The Basics</h2>
+<h2 id="understanding-online-anonymity-the-basics">Understanding Online Anonymity: The Basics</h2>
 
 <p>Before diving into specific tools, it's important to understand what online anonymity actually means and why it matters. When you browse the internet normally, your activities leave digital traces everywhere: your IP address, browser fingerprints, cookies, and metadata all contribute to a profile that can be tracked and analyzed.</p>
 
@@ -134,7 +222,7 @@
 
 <p>The key principle behind effective anonymity is <em>layered protection</em>. No single tool provides complete anonymity, but combining multiple techniques creates a robust defense against various forms of surveillance and tracking.</p>
 
-<h2>Tor: Your Gateway to Anonymous Browsing</h2>
+<h2 id="tor-your-gateway-to-anonymous-browsing">Tor: Your Gateway to Anonymous Browsing</h2>
 
 <p>The Tor network remains one of the most popular and effective tools for anonymous internet access. Tor (The Onion Router) works by routing your internet traffic through multiple encrypted layers, making it extremely difficult to trace back to your original IP address.</p>
 
@@ -170,7 +258,7 @@ torify ssh user@example.com</code></pre>
 
 <p>For applications that don't work well with torify, you can configure them to use SOCKS5 proxy on localhost:9050.</p>
 
-<h2>Proxychains: Advanced Proxy Management</h2>
+<h2 id="proxychains-advanced-proxy-management">Proxychains: Advanced Proxy Management</h2>
 
 <p>Proxychains is a powerful tool that allows you to route network connections through multiple proxy servers, creating additional layers of anonymity beyond what Tor alone provides. This technique, known as proxy chaining, makes traffic analysis significantly more difficult.</p>
 
@@ -211,7 +299,7 @@ proxychains4 curl -I http://whatismyipaddress.com</code></pre>
 
 <p><strong>Pro tip:</strong> Always test your setup by checking your apparent IP address and location before conducting any sensitive activities.</p>
 
-<h2>Additional Anonymity Tools and Techniques</h2>
+<h2 id="additional-anonymity-tools-and-techniques">Additional Anonymity Tools and Techniques</h2>
 
 <p>While Tor and proxychains form the foundation of online anonymity, several additional tools can enhance your privacy and security posture.</p>
 
@@ -264,7 +352,7 @@ nameserver 8.8.8.8</code></pre>
 <li>Clear cookies and cache regularly</li>
 </ul>
 
-<h2>Operational Security (OPSEC) Best Practices</h2>
+<h2 id="operational-security-opsec-best-practices">Operational Security (OPSEC) Best Practices</h2>
 
 <p>Technical tools are only as effective as the operational security practices that support them. Poor OPSEC can completely compromise even the most sophisticated anonymity setup.</p>
 
@@ -280,7 +368,7 @@ nameserver 8.8.8.8</code></pre>
 
 <p>Remember that <em>correlation attacks</em> are one of the biggest threats to anonymity. Even if your traffic is perfectly encrypted and routed, patterns in timing, behavior, or cross-platform activities can compromise your identity.</p>
 
-<h2>Testing Your Anonymity Setup</h2>
+<h2 id="testing-your-anonymity-setup">Testing Your Anonymity Setup</h2>
 
 <p>Regular testing ensures your anonymity measures are working effectively. Use these commands and websites to verify your setup:</p>
 
@@ -301,7 +389,7 @@ curl --socks5 localhost:9050 https://check.torproject.org</code></pre>
 <li>check.torproject.org - Tor connectivity verification</li>
 </ul>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Achieving true online anonymity requires a combination of technical tools, proper configuration, and disciplined operational security practices. While Tor and proxychains provide excellent foundations for anonymous browsing, they must be part of a comprehensive approach that includes VPNs, browser hardening, and careful attention to behavioral patterns.</p>
 
@@ -323,7 +411,26 @@ curl --socks5 localhost:9050 https://check.torproject.org</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tutorials/sql-injection-attacks-complete-guide-from-detection-to-prevention.html">SQL Injection: Complete Guide from Detection to Prevention</a></li>
+    <li><a href="/tutorials/cross-site-scripting-xss-how-it-works-and-how-to-prevent-it.html">Cross-Site Scripting (XSS): How It Works and How to Prevent It</a></li>
+    <li><a href="/tutorials/privilege-escalation-techniques-on-linux.html">Privilege Escalation Techniques on Linux</a></li>
+    <li><a href="/tutorials/index.html">Browse All Tutorials →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

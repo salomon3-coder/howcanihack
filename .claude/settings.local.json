@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/bulk_improve.py)",
+      "Bash(py --version)",
+      "Bash(python3.exe --version)",
+      "Bash(where python3:*)",
+      "Bash(where py:*)",
+      "Bash(python3.exe scripts/bulk_improve.py)",
+      "Bash(node scripts/bulk_improve.mjs)",
+      "Bash(node scripts/add_external_links.mjs)",
+      "Bash(node scripts/add_toc.mjs)",
+      "Bash(node -e \":*)",
+      "Bash(node scripts/fix_related_links.mjs)"
+    ]
+  }
+}

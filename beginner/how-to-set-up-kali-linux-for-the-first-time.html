@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,14 +213,28 @@
   <h1>How to Set Up Kali Linux for the First Time: Complete Beginner's Guide</h1>
 
 <p class="lead">Setting up Kali Linux properly is crucial for anyone entering the cybersecurity field. This comprehensive guide walks you through the entire setup process, from installation to essential configuration, ensuring your Kali Linux system is ready for penetration testing and security research.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-kali-linux-and-why-use-it">What is Kali Linux and Why Use It?</a></li>
+    <li><a href="#installation-methods-choose-your-setup">Installation Methods: Choose Your Setup</a></li>
+    <li><a href="#initial-system-configuration">Initial System Configuration</a></li>
+    <li><a href="#essential-tools-and-software-installation">Essential Tools and Software Installation</a></li>
+    <li><a href="#network-configuration-and-security">Network Configuration and Security</a></li>
+    <li><a href="#customization-and-optimization">Customization and Optimization</a></li>
+    <li><a href="#testing-your-setup">Testing Your Setup</a></li>
+    <li><a href="#next-steps-and-best-practices">Next Steps and Best Practices</a></li>
+  </ol>
+</div>
 
-<h2>What is Kali Linux and Why Use It?</h2>
+
+<h2 id="what-is-kali-linux-and-why-use-it">What is Kali Linux and Why Use It?</h2>
 
 <p>Kali Linux is a Debian-based Linux distribution specifically designed for digital forensics and penetration testing. Maintained by Offensive Security, it comes pre-installed with over 600 penetration testing tools, making it the go-to choice for cybersecurity professionals, ethical hackers, and security researchers worldwide.</p>
 
 <p>Unlike general-purpose Linux distributions, Kali Linux is built with security testing in mind. It includes tools for network analysis, vulnerability assessment, wireless attacks, web application testing, and forensic analysis. The distribution is regularly updated with the latest security tools and receives continuous support from the cybersecurity community.</p>
 
-<h2>Installation Methods: Choose Your Setup</h2>
+<h2 id="installation-methods-choose-your-setup">Installation Methods: Choose Your Setup</h2>
 
 <p>Before diving into the setup process, you need to decide how you want to run Kali Linux. Each method has its advantages depending on your needs and hardware constraints.</p>
 
@@ -148,7 +260,7 @@
 
 <p>Creating a bootable USB drive allows you to run Kali Linux temporarily without installing it permanently. This method is perfect for quick security assessments or when you need Kali tools on different computers.</p>
 
-<h2>Initial System Configuration</h2>
+<h2 id="initial-system-configuration">Initial System Configuration</h2>
 
 <p>Once Kali Linux is installed and running, several important configuration steps will optimize your system for security work and ensure everything functions properly.</p>
 
@@ -185,7 +297,7 @@ sudo systemctl start ssh</code></pre>
 
 <p>Consider changing the default port, disabling root login, and configuring key-based authentication for production environments.</p>
 
-<h2>Essential Tools and Software Installation</h2>
+<h2 id="essential-tools-and-software-installation">Essential Tools and Software Installation</h2>
 
 <p>While Kali Linux comes with numerous pre-installed tools, you may want to install additional software or update existing tools to meet your specific needs.</p>
 
@@ -214,7 +326,7 @@ sudo apt update</code></pre>
 
 <p>Consider using virtual environments to manage different Python projects and their dependencies without conflicts.</p>
 
-<h2>Network Configuration and Security</h2>
+<h2 id="network-configuration-and-security">Network Configuration and Security</h2>
 
 <p>Proper network configuration is crucial for security testing and protecting your system during vulnerability research.</p>
 
@@ -242,7 +354,7 @@ sudo ufw default allow outgoing</code></pre>
 
 <p>Add specific rules for services you need to access, such as SSH or web services running on your system.</p>
 
-<h2>Customization and Optimization</h2>
+<h2 id="customization-and-optimization">Customization and Optimization</h2>
 
 <p>Personalizing your Kali Linux environment improves productivity and makes your workflow more efficient.</p>
 
@@ -268,7 +380,7 @@ alias update='sudo apt update && sudo apt upgrade'</code></pre>
 
 <p>These shortcuts save time and reduce typing for frequently used commands.</p>
 
-<h2>Testing Your Setup</h2>
+<h2 id="testing-your-setup">Testing Your Setup</h2>
 
 <p>Before starting actual security work, verify that your Kali Linux installation is working correctly by testing essential tools and functions.</p>
 
@@ -293,7 +405,7 @@ curl -I https://www.google.com</code></pre>
 
 <p>These commands test basic network connectivity, DNS resolution, and HTTP/HTTPS connectivity.</p>
 
-<h2>Next Steps and Best Practices</h2>
+<h2 id="next-steps-and-best-practices">Next Steps and Best Practices</h2>
 
 <p>With Kali Linux properly configured, you're ready to begin your cybersecurity journey. However, remember that this setup is just the foundation.</p>
 
@@ -315,7 +427,33 @@ curl -I https://www.google.com</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://www.kali.org/docs/" target="_blank" rel="noopener noreferrer">Kali Linux Official</a></li>
+    <li><a href="https://www.kali.org/tools/" target="_blank" rel="noopener noreferrer">Kali Tools Documentation</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/beginner/what-is-ethical-hacking-and-how-to-get-started.html">What is Ethical Hacking and How to Get Started</a></li>
+    <li><a href="/beginner/linux-basics-every-hacker-needs-to-know.html">Linux Basics Every Hacker Needs to Know</a></li>
+    <li><a href="/beginner/index.html">Browse All Beginner Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

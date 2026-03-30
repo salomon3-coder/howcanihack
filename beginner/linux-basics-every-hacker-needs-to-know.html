@@ -97,6 +97,81 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +190,23 @@
   <h1>Linux Basics Every Hacker Needs to Know: Your Foundation for Cybersecurity Success</h1>
 
 <p class="lead">Whether you're starting your cybersecurity journey or looking to strengthen your fundamentals, mastering Linux is non-negotiable. From penetration testing to incident response, nearly every cybersecurity tool and technique relies on Linux proficiency. This comprehensive guide covers the essential Linux skills that will transform you from a curious beginner into a confident security professional.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#essential-linux-distributions-for-security-work">Essential Linux Distributions for Security Work</a></li>
+    <li><a href="#command-line-mastery-your-most-powerful-weapon">Command Line Mastery: Your Most Powerful Weapon</a></li>
+    <li><a href="#file-permissions-and-security-fundamentals">File Permissions and Security Fundamentals</a></li>
+    <li><a href="#text-processing-and-log-analysis">Text Processing and Log Analysis</a></li>
+    <li><a href="#system-security-and-hardening-basics">System Security and Hardening Basics</a></li>
+    <li><a href="#practical-scripting-for-automation">Practical Scripting for Automation</a></li>
+    <li><a href="#next-steps-building-your-linux-security-toolkit">Next Steps: Building Your Linux Security Toolkit</a></li>
+  </ol>
+</div>
+
 
 <p>Linux powers the majority of servers worldwide, forms the backbone of most cybersecurity tools, and provides the flexibility that security professionals need to perform their work effectively. Unlike other operating systems, Linux gives you complete control over your system, making it the preferred choice for ethical hackers, penetration testers, and security researchers.</p>
 
-<h2>Essential Linux Distributions for Security Work</h2>
+<h2 id="essential-linux-distributions-for-security-work">Essential Linux Distributions for Security Work</h2>
 
 <p>Not all Linux distributions are created equal when it comes to cybersecurity. While any Linux distro can be configured for security work, some are specifically designed with hackers and security professionals in mind.</p>
 
@@ -130,7 +218,7 @@
 
 <p>For this guide, we'll focus on commands and techniques that work across all major distributions, with specific notes where certain tools are distribution-specific.</p>
 
-<h2>Command Line Mastery: Your Most Powerful Weapon</h2>
+<h2 id="command-line-mastery-your-most-powerful-weapon">Command Line Mastery: Your Most Powerful Weapon</h2>
 
 <p>The command line is where Linux truly shines, and for security professionals, it's absolutely essential. Here are the fundamental commands every aspiring hacker must master:</p>
 
@@ -185,7 +273,7 @@ ip addr show           # Modern way to show interfaces
 route -n               # Display routing table
 arp -a                 # Show ARP cache</code></pre>
 
-<h2>File Permissions and Security Fundamentals</h2>
+<h2 id="file-permissions-and-security-fundamentals">File Permissions and Security Fundamentals</h2>
 
 <p>Linux permissions are often the difference between a successful security assessment and hitting a dead end. Understanding and manipulating permissions is crucial for privilege escalation, maintaining access, and understanding system security.</p>
 
@@ -239,7 +327,7 @@ chmod 4755 binary      # Set SUID bit
 chmod 2755 directory   # Set SGID bit
 chmod 1755 directory   # Set sticky bit</code></pre>
 
-<h2>Text Processing and Log Analysis</h2>
+<h2 id="text-processing-and-log-analysis">Text Processing and Log Analysis</h2>
 
 <p>Security professionals spend considerable time analyzing logs, configuration files, and command output. Linux provides powerful text processing tools that can quickly extract meaningful information from massive amounts of data.</p>
 
@@ -270,7 +358,7 @@ sed 's/old/new/g' file.txt   # Replace all occurrences of "old" with "new"
 cat access.log | grep "404" | cut -d' ' -f1 | sort | uniq -c | sort -nr | head -10
 # Find top 10 IPs generating 404 errors</code></pre>
 
-<h2>System Security and Hardening Basics</h2>
+<h2 id="system-security-and-hardening-basics">System Security and Hardening Basics</h2>
 
 <p>Understanding how to secure a Linux system is just as important as knowing how to exploit vulnerabilities. This knowledge makes you a more well-rounded security professional and helps you provide valuable remediation advice.</p>
 
@@ -303,7 +391,7 @@ sudo deluser olduser   # Remove user account
 sudo passwd username   # Change user password
 groups username        # Show user's groups</code></pre>
 
-<h2>Practical Scripting for Automation</h2>
+<h2 id="practical-scripting-for-automation">Practical Scripting for Automation</h2>
 
 <p>Automation is key to efficient security work. Bash scripting allows you to automate repetitive tasks, create custom tools, and chain commands together for complex operations.</p>
 
@@ -340,7 +428,7 @@ watch -n 1 'netstat -tulpn'
 # Quick port scan without nmap
 for port in {20..25} {53,80,110,443,993,995}; do echo >/dev/tcp/192.168.1.1/$port && echo "Port $port is open"; done 2>/dev/null</code></pre>
 
-<h2>Next Steps: Building Your Linux Security Toolkit</h2>
+<h2 id="next-steps-building-your-linux-security-toolkit">Next Steps: Building Your Linux Security Toolkit</h2>
 
 <p>Mastering these Linux fundamentals provides the foundation for advanced cybersecurity work. To continue your journey, focus on these key areas:</p>
 
@@ -352,7 +440,25 @@ for port in {20..25} {53,80,110,443,993,995}; do echo >/dev/tcp/192.168.1.1/$por
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/beginner/what-is-ethical-hacking-and-how-to-get-started.html">What is Ethical Hacking and How to Get Started</a></li>
+    <li><a href="/beginner/how-to-set-up-kali-linux-for-the-first-time.html">How to Set Up Kali Linux for the First Time</a></li>
+    <li><a href="/beginner/index.html">Browse All Beginner Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

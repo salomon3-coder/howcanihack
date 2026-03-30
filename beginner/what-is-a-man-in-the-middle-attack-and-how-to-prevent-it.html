@@ -97,6 +97,81 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,12 +190,23 @@
   <h1>What is a Man-in-the-Middle Attack and How to Prevent It</h1>
 
 <p class="lead">A man-in-the-middle (MITM) attack is one of the most dangerous yet common cybersecurity threats where an attacker secretly intercepts and potentially alters communication between two parties. Understanding how these attacks work and how to defend against them is crucial for anyone serious about cybersecurity.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#understanding-man-in-the-middle-attacks">Understanding Man-in-the-Middle Attacks</a></li>
+    <li><a href="#real-world-examples-and-attack-scenarios">Real-World Examples and Attack Scenarios</a></li>
+    <li><a href="#detection-and-prevention-strategies">Detection and Prevention Strategies</a></li>
+    <li><a href="#advanced-detection-techniques">Advanced Detection Techniques</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>Imagine you're having a private conversation with a friend, but unbeknownst to you, someone is standing between you both, listening to every word and even changing your messages before they reach your friend. This is essentially what happens in a man-in-the-middle attack, except it occurs in the digital realm with potentially devastating consequences.</p>
 
 <p>In this comprehensive guide, we'll explore the mechanics of MITM attacks, examine real-world examples, and provide you with practical defense strategies to protect yourself and your organization from these insidious threats.</p>
 
-<h2>Understanding Man-in-the-Middle Attacks</h2>
+<h2 id="understanding-man-in-the-middle-attacks">Understanding Man-in-the-Middle Attacks</h2>
 
 <p>A man-in-the-middle attack occurs when a cybercriminal positions themselves between a user and an application, website, or network service. The attacker intercepts data transmission, often without either party knowing their communication has been compromised. This positioning allows the attacker to:</p>
 
@@ -144,7 +230,7 @@
 
 <p><strong>SSL Stripping:</strong> This attack downgrades HTTPS connections to HTTP, making encrypted communications vulnerable to interception.</p>
 
-<h2>Real-World Examples and Attack Scenarios</h2>
+<h2 id="real-world-examples-and-attack-scenarios">Real-World Examples and Attack Scenarios</h2>
 
 <p>Understanding how MITM attacks work in practice helps illustrate their severity and prevalence in cybersecurity threats.</p>
 
@@ -197,7 +283,7 @@ sslstrip -l 10000
 
 <p>This attack makes users believe they're on a secure banking website while their credentials are transmitted in plain text.</p>
 
-<h2>Detection and Prevention Strategies</h2>
+<h2 id="detection-and-prevention-strategies">Detection and Prevention Strategies</h2>
 
 <p>Protecting against MITM attacks requires a multi-layered approach combining technical solutions, security awareness, and best practices.</p>
 
@@ -254,7 +340,7 @@ netstat -tupln
 netstat -an | findstr :80
 </code></pre>
 
-<h2>Advanced Detection Techniques</h2>
+<h2 id="advanced-detection-techniques">Advanced Detection Techniques</h2>
 
 <p>For intermediate cybersecurity practitioners, implementing advanced detection mechanisms can help identify MITM attacks in progress.</p>
 
@@ -280,7 +366,7 @@ tshark -i eth0 -f "port 443" -T fields -e ip.src -e ip.dst -e ssl.handshake.type
 
 <p>Set up monitoring for unusual authentication patterns, such as multiple login attempts from different geographic locations within short time frames, which might indicate credential theft through MITM attacks.</p>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Man-in-the-middle attacks represent a serious and evolving threat in today's interconnected digital landscape. By understanding how these attacks work and implementing comprehensive defense strategies, you can significantly reduce your vulnerability to these threats.</p>
 
@@ -302,7 +388,26 @@ tshark -i eth0 -f "port 443" -T fields -e ip.src -e ip.dst -e ssl.handshake.type
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/beginner/what-is-ethical-hacking-and-how-to-get-started.html">What is Ethical Hacking and How to Get Started</a></li>
+    <li><a href="/beginner/how-to-set-up-kali-linux-for-the-first-time.html">How to Set Up Kali Linux for the First Time</a></li>
+    <li><a href="/beginner/linux-basics-every-hacker-needs-to-know.html">Linux Basics Every Hacker Needs to Know</a></li>
+    <li><a href="/beginner/index.html">Browse All Beginner Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

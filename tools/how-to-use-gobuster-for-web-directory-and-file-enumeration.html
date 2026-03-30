@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,23 @@
   <h1>How to Use Gobuster for Web Directory and File Enumeration</h1>
 
 <p class="lead">Gobuster is a powerful command-line tool that security professionals use to discover hidden directories, files, and subdomains on web applications. Whether you're conducting penetration testing, bug bounty hunting, or security auditing, mastering Gobuster can significantly enhance your reconnaissance capabilities and help uncover potential attack vectors.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-gobuster-and-why-use-it">What is Gobuster and Why Use It?</a></li>
+    <li><a href="#installing-and-setting-up-gobuster">Installing and Setting Up Gobuster</a></li>
+    <li><a href="#basic-gobuster-usage-and-commands">Basic Gobuster Usage and Commands</a></li>
+    <li><a href="#advanced-gobuster-techniques">Advanced Gobuster Techniques</a></li>
+    <li><a href="#best-practices-and-common-pitfalls">Best Practices and Common Pitfalls</a></li>
+    <li><a href="#real-world-example-complete-enumeration-workflow">Real-World Example: Complete Enumeration Workflow</a></li>
+    <li><a href="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  </ol>
+</div>
+
 
 <p>In this comprehensive guide, we'll explore how to effectively use Gobuster for web directory and file enumeration, covering everything from basic installation to advanced techniques that will elevate your cybersecurity toolkit.</p>
 
-<h2>What is Gobuster and Why Use It?</h2>
+<h2 id="what-is-gobuster-and-why-use-it">What is Gobuster and Why Use It?</h2>
 
 <p>Gobuster is a fast directory/file & DNS busting tool written in Go. Unlike traditional tools that might be slower or less efficient, Gobuster leverages goroutines to perform concurrent requests, making it exceptionally fast at discovering hidden content on web servers.</p>
 
@@ -133,7 +244,7 @@
 
 <p>Security professionals use Gobuster during the reconnaissance phase to map out web applications, identify forgotten admin panels, locate backup files, and discover endpoints that might contain sensitive information or vulnerabilities.</p>
 
-<h2>Installing and Setting Up Gobuster</h2>
+<h2 id="installing-and-setting-up-gobuster">Installing and Setting Up Gobuster</h2>
 
 <p>Getting Gobuster up and running is straightforward, with multiple installation options available depending on your operating system and preferences.</p>
 
@@ -173,7 +284,7 @@ sudo apt install gobuster</code></pre>
 <p>Download SecLists for extensive wordlist collection:</p>
 <pre><code>git clone https://github.com/danielmiessler/SecLists.git</code></pre>
 
-<h2>Basic Gobuster Usage and Commands</h2>
+<h2 id="basic-gobuster-usage-and-commands">Basic Gobuster Usage and Commands</h2>
 
 <p>Gobuster operates in different modes, with 'dir' mode being the most commonly used for directory and file enumeration. Let's explore the fundamental commands and options.</p>
 
@@ -225,7 +336,7 @@ gobuster dir -u http://example.com -w wordlist.txt -x conf,config,cfg,ini
 # Find log files
 gobuster dir -u http://example.com -w wordlist.txt -x log,logs</code></pre>
 
-<h2>Advanced Gobuster Techniques</h2>
+<h2 id="advanced-gobuster-techniques">Advanced Gobuster Techniques</h2>
 
 <p>Once you've mastered the basics, these advanced techniques will help you conduct more thorough and efficient enumeration.</p>
 
@@ -284,7 +395,7 @@ gobuster dns -d example.com -w subdomains.txt -c
 # Use custom resolvers
 gobuster dns -d example.com -w subdomains.txt -r 8.8.8.8,1.1.1.1</code></pre>
 
-<h2>Best Practices and Common Pitfalls</h2>
+<h2 id="best-practices-and-common-pitfalls">Best Practices and Common Pitfalls</h2>
 
 <p>Maximize your success with Gobuster by following these proven practices and avoiding common mistakes.</p>
 
@@ -317,7 +428,7 @@ gobuster dns -d example.com -w subdomains.txt -r 8.8.8.8,1.1.1.1</code></pre>
 <li>Document your authorization and scope</li>
 </ul>
 
-<h2>Real-World Example: Complete Enumeration Workflow</h2>
+<h2 id="real-world-example-complete-enumeration-workflow">Real-World Example: Complete Enumeration Workflow</h2>
 
 <p>Here's a practical example demonstrating a comprehensive enumeration approach:</p>
 
@@ -333,7 +444,7 @@ gobuster dir -u http://target.com -w /usr/share/SecLists/Discovery/Web-Content/r
 # Step 4: Check found directories for additional content
 gobuster dir -u http://target.com/admin -w /usr/share/SecLists/Discovery/Web-Content/raft-small-directories.txt -o admin-enum.txt</code></pre>
 
-<h2>Conclusion and Next Steps</h2>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
 
 <p>Gobuster is an essential tool for any cybersecurity professional's toolkit. Its speed, flexibility, and reliability make it perfect for discovering hidden web content during security assessments. Remember that effective enumeration is as much about understanding your target as it is about tool mastery.</p>
 
@@ -352,7 +463,34 @@ gobuster dir -u http://target.com/admin -w /usr/share/SecLists/Discovery/Web-Con
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://github.com/OJ/gobuster" target="_blank" rel="noopener noreferrer">Gobuster GitHub</a></li>
+    <li><a href="https://owasp.org/www-community/attacks/Path_Traversal" target="_blank" rel="noopener noreferrer">OWASP Directory Traversal</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,10 +213,24 @@
   <h1>Sqlmap Tutorial: Master Automated SQL Injection Testing for Ethical Hacking</h1>
 
 <p class="lead">SQL injection remains one of the most dangerous web application vulnerabilities, and sqlmap is the go-to tool for security professionals to identify and exploit these flaws. This comprehensive guide will teach you how to use sqlmap effectively for ethical penetration testing and bug bounty hunting.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-sqlmap-and-why-use-it">What is Sqlmap and Why Use It?</a></li>
+    <li><a href="#installing-and-setting-up-sqlmap">Installing and Setting Up Sqlmap</a></li>
+    <li><a href="#basic-sqlmap-usage-and-commands">Basic Sqlmap Usage and Commands</a></li>
+    <li><a href="#advanced-sqlmap-techniques">Advanced Sqlmap Techniques</a></li>
+    <li><a href="#practical-testing-scenarios">Practical Testing Scenarios</a></li>
+    <li><a href="#best-practices-and-ethical-considerations">Best Practices and Ethical Considerations</a></li>
+    <li><a href="#interpreting-sqlmap-results">Interpreting Sqlmap Results</a></li>
+    <li><a href="#next-steps-and-advanced-learning">Next Steps and Advanced Learning</a></li>
+  </ol>
+</div>
+
 
 <p>SQL injection attacks can compromise entire databases, expose sensitive information, and grant unauthorized access to web applications. As a cybersecurity enthusiast, understanding how to identify these vulnerabilities is crucial for defending against them. Sqlmap automates the tedious process of SQL injection testing, making it an essential tool in every ethical hacker's arsenal.</p>
 
-<h2>What is Sqlmap and Why Use It?</h2>
+<h2 id="what-is-sqlmap-and-why-use-it">What is Sqlmap and Why Use It?</h2>
 
 <p>Sqlmap is an open-source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws in web applications. Developed in Python, it supports a wide range of database management systems including MySQL, PostgreSQL, Oracle, Microsoft SQL Server, and many others.</p>
 
@@ -134,7 +246,7 @@
 
 <p>Before diving into practical usage, it's important to note that sqlmap should <em>only</em> be used on systems you own or have explicit permission to test. Unauthorized testing is illegal and unethical.</p>
 
-<h2>Installing and Setting Up Sqlmap</h2>
+<h2 id="installing-and-setting-up-sqlmap">Installing and Setting Up Sqlmap</h2>
 
 <p>Sqlmap comes pre-installed on most penetration testing distributions like Kali Linux and Parrot OS. If you need to install it manually, here's how:</p>
 
@@ -160,7 +272,7 @@ python3 sqlmap.py --version</code></pre>
 
 <pre><code>sqlmap --help</code></pre>
 
-<h2>Basic Sqlmap Usage and Commands</h2>
+<h2 id="basic-sqlmap-usage-and-commands">Basic Sqlmap Usage and Commands</h2>
 
 <p>Let's start with fundamental sqlmap usage. The most basic syntax involves specifying a target URL with the <strong>-u</strong> parameter.</p>
 
@@ -194,7 +306,7 @@ python3 sqlmap.py --version</code></pre>
 <li><strong>--risk:</strong> Set risk level (1-3, higher means more aggressive tests)</li>
 </ul>
 
-<h2>Advanced Sqlmap Techniques</h2>
+<h2 id="advanced-sqlmap-techniques">Advanced Sqlmap Techniques</h2>
 
 <h3>Database Enumeration</h3>
 
@@ -248,7 +360,7 @@ sqlmap -u "http://example.com/page.php?id=1" --delay=2
 # Use different user agents
 sqlmap -u "http://example.com/page.php?id=1" --random-agent</code></pre>
 
-<h2>Practical Testing Scenarios</h2>
+<h2 id="practical-testing-scenarios">Practical Testing Scenarios</h2>
 
 <h3>Testing Login Forms</h3>
 
@@ -271,7 +383,7 @@ sqlmap -u "http://example.com/search.php?query=products" --level=2 --risk=2</cod
 <pre><code># Test JSON API endpoint
 sqlmap -u "http://api.example.com/users/1" --headers="Content-Type: application/json"</code></pre>
 
-<h2>Best Practices and Ethical Considerations</h2>
+<h2 id="best-practices-and-ethical-considerations">Best Practices and Ethical Considerations</h2>
 
 <p><strong>Always follow these guidelines when using sqlmap:</strong></p>
 
@@ -292,7 +404,7 @@ sqlmap -u "http://api.example.com/users/1" --headers="Content-Type: application/
 <li>Failing to understand the underlying SQL injection techniques</li>
 </ul>
 
-<h2>Interpreting Sqlmap Results</h2>
+<h2 id="interpreting-sqlmap-results">Interpreting Sqlmap Results</h2>
 
 <p>Understanding sqlmap output is crucial for effective testing. The tool provides detailed information about:</p>
 
@@ -305,7 +417,7 @@ sqlmap -u "http://api.example.com/users/1" --headers="Content-Type: application/
 
 <p>Always verify sqlmap findings manually to confirm vulnerabilities and understand their impact.</p>
 
-<h2>Next Steps and Advanced Learning</h2>
+<h2 id="next-steps-and-advanced-learning">Next Steps and Advanced Learning</h2>
 
 <p>Now that you understand sqlmap basics, consider these next steps to advance your SQL injection testing skills:</p>
 
@@ -325,7 +437,36 @@ sqlmap -u "http://api.example.com/users/1" --headers="Content-Type: application/
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://owasp.org/www-community/attacks/SQL_Injection" target="_blank" rel="noopener noreferrer">OWASP SQLi</a></li>
+    <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10</a></li>
+    <li><a href="https://portswigger.net/web-security/sql-injection" target="_blank" rel="noopener noreferrer">PortSwigger SQLi Labs</a></li>
+    <li><a href="https://nvd.nist.gov/vuln/categories" target="_blank" rel="noopener noreferrer">NIST CWE-89</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

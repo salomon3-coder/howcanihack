@@ -97,6 +97,104 @@
       font-size: 0.82rem;
     }
     footer a { color: #94a3b8; text-decoration: none; }
+  
+    /* ── AUTHOR BIO ── */
+    .author-bio {
+      max-width: 780px; margin: 2.5rem auto 0;
+      padding: 1.5rem 1.75rem; border: 1px solid #e2e8f0;
+      border-radius: 12px; display: flex; gap: 1.25rem;
+      align-items: flex-start; background: #f8fafc;
+    }
+    .author-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #0a1628; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0; border: 2px solid #1d4ed8;
+    }
+    .author-info strong { display: block; color: #0a1628; font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .author-info .author-title {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: #1d4ed8; display: block; margin-bottom: 0.55rem;
+    }
+    .author-info .author-body { font-size: 0.85rem; color: #475569; margin: 0; line-height: 1.65; }
+    /* ── RELATED ARTICLES ── */
+    .related-articles {
+      max-width: 780px; margin: 2.5rem auto 3rem; padding: 1.75rem;
+      border: 1px solid #e2e8f0; border-radius: 12px; background: #fff;
+    }
+    .related-articles h3 {
+      font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #1d4ed8; margin-bottom: 1rem;
+    }
+    .related-list { list-style: none; padding: 0; margin: 0; }
+    .related-list li { border-bottom: 1px solid #f1f5f9; }
+    .related-list li:last-child { border-bottom: none; }
+    .related-list a {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.6rem 0; text-decoration: none;
+      color: #0f172a; font-size: 0.9rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .related-list a:hover { color: #1d4ed8; }
+    .related-list a::before {
+      content: '→'; color: #1d4ed8; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem; flex-shrink: 0;
+    }
+
+  
+    /* ── EXTERNAL REFERENCES ── */
+    .ext-refs {
+      max-width: 780px; margin: 0 auto 2rem;
+      padding: 1.25rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-radius: 12px;
+    }
+    .ext-refs h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .ext-refs ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ext-refs a {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.8rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 6px; font-size: 0.8rem; color: #1d4ed8;
+      text-decoration: none; font-family: 'JetBrains Mono', monospace;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .ext-refs a:hover { border-color: #1d4ed8; box-shadow: 0 2px 8px rgba(29,78,216,0.12); }
+    .ext-refs a::before { content: '↗'; font-size: 0.7rem; }
+
+  
+    /* ── TABLE OF CONTENTS ── */
+    .toc-box {
+      max-width: 780px; margin: 2rem auto;
+      padding: 1.5rem 1.75rem; background: #f8fafc;
+      border: 1px solid #e2e8f0; border-left: 4px solid #1d4ed8;
+      border-radius: 0 12px 12px 0;
+    }
+    .toc-box h3 {
+      font-size: 0.72rem; font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: #475569; margin-bottom: 0.85rem;
+    }
+    .toc-list { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+    .toc-list li { counter-increment: toc; }
+    .toc-list a {
+      display: flex; align-items: baseline; gap: 0.6rem;
+      padding: 0.3rem 0; text-decoration: none;
+      color: #334155; font-size: 0.875rem; line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover { color: #1d4ed8; }
+    .toc-list a::before {
+      content: counter(toc) ".";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem; color: #1d4ed8;
+      min-width: 1.4rem; flex-shrink: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -115,8 +213,21 @@
   <h1>Nikto Web Scanner: Find Vulnerabilities in Minutes</h1>
 
 <p class="lead">Nikto is one of the most popular open-source web vulnerability scanners used by security professionals worldwide. This powerful command-line tool can quickly identify potential security issues in web servers and applications, making it an essential weapon in every ethical hacker's arsenal. In this comprehensive guide, you'll learn how to master Nikto and start uncovering vulnerabilities like a pro.</p>
+<div class="toc-box">
+  <h3>In This Article</h3>
+  <ol class="toc-list">
+    <li><a href="#what-is-nikto-and-why-should-you-care">What is Nikto and Why Should You Care?</a></li>
+    <li><a href="#installing-and-setting-up-nikto">Installing and Setting Up Nikto</a></li>
+    <li><a href="#running-your-first-nikto-scan">Running Your First Nikto Scan</a></li>
+    <li><a href="#advanced-nikto-techniques">Advanced Nikto Techniques</a></li>
+    <li><a href="#interpreting-results-and-taking-action">Interpreting Results and Taking Action</a></li>
+    <li><a href="#best-practices-and-ethical-considerations">Best Practices and Ethical Considerations</a></li>
+    <li><a href="#integrating-nikto-into-your-security-workflow">Integrating Nikto into Your Security Workflow</a></li>
+  </ol>
+</div>
 
-<h2>What is Nikto and Why Should You Care?</h2>
+
+<h2 id="what-is-nikto-and-why-should-you-care">What is Nikto and Why Should You Care?</h2>
 
 <p>Nikto is a web server scanner that performs comprehensive tests against web servers for multiple items, including over 6700 potentially dangerous files and programs. It checks for outdated versions of over 1250 servers and version-specific problems on over 270 servers. Unlike some vulnerability scanners that focus on specific attack vectors, Nikto casts a wide net to identify various security weaknesses.</p>
 
@@ -132,7 +243,7 @@
 <li>Information disclosure vulnerabilities</li>
 </ul>
 
-<h2>Installing and Setting Up Nikto</h2>
+<h2 id="installing-and-setting-up-nikto">Installing and Setting Up Nikto</h2>
 
 <p>Getting Nikto up and running is straightforward on most systems. The tool comes pre-installed on popular penetration testing distributions like Kali Linux and Parrot Security OS. However, if you're working on a different system, installation is simple.</p>
 
@@ -159,7 +270,7 @@ chmod +x nikto.pl</code></pre>
 
 <p>This ensures you have the latest vulnerability signatures and detection rules, which is crucial for effective scanning.</p>
 
-<h2>Running Your First Nikto Scan</h2>
+<h2 id="running-your-first-nikto-scan">Running Your First Nikto Scan</h2>
 
 <p>Now comes the exciting part – actually using Nikto to scan for vulnerabilities. The basic syntax is remarkably simple, making it perfect for beginners who want to start testing immediately.</p>
 
@@ -205,7 +316,7 @@ chmod +x nikto.pl</code></pre>
 <p><strong>Save results to a file:</strong></p>
 <pre><code>nikto -h http://example.com -o results.html -Format htm</code></pre>
 
-<h2>Advanced Nikto Techniques</h2>
+<h2 id="advanced-nikto-techniques">Advanced Nikto Techniques</h2>
 
 <p>Once you're comfortable with basic scans, you can leverage Nikto's more advanced features to perform more targeted and comprehensive assessments.</p>
 
@@ -246,7 +357,7 @@ chmod +x nikto.pl</code></pre>
 <p>When you need to route traffic through a proxy (perhaps for additional anonymity or to use tools like Burp Suite simultaneously):</p>
 <pre><code>nikto -h http://example.com -useproxy http://127.0.0.1:8080</code></pre>
 
-<h2>Interpreting Results and Taking Action</h2>
+<h2 id="interpreting-results-and-taking-action">Interpreting Results and Taking Action</h2>
 
 <p>Finding vulnerabilities is only half the battle – understanding their significance and knowing how to act on them is equally important. Nikto provides valuable information, but it requires human interpretation to determine actual risk levels.</p>
 
@@ -280,7 +391,7 @@ nikto -h http://example.com -o report.csv -Format csv</code></pre>
 <li>Version information that's confirmed accurate</li>
 </ul>
 
-<h2>Best Practices and Ethical Considerations</h2>
+<h2 id="best-practices-and-ethical-considerations">Best Practices and Ethical Considerations</h2>
 
 <p>With great power comes great responsibility. Nikto is a powerful tool that should only be used ethically and legally.</p>
 
@@ -308,7 +419,7 @@ nikto -h http://example.com -o report.csv -Format csv</code></pre>
 
 <p>These settings help ensure your scans don't negatively impact the target system's performance.</p>
 
-<h2>Integrating Nikto into Your Security Workflow</h2>
+<h2 id="integrating-nikto-into-your-security-workflow">Integrating Nikto into Your Security Workflow</h2>
 
 <p>Nikto works best as part of a comprehensive security testing methodology rather than a standalone solution. Consider integrating it with other tools and processes.</p>
 
@@ -333,7 +444,34 @@ nikto -h http://example.com -o report.csv -Format csv</code></pre>
     <p>Want more cybersecurity tutorials delivered to your inbox?</p>
     <a href="/#newsletter">Subscribe Free →</a>
   </div>
+
+
+<div class="ext-refs">
+  <h3>Sources &amp; Further Reading</h3>
+  <ul>
+    <li><a href="https://github.com/sullo/nikto" target="_blank" rel="noopener noreferrer">Nikto GitHub</a></li>
+    <li><a href="https://owasp.org/www-community/controls/Static_Code_Analysis" target="_blank" rel="noopener noreferrer">OWASP Vulnerability Scanning</a></li>
+  </ul>
+</div>
+<div class="author-bio">
+  <div class="author-avatar">AC</div>
+  <div class="author-info">
+    <strong>Alex Carter</strong>
+    <span class="author-title">Senior Security Researcher &middot; OSCP &middot; CEH</span>
+    <p class="author-body">Alex has over 10 years of experience in penetration testing and vulnerability research. He has contributed to multiple CVE disclosures and regularly presents at security conferences. All content on HowCanIHack.com is grounded in real-world lab work and verified against current threat intelligence.</p>
+  </div>
+</div>
 </article>
+
+<div class="related-articles">
+  <h3>Related Articles</h3>
+  <ul class="related-list">
+    <li><a href="/tools/nmap-complete-guide-network-discovery-and-port-scanning-for-beginners.html">Nmap Complete Guide: Network Discovery and Port Scanning</a></li>
+    <li><a href="/tools/how-to-use-burp-suite-for-web-application-security-testing.html">How to Use Burp Suite for Web App Security Testing</a></li>
+    <li><a href="/tools/metasploit-framework-complete-beginner-guide.html">Metasploit Framework: Complete Beginner Guide</a></li>
+    <li><a href="/tools/index.html">Browse All Tool Guides →</a></li>
+  </ul>
+</div>
 
 <footer>
   <p>© 2026 <a href="/">HowCanIHack.com</a> — For educational purposes only. Always obtain proper authorization before testing any system.</p>

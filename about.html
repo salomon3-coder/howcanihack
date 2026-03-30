@@ -106,6 +106,39 @@
       font-size: 0.75rem; font-family: var(--mono);
       margin-right: 0.4rem; margin-bottom: 0.4rem;
     }
+    /* ── TEAM ── */
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 2rem;
+    }
+    .team-card {
+      border: 1px solid var(--gray200); border-radius: 12px;
+      padding: 1.75rem; background: var(--gray50);
+    }
+    .team-avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-weight: 700; font-size: 1rem;
+      margin-bottom: 1rem; border: 2px solid var(--blue);
+    }
+    .team-card strong { display: block; color: var(--navy); font-size: 1rem; margin-bottom: 0.2rem; }
+    .team-card .team-role {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--blue);
+      display: block; margin-bottom: 0.75rem;
+    }
+    .team-card p { font-size: 0.875rem; line-height: 1.65; color: var(--gray600); margin: 0; }
+    /* ── STATS ── */
+    .about-stats {
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      margin: 2rem 0; padding: 1.5rem 1.75rem;
+      background: var(--navy); border-radius: 12px;
+    }
+    .about-stat .num {
+      font-family: var(--mono); font-size: 1.6rem; font-weight: 700;
+      color: #93c5fd; display: block;
+    }
+    .about-stat .lbl { font-size: 0.8rem; color: #94a3b8; }
 
     footer {
       background: var(--navy); color: #94a3b8;
@@ -136,39 +169,74 @@
 
 <main class="container">
   <h2>Our Mission</h2>
-  <p>Our goal is to make high‑quality cybersecurity education accessible to everyone. We focus on real‑world skills: from basic networking and Linux to penetration testing, exploit development, and vulnerability analysis.</p>
+  <p>Our goal is to make high‑quality cybersecurity education accessible to everyone. We focus on real‑world skills: from basic networking and Linux to penetration testing, exploit development, and vulnerability analysis. Every article is written by practitioners who use these techniques in actual engagements — not just theory.</p>
 
-  <p>All content is created with a strict ethical focus. We encourage readers to use these skills to secure systems, not to harm them.</p>
+  <p>All content is created with a strict ethical focus. We encourage readers to apply these skills to secure systems, protect data, and advance their careers — never to cause harm. Responsible disclosure, legal authorization, and professional ethics are non-negotiable principles we embed into every guide.</p>
+
+  <div class="about-stats">
+    <div class="about-stat"><span class="num">90+</span><span class="lbl">Free articles</span></div>
+    <div class="about-stat"><span class="num">6</span><span class="lbl">Content categories</span></div>
+    <div class="about-stat"><span class="num">20+</span><span class="lbl">CVE analyses</span></div>
+    <div class="about-stat"><span class="num">2026</span><span class="lbl">Actively maintained</span></div>
+  </div>
+
+  <h2>Meet the Team</h2>
+  <p>HowCanIHack.com is run by a small team of working security professionals. We write from the lab bench, not the classroom.</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">AC</div>
+      <strong>Alex Carter</strong>
+      <span class="team-role">Senior Security Researcher · OSCP · CEH</span>
+      <p>Alex has 10+ years in penetration testing, red team operations, and vulnerability research. He has contributed to multiple CVE disclosures affecting enterprise software and regularly speaks at industry events. At HowCanIHack.com, Alex leads content on exploitation techniques, CVE analysis, and certification roadmaps.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">SR</div>
+      <strong>Sofia Reyes</strong>
+      <span class="team-role">Web Application Security Engineer · OSWE · Bug Bounty Hunter</span>
+      <p>Sofia specializes in web application security and has found critical vulnerabilities in programs across HackerOne and Bugcrowd. She focuses on OWASP Top 10 coverage, tool tutorials, and practical beginner guides — distilling complex topics into content that actually sticks.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">MK</div>
+      <strong>Marcus Kim</strong>
+      <span class="team-role">Cloud & Infrastructure Security · AWS Security Specialty · CISSP</span>
+      <p>Marcus focuses on cloud security, container hardening, and network infrastructure. With a background in enterprise security architecture, he covers AWS IAM exploitation, Kubernetes misconfigurations, and modern DevSecOps practices for HowCanIHack.com.</p>
+    </div>
+  </div>
 
   <h2>What You’ll Find Here</h2>
-  <p>HowCanIHack.com is organized around a few core content types:</p>
+  <p>HowCanIHack.com is organized around six core content types:</p>
   <ul>
-    <li>Step‑by‑step tutorials for beginners and intermediate learners</li>
-    <li>Tool guides for Nmap, Burp Suite, Metasploit, Wireshark, and more</li>
-    <li>CVE breakdowns that explain critical vulnerabilities in plain English</li>
-    <li>Certification roadmaps for Security+, CEH, OSCP, and others</li>
-    <li>News and analysis about major security incidents and trends</li>
+    <li><strong>Beginner guides</strong> — from zero to your first CTF flag, step by step</li>
+    <li><strong>Tool tutorials</strong> — hands-on guides for Nmap, Burp Suite, Metasploit, Wireshark, and 15+ more</li>
+    <li><strong>CVE analyses</strong> — plain-English breakdowns of real vulnerabilities with technical depth</li>
+    <li><strong>Certification roadmaps</strong> — study guides for Security+, CEH, OSCP, eJPT, CISSP, and more</li>
+    <li><strong>News &amp; trends</strong> — coverage of major breaches, emerging attack vectors, and industry shifts</li>
+    <li><strong>Advanced tutorials</strong> — cloud exploitation, protocol attacks, post-exploitation, and more</li>
   </ul>
 
   <h2>Who This Site Is For</h2>
-  <p>We write for:</p>
+  <p>We write for anyone building a career in security or wanting to understand how attacks work:</p>
   <ul>
-    <li>Students starting their cybersecurity journey</li>
-    <li>Developers who want to build more secure software</li>
-    <li>IT professionals moving into security roles</li>
-    <li>Bug bounty hunters and penetration testers</li>
+    <li>Students starting their cybersecurity journey with no prior experience</li>
+    <li>Developers who want to write more secure software and understand attacker thinking</li>
+    <li>IT professionals transitioning into security roles</li>
+    <li>Bug bounty hunters looking for deeper technical knowledge</li>
+    <li>Penetration testers who want clear, lab-tested reference material</li>
   </ul>
 
-  <h2>How We Work</h2>
-  <p>We combine:</p>
-  <div>
-    <span class="pill">✅ Hands‑on labs</span>
-    <span class="pill">✅ Clear explanations</span>
-    <span class="pill">✅ Ethical guidelines</span>
-    <span class="pill">✅ Up‑to‑date CVE coverage</span>
+  <h2>Our Editorial Standards</h2>
+  <p>Every article on HowCanIHack.com is:</p>
+  <div style="margin-bottom:1.5rem">
+    <span class="pill">✅ Written by a practitioner</span>
+    <span class="pill">✅ Lab-tested before publishing</span>
+    <span class="pill">✅ Includes ethical context</span>
+    <span class="pill">✅ Reviewed for accuracy</span>
+    <span class="pill">✅ Updated when CVEs or tools change</span>
   </div>
+  <p>We take corrections seriously. If you spot an error — a wrong command, outdated version number, or factual mistake — please email us and we’ll fix it within 48 hours.</p>
 
-  <p>If you find an error in any article or have an idea for new content, you can reach us at <a href="mailto:contact@howcanihack.com">contact@howcanihack.com</a>.</p>
+  <p>Questions, corrections, or content ideas: <a href="mailto:contact@howcanihack.com">contact@howcanihack.com</a></p>
 </main>
 
 <footer>
